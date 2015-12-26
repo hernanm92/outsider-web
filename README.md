@@ -1,2 +1,1 @@
-# outsider-web
-Outsider web
+# outsider
