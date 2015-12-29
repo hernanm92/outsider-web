@@ -1,44 +1,48 @@
 module.exports = function(grunt) {
 
-  var fileList = ["public/javascripts/angular-css-injector.js",
-  "public/javascripts/ui-bootstrap-tpls-0.13.0.min.js",
-  "public/javascripts/angular-selection-model-custom.js",
-  "public/javascripts/jquery.min.js",
-  "public/javascripts/pageslide.min.js",
-  "public/javascripts/dirPagination.min.js",
-  "public/javascripts/factory/application.js",
-  "public/javascripts/config.js",
-  "public/javascripts/app.js",
+  var fileList = [
+      "public/javascripts/config.js",
+    "public/javascripts/app.js",
 
-  "public/javascripts/controller/base.js",
-  "public/javascripts/controller/menu.js",
-  "public/javascripts/controller/applications.js",
+    "public/javascripts/plugins/angular-css-injector.js",
+    "public/javascripts/plugins/ui-bootstrap-tpls-0.13.0.min.js",
+    "public/javascripts/plugins/angular-selection-model-custom.js",
+    "public/javascripts/plugins/jquery.min.js",
+    "public/javascripts/plugins/pageslide.min.js",
+    "public/javascripts/plugins/dirPagination.min.js",
+    "public/javascripts/plugins/ng-clip.min.js",
+    "public/javascripts/plugins/zero-clipboard.min.js",
+    "public/javascripts/plugins/bootstrap.min.js",
+    "public/javascripts/plugins/angular-growl.min.js",
+    "public/javascripts/plugins/select.min.js",
+    "public/javascripts/plugins/angular-sanitize.min.js",
+    "public/javascripts/plugins/ng-FitText.js",
+    "public/javascripts/plugins/moment.min.js",
+    "public/javascripts/plugins/angular-moment.min.js",
+    "public/javascripts/plugins/scrollglue.min.js",
+    "public/javascripts/plugins/angular-ui-switch.js",
 
-  "public/javascripts/service/applicationService.js",
-  "public/javascripts/service/eventService.js",
-  "public/javascripts/service/callbackHandler.js",
-  "public/javascripts/service/failedRequestHandler.js",
+    "public/javascripts/factory/application.js",
 
-  "public/javascripts/ng-clip.min.js",
-  "public/javascripts/zero-clipboard.min.js",
-  "public/javascripts/bootstrap.min.js",
-  "public/javascripts/angular-growl.min.js",
-  "public/javascripts/select.min.js",
-  "public/javascripts/angular-sanitize.min.js",
-  "public/javascripts/ng-FitText.js",
-  "public/javascripts/moment.min.js",
-  "public/javascripts/angular-moment.min.js",
-  "public/javascripts/scrollglue.min.js",
-  "public/javascripts/angular-ui-switch.js"]
+    "public/javascripts/controller/base.js",
+    "public/javascripts/controller/menu.js",
+    "public/javascripts/controller/applications.js",
+
+    "public/javascripts/service/applicationService.js",
+    "public/javascripts/service/eventService.js",
+    "public/javascripts/service/callbackHandler.js",
+    "public/javascripts/service/failedRequestHandler.js"
+  ]
 
   var cssFileList = [
-  "public/stylesheets/angular-growl.min.css",
-  "public/stylesheets/loading-button.min.css",
-  "public/stylesheets/awesome-bootstrap-checkbox.min.css",
-  "public/stylesheets/loaders.min.css",
-  "public/stylesheets/select.min.css",
-  "public/stylesheets/font-awesome.min.css",
-  "public/stylesheets/angular-ui-switch.css"]
+    "public/stylesheets/angular-growl.min.css",
+    "public/stylesheets/loading-button.min.css",
+    "public/stylesheets/awesome-bootstrap-checkbox.min.css",
+    "public/stylesheets/loaders.min.css",
+    "public/stylesheets/select.min.css",
+    "public/stylesheets/font-awesome.min.css",
+    "public/stylesheets/angular-ui-switch.css"
+  ]
 
   var stageCss = ["public/stylesheets/*.css",
   //"public/stylesheets/angular-growl.min.css",
