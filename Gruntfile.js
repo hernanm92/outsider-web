@@ -22,13 +22,13 @@ module.exports = function(grunt) {
     "public/javascripts/plugins/scrollglue.min.js",
     "public/javascripts/plugins/angular-ui-switch.js",
 
-    "public/javascripts/factory/application.js",
+    "public/javascripts/factory/home.js",
 
     "public/javascripts/controller/base.js",
     "public/javascripts/controller/menu.js",
-    "public/javascripts/controller/applications.js",
+    "public/javascripts/controller/home.js",
 
-    "public/javascripts/service/applicationService.js",
+    "public/javascripts/service/homeService.js",
     "public/javascripts/service/eventService.js",
     "public/javascripts/service/callbackHandler.js",
     "public/javascripts/service/failedRequestHandler.js"
