@@ -42,16 +42,17 @@ module.exports = function(grunt) {
     //"public/stylesheets/select.min.css",
     //"public/stylesheets/font-awesome.min.css",
     //"public/stylesheets/angular-ui-switch.css",
-    "public/stylesheets/app.css"
+      //"public/stylesheets/app.css"
   ]
 
-  var stageCss = ["public/stylesheets/*.css",
-  //"public/stylesheets/angular-growl.min.css",
-  //"public/stylesheets/loading-button.min.css",
-  //"public/stylesheets/awesome-bootstrap-checkbox.min.css",
-  //"public/stylesheets/loaders.min.css",
-  "public/stylesheets/stage/bootstrap.min.css",
-  "public/stylesheets/stage/fury.css"
+  var stageCss = [
+      //"public/stylesheets/*.css",
+    //"public/stylesheets/angular-growl.min.css",
+    //"public/stylesheets/loading-button.min.css",
+    //"public/stylesheets/awesome-bootstrap-checkbox.min.css",
+    //"public/stylesheets/loaders.min.css",
+      //"public/stylesheets/stage/bootstrap.min.css",
+      //"public/stylesheets/stage/fury.css"
   ]
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
