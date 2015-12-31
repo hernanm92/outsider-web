@@ -6,5 +6,5 @@ app.controller('HomeController',
 	        OwlCarousel.initOwlCarousel();
 	        ParallaxSlider.initParallaxSlider();
 	  	});
-}
+    }
 );

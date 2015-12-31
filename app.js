@@ -30,6 +30,9 @@ app.get('/', function (req, res) {
 app.get('/general/home', function (req, res) {
     res.render('general/home');
 });
+app.get('/general/gallery', function (req, res) {
+    res.render('general/gallery');
+});
 
 http.createServer(app).listen(app.get('port'), function ()
 {
