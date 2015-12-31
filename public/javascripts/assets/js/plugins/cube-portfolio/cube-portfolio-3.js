@@ -5,7 +5,6 @@
         filtersContainer = $('#filters-container'),
         wrap, filtersCallback;
 
-
     /*********************************
         init cubeportfolio
      *********************************/
