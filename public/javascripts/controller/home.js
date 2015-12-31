@@ -1,5 +1,10 @@
 app.controller('HomeController',
     function ($scope, homeFactory, eventService) {
-        $scope.variable = 1;
-    }
+
+      	$scope.$on('$viewContentLoaded', function(){
+	        App.init();
+	        OwlCarousel.initOwlCarousel();
+	        ParallaxSlider.initParallaxSlider();
+	  	});
+}
 );
