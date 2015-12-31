@@ -1,11 +1,75 @@
+
 <!DOCTYPE html>
-<html lang="en" ng-app="MainApp">
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en" ng-app="MainApp"> <!--<![endif]-->
 <head>
+    <title>Outsider</title>
+
     <% include partials/_head %>
+
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <!-- Web Fonts -->
+    <link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin'>
+
+    <!-- CSS Global Compulsory -->
+    <link rel="stylesheet" href="javascripts/assets/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="javascripts/assets/css/style.css">
+
+    <!-- CSS Header and Footer -->
+    <link rel="stylesheet" href="javascripts/assets/css/headers/header-default.css">
+    <link rel="stylesheet" href="javascripts/assets/css/footers/footer-v1.css">
+
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="javascripts/assets/plugins/animate.css">
+    <link rel="stylesheet" href="javascripts/assets/plugins/line-icons/line-icons.css">
+    <link rel="stylesheet" href="javascripts/assets/plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="javascripts/assets/plugins/parallax-slider/css/parallax-slider.css">
+    <link rel="stylesheet" href="javascripts/assets/plugins/owl-carousel/owl-carousel/owl.carousel.css">
+
+    <!-- CSS Customization -->
+    <link rel="stylesheet" href="javascripts/assets/css/custom.css">
 </head>
-<body ng-controller="MenuController">
+
+<body class="header-fixed" ng-controller="MenuController">
+<div class="wrapper">
     <% include partials/_menu %>
     <ng-view></ng-view>
     <% include partials/_footer %>
+</div><!--/wrapper-->
+
+<!-- JS Global Compulsory -->
+<script type="text/javascript" src="javascripts/assets/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="javascripts/assets/plugins/jquery/jquery-migrate.min.js"></script>
+<script type="text/javascript" src="javascripts/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<!-- JS Implementing Plugins -->
+<script type="text/javascript" src="javascripts/assets/plugins/back-to-top.js"></script>
+<script type="text/javascript" src="javascripts/assets/plugins/smoothScroll.js"></script>
+<script type="text/javascript" src="javascripts/assets/plugins/parallax-slider/js/modernizr.js"></script>
+<script type="text/javascript" src="javascripts/assets/plugins/parallax-slider/js/jquery.cslider.js"></script>
+<script type="text/javascript" src="javascripts/assets/plugins/owl-carousel/owl-carousel/owl.carousel.js"></script>
+<!-- JS Customization -->
+<script type="text/javascript" src="javascripts/assets/js/custom.js"></script>
+<!-- JS Page Level -->
+<script type="text/javascript" src="javascripts/assets/js/app.js"></script>
+<script type="text/javascript" src="javascripts/assets/js/plugins/owl-carousel.js"></script>
+<script type="text/javascript" src="javascripts/assets/js/plugins/parallax-slider.js"></script>
+<!--[if lt IE 9]>
+    <script src="javascripts/assets/plugins/respond.js"></script>
+    <script src="javascripts/assets/plugins/html5shiv.js"></script>
+    <script src="javascripts/assets/plugins/placeholder-IE-fixes.js"></script>
+<![endif]-->
+
 </body>
 </html>
+
+
+
