@@ -14,4 +14,5 @@ app.config(['$httpProvider', function ($httpProvider) {
 app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/', {templateUrl: 'general/home', controller: 'HomeController'});
     $routeProvider.when('/galeria', {templateUrl: 'general/gallery', controller: 'GalleryController'});
+    $routeProvider.when('/equipos', {templateUrl: 'general/teams', controller: 'TeamsController'});
 }]);
