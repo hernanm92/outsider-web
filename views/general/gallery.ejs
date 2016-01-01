@@ -12,15 +12,16 @@
     <div class="content-xs">
         <div id="filters-container" class="cbp-l-filters-text content-xs">
             <div data-filter="*" class="cbp-filter-item-active cbp-filter-item"> All </div> |
-            <div data-filter=".identity" class="cbp-filter-item"> Identity </div> |
-            <div data-filter=".web-design" class="cbp-filter-item"> Web Design </div> |
-            <div data-filter=".graphic" class="cbp-filter-item"> Graphic </div> |
-            <div data-filter=".logos" class="cbp-filter-item"> Logo </div>
+            <div data-filter=".skate" class="cbp-filter-item"> Skate </div> |
+            <div data-filter=".longboard" class="cbp-filter-item"> Longboard </div> |
+            <div data-filter=".bmx" class="cbp-filter-item"> BMX </div> |
+            <div data-filter=".ski" class="cbp-filter-item"> Ski </div> |
+            <div data-filter=".snowboard" class="cbp-filter-item"> Snowboard </div>
         </div><!--/end Filters Container-->
     </div>
 
     <ul id="grid-container" class="cbp-l-grid-agency">
-        <li class="cbp-item graphic" ng-repeat="photo in photos">
+        <li class="cbp-item {{photo.filter}}" ng-repeat="photo in photos">
             <div class="cbp-caption">
                 <div class="cbp-caption-defaultWrap">
                     <img src={{photo.url}} alt="">
@@ -32,7 +33,7 @@
                                 <li><a href="portfolio_single_item.html"><i class="rounded-x fa fa-link"></i></a></li>
                                 <li><a href={{photo.url}} class="cbp-lightbox" data-title="Design Object"><i class="rounded-x fa fa-search"></i></a></li>
                             </ul>
-                            <div class="cbp-l-grid-agency-title">Design Object 01</div>
+                            <div class="cbp-l-grid-agency-title">{{photo.label}}</div>
                             <div class="cbp-l-grid-agency-desc">Web Design</div>
                         </div>
                     </div>
