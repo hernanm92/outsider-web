@@ -19,3 +19,17 @@ app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/404', {templateUrl: 'partials/404', controller: '404Controller'});
     $routeProvider.otherwise({redirectTo: '/404'});
 }]);
+
+app.directive( 'elemReady', function( $parse ) {
+    return {
+        restrict: 'A',
+        link: function( $scope, elem, attrs ) {
+            elem.ready(function(){
+                $scope.$apply(function(){
+                    var func = $parse(attrs.elemReady);
+                    func($scope);
+                })
+            })
+        }
+    }
+})

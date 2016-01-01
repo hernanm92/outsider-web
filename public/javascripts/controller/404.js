@@ -2,6 +2,8 @@ app.controller('404Controller',
     function ($scope, homeFactory, eventService) {
 
         $scope.$on('$viewContentLoaded', function(){
+            App.init();
+
             $.backstretch([
                 "javascripts/assets/img/bg/2.jpg",
                 "javascripts/assets/img/bg/8.jpg",
