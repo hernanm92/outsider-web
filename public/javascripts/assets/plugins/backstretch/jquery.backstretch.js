@@ -43,7 +43,7 @@
   // If no element is supplied, we'll attach to body
   $.backstretch = function (images, options) {
     // Return the instance
-    return $('body')
+    return $('.image-backstretch')
             .backstretch(images, options)
             .data('backstretch');
   };
