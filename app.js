@@ -39,6 +39,9 @@ app.get('/general/teams', function (req, res) {
 app.get('/general/blog', function (req, res) {
     res.render('general/blog');
 });
+app.get('/partials/404', function (req, res) {
+    res.render('partials/404');
+});
 
 http.createServer(app).listen(app.get('port'), function ()
 {
