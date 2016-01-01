@@ -36,6 +36,9 @@ app.get('/general/gallery', function (req, res) {
 app.get('/general/teams', function (req, res) {
     res.render('general/teams');
 });
+app.get('/general/blog', function (req, res) {
+    res.render('general/blog');
+});
 
 http.createServer(app).listen(app.get('port'), function ()
 {
