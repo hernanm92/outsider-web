@@ -16,6 +16,7 @@ app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/galeria', {templateUrl: 'general/gallery', controller: 'GalleryController'});
     $routeProvider.when('/equipos', {templateUrl: 'general/teams', controller: 'TeamsController'});
     $routeProvider.when('/blog', {templateUrl: 'general/blog', controller: 'BlogController'});
+    $routeProvider.when('/blog/articulo', {templateUrl: 'general/blog-item', controller: 'BlogItemController'});
     $routeProvider.when('/404', {templateUrl: 'partials/404', controller: '404Controller'});
     $routeProvider.otherwise({redirectTo: '/404'});
 }]);

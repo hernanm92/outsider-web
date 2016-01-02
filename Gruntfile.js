@@ -31,6 +31,7 @@ module.exports = function (grunt) {
         "public/javascripts/controller/teams.js",
         "public/javascripts/controller/blog.js",
         "public/javascripts/controller/404.js",
+        "public/javascripts/controller/blog-item.js",
 
         "public/javascripts/service/homeService.js",
         "public/javascripts/service/eventService.js",
