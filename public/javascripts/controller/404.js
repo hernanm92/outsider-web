@@ -5,8 +5,8 @@ app.controller('404Controller',
             App.init();
 
             $.backstretch([
-                "javascripts/assets/img/bg/2.jpg",
-                "javascripts/assets/img/bg/8.jpg",
+                "assets/img/bg/2.jpg",
+                "assets/img/bg/8.jpg",
             ], {
                 fade: 1000,
                 duration: 7000

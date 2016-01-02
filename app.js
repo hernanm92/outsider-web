@@ -42,6 +42,9 @@ app.get('/general/blog', function (req, res) {
 app.get('/general/blog-item', function (req, res) {
     res.render('general/blog-item');
 });
+app.get('/general/gallery-item', function (req, res) {
+    res.render('general/gallery-item');
+});
 app.get('/partials/404', function (req, res) {
     res.render('partials/404');
 });
