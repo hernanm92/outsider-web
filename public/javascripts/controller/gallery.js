@@ -11,6 +11,10 @@ app.controller('GalleryController',
             });
         }
 
+        /*$scope.init = function(){
+            $scope.getPhotos();
+        }*/
+
         $scope.getPhotos();
 
         $scope.includeCubeportfolio = function(){
