@@ -24,6 +24,7 @@ module.exports = function (grunt) {
 
         "public/javascripts/factory/home.js",
         "public/javascripts/factory/gallery.js",
+        "public/javascripts/factory/teams.js",
 
         "public/javascripts/controller/base.js",
         "public/javascripts/controller/menu.js",

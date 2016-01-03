@@ -19,6 +19,13 @@ var applications = [
     {url: 'img/gallery/img2.jpg', label: 'longboard6', filter: 'longboard'}
 ];
 
+var riders = [
+    {photo_url: 'img/teams/img1.png', sport: 'longboard', name: 'Damián Nehemias'},
+    {photo_url: 'img/teams/img2.png', sport: 'longboard', name: 'Sebastián Muñoz'},
+    {photo_url: 'img/teams/img3.png', sport: 'longboard', name: 'Thomas Duarte'},
+    {photo_url: 'img/teams/img4.png', sport: 'longboard', name: 'Valentín Travis Spalla'}
+ ]
+
 
 app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Origin','*');
@@ -27,10 +34,16 @@ app.use(function(req, res, next) {
   next();
 });
 
-//Applications
+//Photos
 app.get('/photos', function(req, res) {
   res.status(200);
   res.send(applications);
+});
+
+//Riders
+app.get('/riders', function(req, res) {
+    res.status(200);
+    res.send(riders);
 });
 
 var server = app.listen(5000, function() {

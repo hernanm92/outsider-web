@@ -1,6 +1,6 @@
 app.controller('GalleryController',
     function ($scope, galleryFactory, eventService) {
-        
+
         $scope.$on('$viewContentLoaded', function(){ //Template javascript (JQuery must be in angular controllers)
             App.init();
         });
