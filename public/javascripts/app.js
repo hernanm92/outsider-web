@@ -1,5 +1,5 @@
 
-var app = angular.module('MainApp', ['ngRoute', 'config', 'homeModule', 'galleryModule', 'teamsModule']);
+var app = angular.module('MainApp', ['ngRoute', 'config', 'homeModule', 'galleryModule', 'teamsModule', 'blogModule']);
 
 app.config(['$httpProvider', function ($httpProvider) {
     //Reset headers to avoid OPTIONS request (aka preflight)
