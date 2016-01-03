@@ -23,6 +23,7 @@ module.exports = function (grunt) {
         //"public/javascripts/plugins/angular-ui-switch.js",
 
         "public/javascripts/factory/home.js",
+        "public/javascripts/factory/gallery.js",
 
         "public/javascripts/controller/base.js",
         "public/javascripts/controller/menu.js",

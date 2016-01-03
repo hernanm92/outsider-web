@@ -1,21 +1,17 @@
 app.controller('GalleryController',
-    function ($scope, homeFactory, eventService) {
-
-        $scope.photos = [
-            {url: 'img/gallery/img1.jpg', label: 'skate1', filter: 'skate'},
-            {url: 'img/gallery/img2.jpg', label: 'longboard2', filter: 'longboard'},
-            {url: 'img/gallery/img1.jpg', label: 'skate3', filter: 'skate'},
-            {url: 'img/gallery/img2.jpg', label: 'longboard4', filter: 'longboard'},
-            {url: 'img/gallery/img1.jpg', label: 'skate5', filter: 'skate'},
-            {url: 'img/gallery/img2.jpg', label: 'longboard6', filter: 'longboard'}
-        ]
-
+    function ($scope, galleryFactory, eventService) {
+        
         $scope.$on('$viewContentLoaded', function(){ //Template javascript (JQuery must be in angular controllers)
             App.init();
-
-
-
         });
+
+        $scope.getPhotos = function(){
+            galleryFactory.query({},function(photos){
+                $scope.photos=photos;
+            });
+        }
+
+        $scope.getPhotos();
 
         $scope.includeCubeportfolio = function(){
             gridContainer = $('#grid-container')

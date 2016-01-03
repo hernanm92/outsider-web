@@ -11,7 +11,12 @@ app.use(morgan('common', {stream: accessLogStream}));
 
 app.use(bodyParser.json())
 var applications = [
-	{"name": "application1","description": "application1"},
+    {url: 'img/gallery/img1.jpg', label: 'skate1', filter: 'skate'},
+    {url: 'img/gallery/img2.jpg', label: 'longboard2', filter: 'longboard'},
+    {url: 'img/gallery/img1.jpg', label: 'skate3', filter: 'skate'},
+    {url: 'img/gallery/img2.jpg', label: 'longboard4', filter: 'longboard'},
+    {url: 'img/gallery/img1.jpg', label: 'skate5', filter: 'skate'},
+    {url: 'img/gallery/img2.jpg', label: 'longboard6', filter: 'longboard'}
 ];
 
 
@@ -23,7 +28,7 @@ app.use(function(req, res, next) {
 });
 
 //Applications
-app.get('/applications', function(req, res) {
+app.get('/photos', function(req, res) {
   res.status(200);
   res.send(applications);
 });
