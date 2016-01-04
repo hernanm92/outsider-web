@@ -2,7 +2,7 @@ app.controller('BlogController',
     function ($scope, blogFactory, eventService, $sce) {
 
         $scope.$on('$viewContentLoaded', function(){
-
+            App.init();
         });
 
         $scope.getPosts = function(){

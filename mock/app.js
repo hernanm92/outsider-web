@@ -10,7 +10,7 @@ var accessLogStream = fs.createWriteStream('mock.log', {flags: 'w'});
 app.use(morgan('common', {stream: accessLogStream}));
 
 app.use(bodyParser.json())
-var applications = [
+var photos = [
     {url: 'img/gallery/img1.jpg', label: 'skate1', filter: 'skate'},
     {url: 'img/gallery/img2.jpg', label: 'longboard2', filter: 'longboard'},
     {url: 'img/gallery/img1.jpg', label: 'skate3', filter: 'skate'},
@@ -44,7 +44,7 @@ app.use(function(req, res, next) {
 //Photos
 app.get('/photos', function(req, res) {
   res.status(200);
-  res.send(applications);
+  res.send(photos);
 });
 
 //Riders
