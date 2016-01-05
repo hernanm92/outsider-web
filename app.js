@@ -49,6 +49,10 @@ app.get('/partials/404', function (req, res) {
     res.render('partials/404');
 });
 
+app.get('/general/admin/login', function (req, res) {
+    res.render('general/admin/login');
+});
+
 http.createServer(app).listen(app.get('port'), function ()
 {
     console.log('Express server listening on port ' + app.get('port'));

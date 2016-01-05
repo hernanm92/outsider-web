@@ -26,6 +26,7 @@ module.exports = function (grunt) {
         "public/javascripts/factory/gallery.js",
         "public/javascripts/factory/teams.js",
         "public/javascripts/factory/blog.js",
+        "public/javascripts/factory/admin/auth.js",
 
         "public/javascripts/controller/base.js",
         "public/javascripts/controller/menu.js",
@@ -36,12 +37,14 @@ module.exports = function (grunt) {
         "public/javascripts/controller/404.js",
         "public/javascripts/controller/blog-item.js",
         "public/javascripts/controller/gallery-item.js",
+        "public/javascripts/controller/admin/login.js",
 
         "public/javascripts/service/homeService.js",
+        "public/javascripts/service/admin/authService.js",
         "public/javascripts/service/eventService.js",
         "public/javascripts/service/callbackHandler.js",
         "public/javascripts/service/failedRequestHandler.js"
-    ]
+    ];
 
     var cssFileList = [
         //"public/stylesheets/angular-growl.min.css",
@@ -52,7 +55,7 @@ module.exports = function (grunt) {
         //"public/stylesheets/font-awesome.min.css",
         //"public/stylesheets/angular-ui-switch.css",
         //"public/stylesheets/app.css"
-    ]
+    ];
 
     var stageCss = [
         //"public/stylesheets/*.css",
@@ -62,7 +65,7 @@ module.exports = function (grunt) {
         //"public/stylesheets/loaders.min.css",
         //"public/stylesheets/stage/bootstrap.min.css",
         //"public/stylesheets/stage/fury.css"
-    ]
+    ];
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         cssmin: {
