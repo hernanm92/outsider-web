@@ -1,5 +1,3 @@
-<!--<div ng-init="init()"/>-->
-
 <!--=== Breadcrumbs v3 ===-->
 <div class="breadcrumbs-v3 img-v1">
     <div class="container text-center">
@@ -23,7 +21,7 @@
     </div>
 
     <ul id="grid-container" class="cbp-l-grid-agency">
-        <li class="cbp-item {{photo.sport}}" ng-repeat="photo in photos">
+        <li class="cbp-item {{photo.sport}}" ng-repeat="photo in photos" on-finish-photos-render>
             <div class="cbp-caption">
                 <div class="cbp-caption-defaultWrap">
                     <img src={{photo.url}} alt="">
@@ -46,6 +44,4 @@
 </div>
 <!--=== End Cube-Portfdlio ===-->
 
-<div elem-ready="includeCubeportfolio()"></div>
-<!--Es medio ineficiente, espera que angular termine de manipular el dom para ejecutarlo, pero es lo que necesitamos..-->
 
