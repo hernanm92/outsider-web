@@ -11,12 +11,12 @@ app.use(morgan('common', {stream: accessLogStream}));
 
 app.use(bodyParser.json())
 var photos = [
-    {url: 'img/gallery/img1.jpg', label: 'skate1', filter: 'skate'},
-    {url: 'img/gallery/img2.jpg', label: 'longboard2', filter: 'longboard'},
-    {url: 'img/gallery/img1.jpg', label: 'skate3', filter: 'skate'},
-    {url: 'img/gallery/img2.jpg', label: 'longboard4', filter: 'longboard'},
-    {url: 'img/gallery/img1.jpg', label: 'skate5', filter: 'skate'},
-    {url: 'img/gallery/img2.jpg', label: 'longboard6', filter: 'longboard'}
+    {url: 'img/gallery/img1.jpg', title: 'Facultad de medicina', sport: 'skate'},
+    {url: 'img/gallery/img2.jpg', title: 'Bajando el libano', sport: 'longboard'},
+    {url: 'img/gallery/img1.jpg', title: 'Facultad de medicina', sport: 'skate'},
+    {url: 'img/gallery/img2.jpg', title: 'Bajando el libano', sport: 'longboard'},
+    {url: 'img/gallery/img1.jpg', title: 'Facultad de medicina', sport: 'skate'},
+    {url: 'img/gallery/img2.jpg', title: 'Bajando el libano', sport: 'longboard'}
 ];
 
 var riders = [
