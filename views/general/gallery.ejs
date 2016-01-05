@@ -23,7 +23,7 @@
     </div>
 
     <ul id="grid-container" class="cbp-l-grid-agency">
-        <li class="cbp-item {{photo.filter}}" ng-repeat="photo in photos">
+        <li class="cbp-item {{photo.sport}}" ng-repeat="photo in photos">
             <div class="cbp-caption">
                 <div class="cbp-caption-defaultWrap">
                     <img src={{photo.url}} alt="">
@@ -35,8 +35,8 @@
                                 <li><a href="#galeria/foto"><i class="rounded-x fa fa-link"></i></a></li>
                                 <li><a href={{photo.url}} class="cbp-lightbox" data-title="Design Object"><i class="rounded-x fa fa-search"></i></a></li>
                             </ul>
-                            <div class="cbp-l-grid-agency-title">{{photo.label}}</div>
-                            <div class="cbp-l-grid-agency-desc">Web Design</div>
+                            <div class="cbp-l-grid-agency-title">{{photo.title}}</div>
+                            <div class="cbp-l-grid-agency-desc">{{photo.sport}}</div>
                         </div>
                     </div>
                 </div>
