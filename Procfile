@@ -1,1 +1,1 @@
-web: make stage
+web: make heroku
