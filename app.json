@@ -1,0 +1,7 @@
+{
+  "name": "Outsider frontend",
+  "description": "Outsidedr frontend using nodejs and angular",
+  "repository": "https://github.com/hernanm92/outsider-web",
+  "keywords": ["node", "express", "static"],
+  "image": "heroku/nodejs"
+}
