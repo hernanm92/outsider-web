@@ -1,6 +1,5 @@
 
-var app = angular.module('MainApp', ['ngRoute', 'config', 'homeModule', 'galleryModule',
-    'teamsModule', 'blogModule', 'authModule']);
+var app = angular.module('MainApp', ['ngRoute', 'config', 'homeModule', 'galleryModule', 'teamsModule', 'blogModule', 'authModule']);
 
 app.config(['$httpProvider', function ($httpProvider) {
     //Reset headers to avoid OPTIONS request (aka preflight)
@@ -19,9 +18,10 @@ app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/galeria', {templateUrl: 'general/gallery', controller: 'GalleryController'});
     $routeProvider.when('/equipos', {templateUrl: 'general/teams', controller: 'TeamsController'});
     $routeProvider.when('/blog', {templateUrl: 'general/blog', controller: 'BlogController'});
-    $routeProvider.when('/blog/articulo', {templateUrl: 'general/blog-item', controller: 'BlogItemController'});
-    $routeProvider.when('/galeria/foto', {templateUrl: 'general/gallery-item', controller: 'GalleryItemController'});
+    $routeProvider.when('/blog/:post', {templateUrl: 'general/blog-item', controller: 'BlogItemController'});
+    $routeProvider.when('/galeria/:photo', {templateUrl: 'general/gallery-item', controller: 'GalleryItemController'});
     $routeProvider.when('/404', {templateUrl: 'partials/404', controller: '404Controller'});
+    $routeProvider.when('/equipos/:rider', {templateUrl: 'general/team-item', controller: 'TeamItemController'});
     $routeProvider.when('/admin/login', {templateUrl: 'general/admin/login', controller: 'LoginController'});
     $routeProvider.otherwise({redirectTo: '/404'});
 }]);
