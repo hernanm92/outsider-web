@@ -1,7 +1,7 @@
 app.controller('LoginController',
     function ($scope, authFactory, eventService) {
 
-        var auth= $scope.auth;
+        var auth= $scope;
 
         $scope.login = function () {
             console.log(auth.user);

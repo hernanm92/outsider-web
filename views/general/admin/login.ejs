@@ -22,11 +22,11 @@
 
                 <div class="input-group margin-bottom-20">
                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                    <input type="text" placeholder="Username" class="form-control" ng-model="auth.user">
+                    <input type="text" placeholder="Username" class="form-control" ng-model="user">
                 </div>
                 <div class="input-group margin-bottom-20">
                     <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                    <input type="password" placeholder="Password" class="form-control" ng-model="auth.password">
+                    <input type="password" placeholder="Password" class="form-control" ng-model="password">
                 </div>
 
                 <div class="row">
@@ -34,7 +34,7 @@
                         <label><input type="checkbox"> Stay signed in</label>
                     </div>
                     <div class="col-md-6">
-                        <button class="btn-u pull-right" type="button" ng-click="login">Login</button>
+                        <button class="btn-u pull-right" type="button" ng-click="login()">Login</button>
                     </div>
                 </div>
 
