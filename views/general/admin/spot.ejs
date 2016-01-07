@@ -1,0 +1,77 @@
+<!--=== Content Part ===-->
+<div class="container content">
+    <div class="row">
+
+        <!-- Begin Content -->
+        <div class="col-md-6 col-md-offset-3">
+            <div class="heading heading-v1 margin-bottom-40">
+                <h2>Cargar pot</h2>
+                <!--<p>Unify uses <strong>gmaps.js</strong> plugin for Google Maps. The gmaps.js allows you to use the potential of Google Maps in a simple way. No more extensive documentation or large amount of codes. You can find more detailed information here <a target="_blank" href="http://hpneo.github.io/gmaps">http://hpneo.github.io/gmaps</a></p>-->
+            </div>
+
+
+            <form action="#" id="sky-form" class="sky-form">
+                <header>Spot</header>
+
+                <fieldset>
+
+                    <section>
+                        <label class="label">Deportes</label>
+                        <label class="select select-multiple">
+                            <select multiple ng-model="sports">
+                                <option value="0">Skate</option>
+                                <option value="1">Longboard</option>
+                                <option value="2">BMX</option>
+                                <option value="3">Surf</option>
+                                <option value="4">Ski</option>
+                                <option value="5">Snowboard</option>
+                            </select>
+                        </label>
+                    </section>
+                    <section>
+                        <label class="label">Nombre</label>
+                        <label class="input">
+                            <i class="icon-append fa fa-map-marker"></i>
+                            <input type="text" placeholder="Nombre" ng-model="name">
+                        </label>
+                    </section>
+                    <section>
+                        <label class="label">Direccion</label>
+                        <label class="input">
+                            <i class="icon-append fa fa-map"></i>
+                            <input type="text" placeholder="Dirección" ng-model="map">
+                        </label>
+                    </section>
+                    <section>
+                        <label class="label">Descripción</label>
+                        <label class="textarea textarea-resizable">
+                            <i class="icon-append fa fa-comment"></i>
+                            <textarea rows="3" placeholder="Escribite el post" ng-model="description"></textarea>
+                        </label>
+                        <div class="note"><strong>Nota:</strong> podés agrandar el área de texto.</div>
+                    </section>
+
+                </fieldset>
+
+                <footer>
+                    <button type="button" class="btn-u btn-u-default" ng-click="upload()">Guardar</button>
+                    <button type="button" class="btn-u" onclick="window.history.back();">Volver</button>
+                </footer>
+
+            </form>
+
+            <!--&lt;!&ndash; Basic Map &ndash;&gt;-->
+            <!--<div class="headline"><h3>Basic Map</h3></div>-->
+            <!--<div id="map" class="map margin-bottom-50"></div>-->
+            <!--&lt;!&ndash; End Basic Map &ndash;&gt;-->
+
+            <!--&lt;!&ndash; Panorama Map &ndash;&gt;-->
+            <!--<div class="headline"><h3>Panorama Map</h3></div>-->
+            <!--<div id="panorama" class="map margin-bottom-40"></div>-->
+            <!--&lt;!&ndash; End Panorama Map &ndash;&gt;-->
+        </div>
+        <!-- End Content -->
+    </div>
+
+</div><!--/container-->
+<!--=== End Content Part ===-->

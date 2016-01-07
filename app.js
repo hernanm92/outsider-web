@@ -60,6 +60,9 @@ app.get('/general/admin/post', function (req, res) {
 app.get('/general/admin/team-member', function (req, res) {
     res.render('general/admin/team-member');
 });
+app.get('/general/admin/spot', function (req, res) {
+    res.render('general/admin/spot');
+});
 
 http.createServer(app).listen(app.get('port'), function ()
 {
