@@ -38,6 +38,7 @@ module.exports = function (grunt) {
         "public/javascripts/controller/blog-item.js",
         "public/javascripts/controller/gallery-item.js",
         "public/javascripts/controller/admin/login.js",
+        "public/javascripts/controller/team-item.js",
 
         "public/javascripts/service/homeService.js",
         "public/javascripts/service/admin/authService.js",

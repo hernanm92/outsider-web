@@ -1,5 +1,5 @@
 app.controller('BlogItemController',
-    function ($scope, homeFactory, eventService, $sce) {
+    function ($scope, blogFactory, eventService, $sce, $routeParams) {
 
         $scope.$on('$viewContentLoaded', function(){
             App.init();
@@ -7,8 +7,12 @@ app.controller('BlogItemController',
             ContactForm.initContactForm();
         });
 
-        $scope.comment = function() {
-            console.log("plaaaa")
+        $scope.getPost = function(){
+            blogFactory.get({"id": $routeParams.post}, function(post){
+                $scope.post = post;
+            });
         }
+
+        $scope.getPost();
     }
 );

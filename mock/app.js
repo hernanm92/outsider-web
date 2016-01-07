@@ -62,10 +62,10 @@ app.get('/posts', function(req, res) {
 });
 
 //Login
-app.get('/admin/login', function(req, res) {
+app.post('/admin/login', function(req, res) {
     res.status(200);
     res.send(user);
-});
+}); 
 
 var server = app.listen(5000, function() {
   console.log("Api started in port: 5000");
