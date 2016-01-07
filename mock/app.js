@@ -73,8 +73,14 @@ app.post('/admin/post', function(req, res) {
     res.send(user);
 });
 
-//Post
+//Team member
 app.post('/admin/teamMember', function(req, res) {
+    res.status(200);
+    res.send(user);
+});
+
+//Spot
+app.post('/admin/spot', function(req, res) {
     res.status(200);
     res.send(user);
 });

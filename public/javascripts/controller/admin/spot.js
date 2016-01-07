@@ -15,9 +15,14 @@ app.controller('SpotController',
 
         $scope.upload = function () {
             //todo: find a way to get latitude and logintude from address in order to show it later with gmaps and panoramic
-            spotFactory.uploadSpot(spot.sports, spot.name, spot.address, latitude, longitude, function () {
+            spot.address= document.getElementById('pac-input').value;
+            spot.latitude= document.getElementById('lat').value;
+            spot.longitude= document.getElementById('long').value;
+            console.log(spot);
+            spotFactory.uploadSpot(spot.sports, spot.name, spot.address, spot.latitude, spot.longitude, function () {
                 //go to where it has to
                 window.location = '/';
+                //console.log(spot);
             });
         }
     }

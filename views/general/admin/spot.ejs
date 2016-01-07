@@ -3,7 +3,7 @@
     <div class="row">
 
         <!-- Begin Content -->
-        <div class="col-md-6 col-md-offset-3">
+        <div class="col-md-9 col-md-offset-3">
             <div class="heading heading-v1 margin-bottom-40">
                 <h2>Cargar pot</h2>
                 <!--<p>Unify uses <strong>gmaps.js</strong> plugin for Google Maps. The gmaps.js allows you to use the potential of Google Maps in a simple way. No more extensive documentation or large amount of codes. You can find more detailed information here <a target="_blank" href="http://hpneo.github.io/gmaps">http://hpneo.github.io/gmaps</a></p>-->
@@ -19,12 +19,12 @@
                         <label class="label">Deportes</label>
                         <label class="select select-multiple">
                             <select multiple ng-model="sports">
-                                <option value="0">Skate</option>
-                                <option value="1">Longboard</option>
-                                <option value="2">BMX</option>
-                                <option value="3">Surf</option>
-                                <option value="4">Ski</option>
-                                <option value="5">Snowboard</option>
+                                <option value="Skate">Skate</option>
+                                <option value="Longboard">Longboard</option>
+                                <option value="BMX">BMX</option>
+                                <option value="Surf">Surf</option>
+                                <option value="Ski">Ski</option>
+                                <option value="Snowboard">Snowboard</option>
                             </select>
                         </label>
                     </section>
@@ -36,13 +36,6 @@
                         </label>
                     </section>
                     <section>
-                        <label class="label">Direccion</label>
-                        <label class="input">
-                            <i class="icon-append fa fa-map"></i>
-                            <input type="text" placeholder="Dirección" ng-model="address">
-                        </label>
-                    </section>
-                    <section>
                         <label class="label">Descripción</label>
                         <label class="textarea textarea-resizable">
                             <i class="icon-append fa fa-comment"></i>
@@ -50,12 +43,40 @@
                         </label>
                         <div class="note"><strong>Nota:</strong> podés agrandar el área de texto.</div>
                     </section>
+                    <section>
+                        <label class="label">Direccion</label>
+                        <label class="input">
+
+                            <!--<i class="icon-append fa fa-map"></i>-->
+                            <!--<input type="text" placeholder="Dirección" ng-model="address">-->
+
+                            <input type="hidden" name="latitude" id="lat" ng-model="latitude" />
+                            <input type="hidden" name="longitude" id="long" ng-model="longitude" />
+                            <input id="pac-input" class="controls" type="text" name="address"
+                                   placeholder="Escribí la dirección" ng-model="address">
+                            <div id="type-selector" class="controls">
+                                <input type="radio"  id="changetype-all" checked="checked">
+                                <label for="changetype-all">All</label>
+
+                                <input type="radio" name="type" id="changetype-establishment">
+                                <label for="changetype-establishment">Establishments</label>
+
+                                <input type="radio" name="type" id="changetype-address">
+                                <label for="changetype-address">Addresses</label>
+
+                                <input type="radio" name="type" id="changetype-geocode">
+                                <label for="changetype-geocode">Geocodes</label>
+                            </div>
+                            <div id="map-canvas" style="width: 700px;height: 400px;"></div>
+                        </label>
+                    </section>
+
 
                 </fieldset>
 
                 <footer>
-                    <button type="button" class="btn-u btn-u-default" ng-click="upload()">Guardar</button>
-                    <button type="button" class="btn-u" onclick="window.history.back();">Volver</button>
+                    <button type="button" class="btn-u btn-u-default" onclick="window.history.back();">Volver</button>
+                    <button type="button" class="btn-u" ng-click="upload()">Guardar</button>
                 </footer>
 
             </form>
