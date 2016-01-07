@@ -73,6 +73,12 @@ app.post('/admin/post', function(req, res) {
     res.send(user);
 });
 
+//Post
+app.post('/admin/teamMember', function(req, res) {
+    res.status(200);
+    res.send(user);
+});
+
 var server = app.listen(5000, function() {
   console.log("Api started in port: 5000");
 });

@@ -13,8 +13,8 @@ app.controller('TeamMemberController',
         var team= $scope;
 
         $scope.upload = function () {
-            teamMemberFactory.uploadTeamMember(team.sport, team.name, team.nickname, team.photo, team.procedence,
-                team.residence, team.birthdate, team.stance, team.spot, team.description, function () {
+            teamMemberFactory.uploadTeamMember(team.sport, team.name, team.nickname, team.file, team.procedence,
+                team.residence, team.birthdate, team.stance, team.spot, team.description, function (res) {
                 //go to where it has to
                 window.location = '/';
             });
