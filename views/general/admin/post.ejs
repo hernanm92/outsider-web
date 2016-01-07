@@ -23,33 +23,41 @@
 
                 <fieldset>
                     <section>
-                        <label class="label">Text input</label>
-                        <label class="input">
-                            <input type="text">
+                        <label class="label">Deporte</label>
+                        <label class="select">
+                            <select ng-model="sport">
+                                <option value="0">Skate</option>
+                                <option value="1">Longboard</option>
+                                <option value="2">BMX</option>
+                                <option value="3">Surf</option>
+                                <option value="4">Ski</option>
+                                <option value="5">Snowboard</option>
+                            </select>
+                            <i></i>
                         </label>
                     </section>
 
                     <section>
-                        <label class="label">File input</label>
+                        <label class="label">Subí la foto</label>
                         <label for="file" class="input input-file">
-                            <div class="button"><input type="file" id="file" onchange="this.parentNode.nextSibling.value = this.value">Browse</div><input type="text" readonly>
+                            <div class="button"><input type="file" id="file" ng-model="resource" onchange="this.parentNode.nextSibling.value = this.value">Examinar</div><input type="text" readonly>
                         </label>
                     </section>
 
                     <section>
-                        <label class="label">Textarea</label>
+                        <label class="label">Escribí el post</label>
                         <label class="textarea textarea-resizable">
                             <i class="icon-append fa fa-comment"></i>
-                            <textarea rows="3" placeholder="Escribite el post"></textarea>
+                            <textarea rows="3" placeholder="Escribite el post" ng-model="story"></textarea>
                         </label>
-                        <div class="note"><strong>Note:</strong> height of the textarea depends on the rows attribute.</div>
+                        <div class="note"><strong>Nota:</strong> podés agrandar el área de texto.</div>
                     </section>
 
                 </fieldset>
 
                 <footer>
-                    <button type="submit" class="btn-u">Submit</button>
-                    <button type="button" class="btn-u btn-u-default" onclick="window.history.back();">Back</button>
+                    <button type="button" class="btn-u" onclick="upload()">Subir</button>
+                    <button type="button" class="btn-u btn-u-default" onclick="window.history.back();">Volver</button>
                 </footer>
             </form>
             <!-- General Unify Forms -->
