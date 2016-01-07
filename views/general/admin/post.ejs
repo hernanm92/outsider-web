@@ -1,0 +1,60 @@
+<!--=== Breadcrumbs ===-->
+<div class="breadcrumbs">
+    <div class="container">
+        <h1 class="pull-left">General Forms</h1>
+        <ul class="pull-right breadcrumb">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="">Features</a></li>
+            <li class="active">General Forms</li>
+        </ul>
+    </div>
+</div><!--/breadcrumbs-->
+<!--=== End Breadcrumbs ===-->
+
+<!--=== Content Part ===-->
+<div class="container content">
+    <div class="row">
+
+        <!-- Begin Content -->
+        <div class="col-md-6 col-md-offset-3">
+            <!-- General Unify Forms -->
+            <form action="#" class="sky-form">
+                <header>General Unify Forms</header>
+
+                <fieldset>
+                    <section>
+                        <label class="label">Text input</label>
+                        <label class="input">
+                            <input type="text">
+                        </label>
+                    </section>
+
+                    <section>
+                        <label class="label">File input</label>
+                        <label for="file" class="input input-file">
+                            <div class="button"><input type="file" id="file" onchange="this.parentNode.nextSibling.value = this.value">Browse</div><input type="text" readonly>
+                        </label>
+                    </section>
+
+                    <section>
+                        <label class="label">Textarea</label>
+                        <label class="textarea textarea-resizable">
+                            <i class="icon-append fa fa-comment"></i>
+                            <textarea rows="3" placeholder="Escribite el post"></textarea>
+                        </label>
+                        <div class="note"><strong>Note:</strong> height of the textarea depends on the rows attribute.</div>
+                    </section>
+
+                </fieldset>
+
+                <footer>
+                    <button type="submit" class="btn-u">Submit</button>
+                    <button type="button" class="btn-u btn-u-default" onclick="window.history.back();">Back</button>
+                </footer>
+            </form>
+            <!-- General Unify Forms -->
+        </div>
+        <!-- End Content -->
+    </div>
+</div><!--/container-->
+<!--=== End Content Part ===-->

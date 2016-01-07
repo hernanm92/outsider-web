@@ -1,5 +1,6 @@
 
-var app = angular.module('MainApp', ['ngRoute', 'config', 'homeModule', 'galleryModule', 'teamsModule', 'blogModule', 'authModule']);
+var app = angular.module('MainApp', ['ngRoute', 'config', 'homeModule', 'galleryModule',
+    'teamsModule', 'blogModule', 'authModule', 'postModule']);
 
 app.config(['$httpProvider', function ($httpProvider) {
     //Reset headers to avoid OPTIONS request (aka preflight)
@@ -23,6 +24,7 @@ app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/404', {templateUrl: 'partials/404', controller: '404Controller'});
     $routeProvider.when('/equipos/:rider', {templateUrl: 'general/team-item', controller: 'TeamItemController'});
     $routeProvider.when('/admin/login', {templateUrl: 'general/admin/login', controller: 'LoginController'});
+    $routeProvider.when('/admin/post', {templateUrl: 'general/admin/post', controller: 'PostController'});
     $routeProvider.otherwise({redirectTo: '/404'});
 }]);
 
