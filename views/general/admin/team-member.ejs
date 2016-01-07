@@ -1,0 +1,115 @@
+<!--=== Content Part ===-->
+<div class="container content">
+    <div class="row">
+
+        <!-- Begin Content -->
+        <div class="col-md-6 col-md-offset-3">
+            <!-- Tabs -->
+            <div class="tab-v1">
+                <div class="tab-content">
+                    <!-- Datepicker Forms -->
+                    <div class="tab-pane fade in active" id="home-1">
+                        <form action="#" id="sky-form" class="sky-form">
+                            <header>Team member</header>
+
+                            <fieldset>
+
+                                <section>
+                                    <label class="label">Deporte</label>
+                                    <label class="select">
+                                        <select ng-model="sport">
+                                            <option value="0">Skate</option>
+                                            <option value="1">Longboard</option>
+                                            <option value="2">BMX</option>
+                                            <option value="3">Surf</option>
+                                            <option value="4">Ski</option>
+                                            <option value="5">Snowboard</option>
+                                        </select>
+                                        <i></i>
+                                    </label>
+                                </section>
+                                <section>
+                                    <label class="label">Nombre</label>
+                                    <label class="input">
+                                        <i class="icon-append fa fa-user"></i>
+                                        <input type="text" placeholder="Nombre" ng-model="name">
+                                    </label>
+                                </section>
+                                <section>
+                                    <label class="label">Apodo</label>
+                                    <label class="input">
+                                        <i class="icon-append fa fa-user"></i>
+                                        <input type="text" placeholder="Apodo" ng-model="nickname">
+                                    </label>
+                                </section>
+                                <section>
+                                    <label class="label">Subí la foto</label>
+                                    <label for="file" class="input input-file">
+                                        <div class="button"><input type="file" id="file" ng-model="photo" onchange="this.parentNode.nextSibling.value = this.value">Examinar</div><input type="text" readonly>
+                                    </label>
+                                </section>
+                                <section>
+                                    <label class="label">Procedencia</label>
+                                    <label class="input">
+                                        <i class="icon-append fa fa-map-pin"></i>
+                                        <input type="text" placeholder="Procedencia" ng-model="procedence">
+                                    </label>
+                                </section>
+                                <section>
+                                    <label class="label">Residencia</label>
+                                    <label class="input">
+                                        <i class="icon-append fa fa-map-pin"></i>
+                                        <input type="text" placeholder="Residencia" ng-model="residence">
+                                    </label>
+                                </section>
+                                <section>
+                                    <label class="label">Fecha de nacimiento</label>
+                                    <label class="input">
+                                        <i class="icon-append fa fa-calendar"></i>
+                                        <input type="text" name="date" id="date" ng-model="birthdate">
+                                    </label>
+                                </section>
+                                <section>
+                                    <label class="label">Stance</label>
+                                    <label class="input">
+                                        <i class="icon-append fa fa-map-pin"></i>
+                                        <input type="text" placeholder="Stance" ng-model="stance">
+                                        <!--todo Ask about stance, if they are just options make it a select-->
+                                    </label>
+                                </section>
+                                <section>
+                                    <label class="label">Spot preferido</label>
+                                    <label class="input">
+                                        <i class="icon-append fa fa-map-pin"></i>
+                                        <input type="text" placeholder="Spot preferido" ng-model="spot">
+                                        <!--todo mybe make datalist later with spots loaded by us-->
+                                    </label>
+                                </section>
+                                <section>
+                                    <label class="label">Descripción</label>
+                                    <label class="textarea textarea-resizable">
+                                        <i class="icon-append fa fa-comment"></i>
+                                        <textarea rows="3" placeholder="Escribite el post" ng-model="description"></textarea>
+                                    </label>
+                                    <div class="note"><strong>Nota:</strong> podés agrandar el área de texto.</div>
+                                </section>
+
+                            </fieldset>
+
+
+                            <footer>
+                                <button type="button" class="btn-u btn-u-default" ng-click="upload()">Guardar</button>
+                                <button type="button" class="btn-u" onclick="window.history.back();">Volver</button>
+                            </footer>
+
+                        </form>
+                    </div>
+                    <!-- End Masking Forms -->
+                </div>
+            </div>
+            <!-- End Tabs-->
+        </div>
+        <!-- End Content -->
+    </div>
+</div><!--/container-->
+<!--=== End Content Part ===-->

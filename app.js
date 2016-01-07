@@ -57,6 +57,9 @@ app.get('/general/admin/login', function (req, res) {
 app.get('/general/admin/post', function (req, res) {
     res.render('general/admin/post');
 });
+app.get('/general/admin/team-member', function (req, res) {
+    res.render('general/admin/team-member');
+});
 
 http.createServer(app).listen(app.get('port'), function ()
 {
