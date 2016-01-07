@@ -6,10 +6,19 @@ module.factory('teamMemberFactory', ['$resource', 'config', '$http',
         var urlBase= config.domain + '/admin';
         var team = {};
 
-        team.uploadTeamMember = function (resource, story, callback) {
+        team.uploadTeamMember = function (sport, name, nickname, photo, procedence, residence, birthdate,
+                                          stance, spot, description, callback) {
             return $http.post(urlBase + '/team-member', {
-                resource: resource,
-                story: story
+                sport: sport,
+                name: name,
+                nickname: nickname,
+                photo: photo,
+                procedence: procedence,
+                residence: residence,
+                birthdate: birthdate,
+                stance: stance,
+                spot: spot,
+                description: description
             }).then(function () {
                 callback();
             }, function (response) {

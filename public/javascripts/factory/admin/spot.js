@@ -6,10 +6,13 @@ module.factory('spotFactory', ['$resource', 'config', '$http',
         var urlBase= config.domain + '/admin';
         var spot = {};
 
-        spot.uploadSpot = function (resource, story, callback) {
+        spot.uploadSpot = function (sports, name, address, latitude, longitude, callback) {
             return $http.post(urlBase + '/spot', {
-                resource: resource,
-                story: story
+                sports: sports,
+                name: name,
+                address: address,
+                latitude: latitude,
+                longitude: longitude
             }).then(function () {
                 callback();
             }, function (response) {

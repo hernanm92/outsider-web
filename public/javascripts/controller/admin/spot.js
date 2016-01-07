@@ -14,7 +14,8 @@ app.controller('SpotController',
         var spot= $scope;
 
         $scope.upload = function () {
-            spotFactory.uploadSpot(spot.photo, spot.description, function () {
+            //todo: find a way to get latitude and logintude from address in order to show it later with gmaps and panoramic
+            spotFactory.uploadSpot(spot.sports, spot.name, spot.address, latitude, longitude, function () {
                 //go to where it has to
                 window.location = '/';
             });

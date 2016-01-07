@@ -6,7 +6,7 @@ app.controller('PostController',
         $scope.upload = function () {
             console.log(post.story);
             console.log(post.resource);
-            postFactory.uploadPost(post.resource, post.story, function () {
+            postFactory.uploadPost(post.sport, post.resource, post.story, function () {
                 //go to where it has to
                 window.location = '/';
             });
