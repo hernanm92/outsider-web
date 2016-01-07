@@ -1,7 +1,7 @@
 var express = require('express'),
 fs = require('fs'),
 morgan  = require('morgan'),
-bodyParser = require('body-parser')
+bodyParser = require('body-parser');
 request = require('request');
 
 var app = express();
@@ -9,7 +9,7 @@ var app = express();
 var accessLogStream = fs.createWriteStream('mock.log', {flags: 'w'});
 app.use(morgan('common', {stream: accessLogStream}));
 
-app.use(bodyParser.json())
+app.use(bodyParser.json());
 var photos = [
     {url: 'img/gallery/img1.jpg', title: 'Facultad de medicina', sport: 'skate'},
     {url: 'img/gallery/img2.jpg', title: 'Bajando el libano', sport: 'longboard'},
@@ -63,6 +63,12 @@ app.get('/posts', function(req, res) {
 
 //Login
 app.post('/admin/login', function(req, res) {
+    res.status(200);
+    res.send(user);
+});
+
+//Post
+app.post('/admin/post', function(req, res) {
     res.status(200);
     res.send(user);
 });

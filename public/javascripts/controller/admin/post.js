@@ -5,11 +5,11 @@ app.controller('PostController',
 
         $scope.upload = function () {
             console.log(post.story);
-            console.log(post.resource);
-            postFactory.uploadPost(post.sport, post.resource, post.story, function () {
+            console.log(post);
+            postFactory.uploadPost(post.sport, post.file, post.story, function (resp) {
                 //go to where it has to
                 window.location = '/';
             });
-        }
+        };
     }
 );
