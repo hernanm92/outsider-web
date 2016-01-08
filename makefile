@@ -34,8 +34,14 @@ stage:
 	node -e "require('grunt').tasks(['stage']);"
 	nohup node app.js &
 
-heroku:
+stage2:
 	- pkill -9 nodejs
 	- pkill -9 node
 	node -e "require('grunt').tasks(['stage']);"
+	nohup nodejs app.js &
+
+heroku:
+	- pkill -9 nodejs
+	- pkill -9 node
+	node -e "require('grunt').tasks(['production']);"
 	node app.js

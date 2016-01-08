@@ -153,7 +153,7 @@ module.exports = function (grunt) {
                 },
                 constants: {
                     config: {
-                        domain: 'http://localhost:3000',
+                        domain: 'https://outsiderapi.herokuapp.com',
                         styleFolder: 'common',
                         applicationPrefix: ''
                     }
