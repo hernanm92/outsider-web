@@ -20,10 +20,10 @@ var photos = [
 ];
 
 var riders = [
-    {id: 1, photo_url: 'img/teams/img1.png', sport: 'longboard', name: 'Damián Nehemias', alias: 'dnehemias'},
-    {id: 2, photo_url: 'img/teams/img2.png', sport: 'longboard', name: 'Sebastián Muñoz', alias: 'smunoz'},
-    {id: 3, photo_url: 'img/teams/img3.png', sport: 'longboard', name: 'Thomas Duarte', alias: 'tduarte'},
-    {id: 4, photo_url: 'img/teams/img4.png', sport: 'longboard', name: 'Valentín Travis Spalla', alias: 'vspalla'}
+    {id: 1, photo_url: 'img/teams/img1.png', sport: 'longboard', name: 'Damián Nehemias', alias: 'dnehemias', location: "Berazategui, Buenos Aires, Argentina"},
+    {id: 2, photo_url: 'img/teams/img2.png', sport: 'longboard', name: 'Sebastián Muñoz', alias: 'smunoz', location: "Bella Vista, Buenos Aires, Argentina"},
+    {id: 3, photo_url: 'img/teams/img3.png', sport: 'longboard', name: 'Thomas Duarte', alias: 'tduarte', location: "Tortuguitas, Buenos Aires, Argentina"},
+    {id: 4, photo_url: 'img/teams/img4.png', sport: 'longboard', name: 'Valentín Travis Spalla', alias: 'vspalla', location: "San Miguel, Buenos Aires, Argentina"}
  ];
 
 var posts = [

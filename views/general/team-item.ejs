@@ -1,7 +1,7 @@
 <!--=== Breadcrumbs ===-->
 <div class="breadcrumbs">
     <div class="container">
-        <h1 class="pull-left">Portfolio Item 1</h1>
+        <h1 class="pull-left">Team member</h1>
     </div><!--/container-->
 </div><!--/breadcrumbs-->
 <!--=== End Breadcrumbs ===-->
@@ -10,7 +10,7 @@
 <div class="container content">
     <div class="row portfolio-item margin-bottom-50">
         <!-- Carousel -->
-        <div class="col-md-7">
+        <div class="col-md-5">
             <div class="carousel slide carousel-v1" id="myCarousel">
                 <div class="carousel-inner">
                     <div class="item active">
@@ -25,14 +25,15 @@
         <!-- End Carousel -->
 
         <!-- Content Info -->
-        <div class="col-md-5">
-            <h2>Portfolio Item Information</h2>
+        <div class="col-md-7">
+            <h2>{{rider.name}}</h2>
             <p>At vero eos et accusamus et iusto odio dignissimos <a href="#">ducimus qui blanditiis</a> praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum Fusce condimentum eleifend enim a feugiat. Pellentesque viverra vehicula sem ut volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero magna. Sed et quam lacus.</p>
             <p>Molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Ut non libero consectetur adipiscing elit magna. Sed et quam lacus.</p>
             <ul class="list-unstyled">
-                <li><i class="fa fa-user color-green"></i> Jack Baur</li>
-                <li><i class="fa fa-calendar color-green"></i> 14,2003 February</li>
-                <li><i class="fa fa-tags color-green"></i> Websites, Google, HTML5/CSS3</li>
+                <li><i class="fa fa-user color-green"></i> {{rider.name}}</li>
+                <li><i class="fa fa-calendar color-green"></i> 10 de Octubre de 1992</li>
+                <li><i class="fa fa-globe color-green"></i> {{rider.location}}</li>
+                <li><i class="fa fa-bookmark color-green"></i> {{rider.sport}}</li>
             </ul>
             <a href="#" class="btn-u btn-u-large">VISIT THE PROJECT</a>
         </div>
@@ -47,7 +48,7 @@
 
     <!-- Recent Works -->
     <div class="owl-carousel-v1 owl-work-v1 margin-bottom-40">
-        <div class="headline"><h2 class="pull-left">Recent Works</h2>
+        <div class="headline"><h2 class="pull-left">Posts recientes</h2>
             <div class="owl-navigation">
                 <div class="customNavigation">
                     <a class="owl-btn prev-v2"><i class="fa fa-angle-left"></i></a>
