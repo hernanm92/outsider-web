@@ -399,11 +399,14 @@
 		border-bottom: solid 2px transparent;
 	}
 
-	.header .navbar-nav > li > a:hover,
+	.header .navbar-nav > li > a:hover {
+        border-bottom: solid 2px transparent;
+    }
+
 	.header .navbar-nav > .active > a {
 		bottom: -2px;
 		position: relative;
-		border-bottom: solid 2px #72c02c;
+		border-bottom: solid 2px #72c02c !important;
 	}
 	
 	.header .navbar-nav > li > a,
@@ -1055,7 +1058,7 @@
 
 	.header-fixed .header.header-fixed-shrink .navbar-nav > li > a:hover,
 	.header-fixed .header.header-fixed-shrink .navbar-nav > .active > a {
-		border-bottom: none;
+		border-bottom: none !important;
 	}
 
 	/*Dropdown*/

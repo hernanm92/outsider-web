@@ -43,37 +43,37 @@
         <div class="container">
             <ul class="nav navbar-nav">
                 <!-- Home -->
-                <li>
+                <li ng-class="{active: isNavActive('/')}" ng-click="changeVisibleMenu()">
                     <a href="#/">Inicio</a>
                 </li>
                 <!-- End Home -->
 
                 <!-- Gallery -->
-                <li> <!-- Use class="active" to select -->
+                <li ng-class="{active: isNavActive('/galeria')}" ng-click="changeVisibleMenu()">
                     <a href="#galeria">Galería</a>
                 </li>
                 <!-- End Gallery -->
 
                 <!-- Teams -->
-                <li>
+                <li ng-class="{active: isNavActive('/equipos')}" ng-click="changeVisibleMenu()">
                     <a href="#equipos">Equipos</a>
                 </li>
                 <!-- End Teams -->
 
                 <!-- Blog -->
-                <li>
+                <li ng-class="{active: isNavActive('/blog')}" ng-click="changeVisibleMenu()">
                     <a href="#blog">Noticias</a>
                 </li>
                 <!-- End Blog -->
 
                 <!-- Spots -->
-                <li>
+                <li ng-class="{active: isNavActive('/')}" ng-click="changeVisibleMenu()">
                     <a href="#/">Lugares</a>
                 </li>
                 <!-- End Spots -->
 
                 <!-- About us -->
-                <li>
+                <li ng-class="{active: isNavActive('/')}" ng-click="changeVisibleMenu()">
                     <a href="#/">Sobre Outsider</a>
                 </li>
                 <!-- End About Us -->
