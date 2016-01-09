@@ -42,9 +42,9 @@ a.read-more:hover {
     border-bottom-color: #921111;
     color: #921111;
 }
-.header .navbar-nav > li > a:hover,
+
 .header .navbar-nav > .active > a {
-    border-bottom-color: #B71C1C;
+    border-bottom-color: #B71C1C !important;
 }
 .header .navbar-toggle {
     border-color: #921111;
