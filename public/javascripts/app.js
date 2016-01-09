@@ -44,3 +44,14 @@ app.directive( 'elemReady', function( $parse ) {
     }
 });
 
+app.directive('googleAnalytics', function ( $location, $window ) {
+    return {
+        scope: true,
+        link: function (scope) {
+            scope.$on( '$routeChangeSuccess', function () {
+                $window._gaq.push(['_trackPageview', $location.path()]);
+            });
+        }
+    };
+});
+
