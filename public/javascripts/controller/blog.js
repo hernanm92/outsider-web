@@ -15,7 +15,7 @@ app.controller('BlogController',
 
         $scope.getPostUrl = function(post){
             return $sce.trustAsResourceUrl(post.url);
-        }
+        };
 
         //Load Google Analytics
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
