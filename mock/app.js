@@ -11,28 +11,28 @@ app.use(morgan('common', {stream: accessLogStream}));
 
 app.use(bodyParser.json());
 var photos = [
-    {url: 'img/gallery/img1.jpg', title: 'Facultad de medicina', sport: 'skate'},
-    {url: 'img/gallery/img2.jpg', title: 'Bajando el libano', sport: 'longboard'},
-    {url: 'img/gallery/img1.jpg', title: 'Facultad de medicina', sport: 'skate'},
-    {url: 'img/gallery/img2.jpg', title: 'Bajando el libano', sport: 'longboard'},
-    {url: 'img/gallery/img1.jpg', title: 'Facultad de medicina', sport: 'skate'},
-    {url: 'img/gallery/img2.jpg', title: 'Bajando el libano', sport: 'longboard'}
+    {id: 1, url: 'img/gallery/img1.jpg', title: 'Facultad de medicina', sport: 'skate'},
+    {id: 2, url: 'img/gallery/img2.jpg', title: 'Bajando el libano', sport: 'longboard'},
+    {id: 3, url: 'img/gallery/img1.jpg', title: 'Facultad de medicina', sport: 'skate'},
+    {id: 4, url: 'img/gallery/img2.jpg', title: 'Bajando el libano', sport: 'longboard'},
+    {id: 5, url: 'img/gallery/img1.jpg', title: 'Facultad de medicina', sport: 'skate'},
+    {id: 6, url: 'img/gallery/img2.jpg', title: 'Bajando el libano', sport: 'longboard'}
 ];
 
 var riders = [
-    {photo_url: 'img/teams/img1.png', sport: 'longboard', name: 'Damián Nehemias'},
-    {photo_url: 'img/teams/img2.png', sport: 'longboard', name: 'Sebastián Muñoz'},
-    {photo_url: 'img/teams/img3.png', sport: 'longboard', name: 'Thomas Duarte'},
-    {photo_url: 'img/teams/img4.png', sport: 'longboard', name: 'Valentín Travis Spalla'}
+    {id: 1, photo_url: 'img/teams/img1.png', sport: 'longboard', name: 'Damián Nehemias', alias: 'dnehemias'},
+    {id: 2, photo_url: 'img/teams/img2.png', sport: 'longboard', name: 'Sebastián Muñoz', alias: 'smunoz'},
+    {id: 3, photo_url: 'img/teams/img3.png', sport: 'longboard', name: 'Thomas Duarte', alias: 'tduarte'},
+    {id: 4, photo_url: 'img/teams/img4.png', sport: 'longboard', name: 'Valentín Travis Spalla', alias: 'vspalla'}
  ];
 
 var posts = [
-    {url: 'img/blog/img1.jpg', label: 'skate1', type: 'image'},
-    {url: 'img/blog/img2.jpg', label: 'longboard2', type: 'image'},
-    {url: 'img/blog/img3.jpg', label: 'skate3', type: 'image'},
-    {url: '//player.vimeo.com/video/113463529?title=0&byline=0&portrait=0', label: 'surf3', type: 'video'},
-    {url: 'img/blog/img2.jpg', label: 'longboard4', type: 'image'},
-    {url: 'img/blog/img1.jpg', label: 'skate5', type: 'image'}
+    {id: 1, url: 'img/blog/img1.jpg', title: 'skate1', type: 'image', sport: 'skate'},
+    {id: 2, url: 'img/blog/img2.jpg', title: 'longboard2', type: 'image', sport: 'longboard'},
+    {id: 3, url: 'img/blog/img3.jpg', title: 'skate3', type: 'image', sport: 'skate'},
+    {id: 4, url: '//player.vimeo.com/video/113463529?title=0&byline=0&portrait=0', title: 'surf3', type: 'video', sport: 'surf'},
+    {id: 5, url: 'img/blog/img2.jpg', title: 'longboard4', type: 'image', sport: 'longboard'},
+    {id: 6, url: 'img/blog/img1.jpg', title: 'skate5', type: 'image', sport: 'skate'}
 ];
 
 var user = {username: "admin"};
@@ -50,16 +50,31 @@ app.get('/photos', function(req, res) {
   res.send(photos);
 });
 
+app.get('/photos/:id', function(req, res) {
+    res.status(200);
+    res.send(photos[0]);
+});
+
 //Riders
 app.get('/riders', function(req, res) {
     res.status(200);
     res.send(riders);
 });
 
+app.get('/riders/:id', function(req, res) {
+    res.status(200);
+    res.send(riders[0]);
+});
+
 //Posts
 app.get('/posts', function(req, res) {
     res.status(200);
     res.send(posts);
+});
+
+app.get('/posts/:id', function(req, res) {
+    res.status(200);
+    res.send(posts[0]);
 });
 
 //Login
