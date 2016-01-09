@@ -4,7 +4,7 @@ var Validation = function () {
         
         //Validation
         initValidation: function () {
-	        $("#sky-form1").validate({                   
+	        $("#sky-form").validate({
 	            // Rules for form validation
 	            rules:
 	            {

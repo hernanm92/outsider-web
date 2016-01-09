@@ -1,0 +1,72 @@
+<!--=== Breadcrumbs ===-->
+<div class="breadcrumbs">
+    <div class="container">
+        <h1 class="pull-left">General Forms</h1>
+        <ul class="pull-right breadcrumb">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="">Features</a></li>
+            <li class="active">General Forms</li>
+        </ul>
+    </div>
+</div><!--/breadcrumbs-->
+<!--=== End Breadcrumbs ===-->
+
+<!--=== Content Part ===-->
+<div class="container content">
+    <div class="row">
+
+        <!-- Begin Content -->
+        <div class="col-md-6 col-md-offset-3">
+            <!-- General Unify Forms -->
+            <form action="#" class="sky-form">
+                <header>General Unify Forms</header>
+
+                <fieldset>
+                    <section>
+                        <label class="label">Deporte</label>
+                        <label class="select">
+                            <select ng-model="sport">
+                                <option value="Skate">Skate</option>
+                                <option value="Longboard">Longboard</option>
+                                <option value="BMX">BMX</option>
+                                <option value="Surf">Surf</option>
+                                <option value="Ski">Ski</option>
+                                <option value="Snowboard">Snowboard</option>
+                            </select>
+                            <i></i>
+                        </label>
+                    </section>
+
+                    <section>
+                        <label class="label">Subí la foto</label>
+                        <label for="file">
+                            <div class="button" id="file" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'"
+                                 ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100"
+                                 ngf-resize="{width: 100, height: 100}">Examinar</div>
+                            <!--<div class="button"><input type="file" id="file" ng-model="photo" onchange="this.parentNode.nextSibling.value = this.value">Examinar</div><input type="text" readonly>-->
+                            <img class="img-responsive col-md-4" ngf-thumbnail="file || 'assets/img/thumb/img22.jpg'">
+                        </label>
+                    </section>
+
+                    <section>
+                        <label class="label">Escribí el post</label>
+                        <label class="textarea textarea-resizable">
+                            <i class="icon-append fa fa-comment"></i>
+                            <textarea rows="3" placeholder="Escribite el post" ng-model="story"></textarea>
+                        </label>
+                        <div class="note"><strong>Nota:</strong> podés agrandar el área de texto.</div>
+                    </section>
+
+                </fieldset>
+
+                <footer>
+                    <button type="button" class="btn-u" ng-click="upload()">Subir</button>
+                    <button type="button" class="btn-u btn-u-default" onclick="window.history.back();">Volver</button>
+                </footer>
+            </form>
+            <!-- General Unify Forms -->
+        </div>
+        <!-- End Content -->
+    </div>
+</div><!--/container-->
+<!--=== End Content Part ===-->

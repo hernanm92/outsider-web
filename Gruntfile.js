@@ -27,6 +27,9 @@ module.exports = function (grunt) {
         "public/javascripts/factory/teams.js",
         "public/javascripts/factory/blog.js",
         "public/javascripts/factory/admin/auth.js",
+        "public/javascripts/factory/admin/post.js",
+        "public/javascripts/factory/admin/team-member.js",
+        "public/javascripts/factory/admin/spot.js",
 
         "public/javascripts/controller/base.js",
         "public/javascripts/controller/menu.js",
@@ -38,6 +41,9 @@ module.exports = function (grunt) {
         "public/javascripts/controller/blog-item.js",
         "public/javascripts/controller/gallery-item.js",
         "public/javascripts/controller/admin/login.js",
+        "public/javascripts/controller/admin/post.js",
+        "public/javascripts/controller/admin/spot.js",
+        "public/javascripts/controller/admin/team-member.js",
         "public/javascripts/controller/team-item.js",
 
         "public/javascripts/service/homeService.js",

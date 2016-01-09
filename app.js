@@ -51,9 +51,17 @@ app.get('/general/team-item', function (req, res) {
 app.get('/partials/404', function (req, res) {
     res.render('partials/404');
 });
-
 app.get('/general/admin/login', function (req, res) {
     res.render('general/admin/login');
+});
+app.get('/general/admin/post', function (req, res) {
+    res.render('general/admin/post');
+});
+app.get('/general/admin/team-member', function (req, res) {
+    res.render('general/admin/team-member');
+});
+app.get('/general/admin/spot', function (req, res) {
+    res.render('general/admin/spot');
 });
 
 http.createServer(app).listen(app.get('port'), function ()

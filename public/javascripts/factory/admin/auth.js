@@ -1,6 +1,7 @@
 var module = angular.module('authModule', ['ngResource']);
 
-module.factory('authFactory', ['$resource', 'config', function ($resource, config) {
+module.factory('authFactory', ['$resource', 'config', '$http', '$window',
+    function ($resource, config, $http, $window) {
 
     var urlBase= config.domain + '/admin';
     var auth= {};
