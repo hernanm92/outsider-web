@@ -1,11 +1,20 @@
 app.controller('HomeController',
-    function ($scope, homeFactory, eventService, $window, $location) {
+    function ($scope, galleryFactory, eventService, $window, $location) {
 
       	$scope.$on('$viewContentLoaded', function(){
 	        App.init();
 	        OwlCarousel.initOwlCarousel();
 	        ParallaxSlider.initParallaxSlider();
 	  	});
+
+
+        $scope.getPhotos = function(){
+            galleryFactory.query({},function(photos){
+                $scope.photos=photos.slice(0, 4);
+            });
+        }
+
+        $scope.getPhotos();
 
 
         //Load Google Analytics
