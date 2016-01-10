@@ -3,7 +3,11 @@
     <div class="container content-sm">
         <!-- News v3 -->
         <div class="news-v3 bg-color-white margin-bottom-30">
-            <img class="img-responsive full-width" src={{post.url}} alt="">
+            <!--<img class="img-responsive full-width" src={{post.url}} alt="">-->
+            <div ng-if="post.type == 'image'" style="background-image: url({{post.url}}); height:760px; background-position:center;background-size: cover;"></div>
+            <div class="responsive-video" ng-if="post.type == 'video'">
+                <iframe ng-src={{getPostUrl(post)}} frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+            </div>
             <div class="news-v3-in">
                 <ul class="list-inline posted-info">
                     <li>By <a href="#">Alexander Jenni</a></li>
@@ -64,7 +68,10 @@
             <div class="col-sm-4 sm-margin-bottom-30" ng-repeat="recentPost in recentPosts">
                 <div class="news-v2-badge">
                     <!--<img class="img-responsive" src={{recentPost.url}} alt="">-->
-                    <div style="background-image: url({{recentPost.url}}); height:240px; background-position:center;background-size: cover;"></div>
+                    <div ng-if="recentPost.type == 'image'" style="background-image: url({{recentPost.url}}); height:204px; background-position:center;background-size: cover;"></div>
+                    <div class="responsive-video" ng-if="recentPost.type == 'video'">
+                        <iframe ng-src={{getPostUrl(recentPost)}} frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                    </div>
                     <p>
                         <span>24</span>
                         <small>Jan</small>

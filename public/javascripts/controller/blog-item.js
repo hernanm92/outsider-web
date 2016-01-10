@@ -1,5 +1,5 @@
 app.controller('BlogItemController',
-    function ($scope, blogFactory, eventService, $sce, $routeParams, $window, $location) {
+    function ($scope, blogFactory, eventService, $sce, $routeParams, $window, $location, $sce) {
 
         $scope.$on('$viewContentLoaded', function(){
             App.init();
@@ -14,6 +14,10 @@ app.controller('BlogItemController',
         }
 
         $scope.getPost();
+
+        $scope.getPostUrl = function(post){
+            return $sce.trustAsResourceUrl(post.url);
+        };
 
         $scope.getRecentPosts = function(){
             blogFactory.query({},function(recentPosts){
