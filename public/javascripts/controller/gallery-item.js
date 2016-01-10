@@ -3,7 +3,6 @@ app.controller('GalleryItemController',
 
         $scope.$on('$viewContentLoaded', function(){
             App.init();
-            OwlRecentWorks.initOwlRecentWorksV1();
         });
 
         $scope.getPhoto = function(){
@@ -13,6 +12,14 @@ app.controller('GalleryItemController',
         }
 
         $scope.getPhoto();
+
+        $scope.getRecentPhotos = function(){
+            galleryFactory.query({},function(recentPhotos){
+                $scope.recentPhotos = recentPhotos.slice(0, 10);
+            });
+        }
+
+        $scope.getRecentPhotos();
 
 
         //Load Google Analytics
@@ -29,3 +36,18 @@ app.controller('GalleryItemController',
         });
     }
 );
+
+
+//forma que encontre para que ejecute este jquery cuando terminan de cargarse todas las fotos
+app.directive('onFinishPhotosRender', function () {
+    return {
+        restrict: 'A',
+        link: function (scope, element, attr) {
+            if (scope.$last === true) {
+                element.ready(function () {
+                    OwlRecentWorks.initOwlRecentWorksV1();
+                });
+            }
+        }
+    }
+});

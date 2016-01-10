@@ -24,7 +24,8 @@
         <li class="cbp-item {{photo.sport}}" ng-repeat="photo in photos" on-finish-photos-render>
             <div class="cbp-caption">
                 <div class="cbp-caption-defaultWrap">
-                    <img src={{photo.url}} alt="">
+                    <!--<img src={{photo.url}} alt="">-->
+                    <div style="background-image: url({{photo.url}}); height:244px; background-position:center;background-size: cover;"></div>
                 </div>
                 <div class="cbp-caption-activeWrap">
                     <div class="cbp-l-caption-alignCenter">
