@@ -13,7 +13,8 @@
         <!-- News v3 -->
         <div class="row margin-bottom-20">
             <div class="col-sm-5 sm-margin-bottom-20">
-                <img class="img-responsive" src={{post.url}} alt="" ng-if="post.type == 'image'">
+                <!--<img class="img-responsive" src={{post.url}} alt="" ng-if="post.type == 'image'">-->
+                <div ng-if="post.type == 'image'" style="background-image: url({{post.url}}); height:290px; background-position:center;background-size: cover;"></div>
                 <div class="responsive-video" ng-if="post.type == 'video'">
                     <iframe ng-src={{getPostUrl(post)}} frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
                 </div>

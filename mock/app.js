@@ -27,12 +27,12 @@ var riders = [
  ];
 
 var posts = [
-    {id: 1, url: 'img/blog/img1.jpg', title: 'skate1', type: 'image', sport: 'skate'},
-    {id: 2, url: 'img/blog/img2.jpg', title: 'longboard2', type: 'image', sport: 'longboard'},
-    {id: 3, url: 'img/blog/img3.jpg', title: 'skate3', type: 'image', sport: 'skate'},
-    {id: 4, url: '//player.vimeo.com/video/113463529?title=0&byline=0&portrait=0', title: 'surf3', type: 'video', sport: 'surf'},
-    {id: 5, url: 'img/blog/img2.jpg', title: 'longboard4', type: 'image', sport: 'longboard'},
-    {id: 6, url: 'img/blog/img1.jpg', title: 'skate5', type: 'image', sport: 'skate'}
+    {id: 1, url: 'img/blog/img1.jpg', title: 'Nuevo skatepark en plaza Houssay', type: 'image', sport: 'skate'},
+    {id: 2, url: 'img/blog/img2.jpg', title: 'Evento en el Libano', type: 'image', sport: 'longboard'},
+    {id: 3, url: 'img/blog/img3.jpg', title: 'Aaron Rios se suma al team de Outsider', type: 'image', sport: 'skate'},
+    {id: 4, url: '//player.vimeo.com/video/113463529?title=0&byline=0&portrait=0', title: 'Arte con tablas por Matt Gahan', type: 'video', sport: 'surf'},
+    {id: 5, url: 'img/blog/img2.jpg', title: 'Evento en el Libano', type: 'image', sport: 'longboard'},
+    {id: 6, url: 'img/blog/img1.jpg', title: 'Nuevo skatepark en plaza Houssay', type: 'image', sport: 'skate'}
 ];
 
 var user = {username: "admin"};

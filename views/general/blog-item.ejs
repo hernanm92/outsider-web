@@ -61,44 +61,17 @@
 
         <!-- Authored Blog -->
         <div class="row news-v2 margin-bottom-50">
-            <div class="col-sm-4 sm-margin-bottom-30">
+            <div class="col-sm-4 sm-margin-bottom-30" ng-repeat="recentPost in recentPosts">
                 <div class="news-v2-badge">
-                    <img class="img-responsive" src="assets/img/main/img3.jpg" alt="">
+                    <!--<img class="img-responsive" src={{recentPost.url}} alt="">-->
+                    <div style="background-image: url({{recentPost.url}}); height:240px; background-position:center;background-size: cover;"></div>
                     <p>
                         <span>24</span>
                         <small>Jan</small>
                     </p>
                 </div>
                 <div class="news-v2-desc">
-                    <h3><a href="#">Blog Image Post</a></h3>
-                    <small>By Admin | California, US | In <a href="#">Art</a></small>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae, gravida pellentesque urna varius vitae.</p>
-                </div>
-            </div>
-            <div class="col-sm-4 sm-margin-bottom-30">
-                <div class="news-v2-badge">
-                    <img class="img-responsive" src="assets/img/main/img6.jpg" alt="">
-                    <p>
-                        <span>23</span>
-                        <small>Jan</small>
-                    </p>
-                </div>
-                <div class="news-v2-desc">
-                    <h3><a href="#">Blog Image Post</a></h3>
-                    <small>By Admin | California, US | In <a href="#">Art</a></small>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae, gravida pellentesque urna varius vitae.</p>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="news-v2-badge">
-                    <img class="img-responsive" src="assets/img/main/img4.jpg" alt="">
-                    <p>
-                        <span>22</span>
-                        <small>Jan</small>
-                    </p>
-                </div>
-                <div class="news-v2-desc">
-                    <h3><a href="#">Blog Image Post</a></h3>
+                    <h3><a href="#blog/{{recentPost.id}}">{{recentPost.title}}</a></h3>
                     <small>By Admin | California, US | In <a href="#">Art</a></small>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae, gravida pellentesque urna varius vitae.</p>
                 </div>

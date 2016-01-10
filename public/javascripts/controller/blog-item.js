@@ -15,6 +15,14 @@ app.controller('BlogItemController',
 
         $scope.getPost();
 
+        $scope.getRecentPosts = function(){
+            blogFactory.query({},function(recentPosts){
+                $scope.recentPosts = recentPosts.slice(0, 3);
+            });
+        }
+
+        $scope.getRecentPosts();
+
 
         //Load Google Analytics
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
