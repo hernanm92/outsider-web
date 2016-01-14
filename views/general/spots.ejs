@@ -1,0 +1,14 @@
+<!--=== Content Part ===-->
+<div class="container content-sm">
+    <div class="row" ng-repeat="chunk in spots">
+        <div class="view view-tenth" ng-repeat="spot in chunk">
+            <img class="img-responsive" src="{{spot.url}}" alt="" />
+            <div class="mask">
+                <h2>{{spot.name}}</h2>
+                <p>{{spot.description}}</p>
+                <a href="/spots/{{spot.id}}" class="info">Conocé más</a>
+            </div>
+        </div>
+    </div>
+</div><!--/container-->
+<!--=== End Content Part ===-->

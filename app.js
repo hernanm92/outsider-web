@@ -36,11 +36,17 @@ app.get('/general/gallery', function (req, res) {
 app.get('/general/teams', function (req, res) {
     res.render('general/teams');
 });
+app.get('/general/spots', function (req, res) {
+    res.render('general/spots');
+});
 app.get('/general/blog', function (req, res) {
     res.render('general/blog');
 });
 app.get('/general/blog-item', function (req, res) {
     res.render('general/blog-item');
+});
+app.get('/general/spot-item', function (req, res) {
+    res.render('general/spot-item');
 });
 app.get('/general/gallery-item', function (req, res) {
     res.render('general/gallery-item');

@@ -1,6 +1,6 @@
 
 var app = angular.module('MainApp', ['ngRoute', 'ngFileUpload', 'config', 'homeModule', 'galleryModule',
-    'teamsModule', 'blogModule', 'authModule', 'postModule', 'spotModule', 'teamMemberModule']);
+    'teamsModule', 'spotsModule', 'blogModule', 'authModule', 'postModule', 'spotModule', 'teamMemberModule']);
 
 app.config(['$httpProvider', function ($httpProvider) {
     //Reset headers to avoid OPTIONS request (aka preflight)
@@ -20,6 +20,8 @@ app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/equipos', {templateUrl: 'general/teams', controller: 'TeamsController'});
     $routeProvider.when('/blog', {templateUrl: 'general/blog', controller: 'BlogController'});
     $routeProvider.when('/blog/:post', {templateUrl: 'general/blog-item', controller: 'BlogItemController'});
+    $routeProvider.when('/spots', {templateUrl: 'general/spots', controller: 'SpotsController'});
+    $routeProvider.when('/spots/:spot', {templateUrl: 'general/spot-item', controller: 'SpotItemController'});
     $routeProvider.when('/galeria/:photo', {templateUrl: 'general/gallery-item', controller: 'GalleryItemController'});
     $routeProvider.when('/404', {templateUrl: 'partials/404', controller: '404Controller'});
     $routeProvider.when('/equipos/:rider', {templateUrl: 'general/team-item', controller: 'TeamItemController'});

@@ -1,17 +1,18 @@
 var module = angular.module('spotModule', ['ngResource']);
 
-module.factory('spotFactory', ['$resource', 'config', '$http',
-    function ($resource, config, $http) {
+module.factory('spotFactory', ['$resource', 'config', 'Upload',
+    function ($resource, config, Upload) {
 
         var urlBase= config.domain + '/admin';
         var spot = {};
 
-        spot.uploadSpot = function (sports, name, address, latitude, longitude, resource, callback) {
+        spot.uploadSpot = function (sports, name, description, address, latitude, longitude, resource, callback) {
             Upload.upload({
                 url: urlBase + '/apot',
                 data: {
                     sports: sports,
                     name: name,
+                    description: description,
                     address: address,
                     latitude: latitude,
                     longitude: longitude,
