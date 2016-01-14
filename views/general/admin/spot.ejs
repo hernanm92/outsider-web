@@ -44,6 +44,16 @@
                         <div class="note"><strong>Nota:</strong> podés agrandar el área de texto.</div>
                     </section>
                     <section>
+                        <label class="label">Subí la foto</label>
+                        <label for="file">
+                            <div class="button" id="file" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'"
+                                 ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100"
+                                 ngf-resize="{width: 100, height: 100}">Examinar</div>
+                            <!--<div class="button"><input type="file" id="file" ng-model="photo" onchange="this.parentNode.nextSibling.value = this.value">Examinar</div><input type="text" readonly>-->
+                            <img class="img-responsive col-md-4" ngf-thumbnail="file || 'assets/img/thumb/img22.jpg'">
+                        </label>
+                    </section>
+                    <section>
                         <label class="label">Direccion</label>
                         <label class="input">
 

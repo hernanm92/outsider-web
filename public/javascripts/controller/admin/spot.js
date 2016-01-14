@@ -19,7 +19,7 @@ app.controller('SpotController',
             spot.latitude= document.getElementById('lat').value;
             spot.longitude= document.getElementById('long').value;
             console.log(spot);
-            spotFactory.uploadSpot(spot.sports, spot.name, spot.address, spot.latitude, spot.longitude, function () {
+            spotFactory.uploadSpot(spot.sports, spot.name, spot.address, spot.latitude, spot.longitude, spot.file, function (resp) {
                 //go to where it has to
                 window.location = '/';
                 //console.log(spot);
