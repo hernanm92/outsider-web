@@ -25,6 +25,7 @@ app.controller('SpotItemController',
         $scope.initMap = function (lat, long) {
             var map;
             $(document).ready(function(){
+                console.log('entre algna vez?');
                 map = new GMaps({
                     div: '#map',
                     scrollwheel: false,
