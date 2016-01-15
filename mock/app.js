@@ -26,6 +26,13 @@ var riders = [
     {id: 4, photo_url: 'img/teams/img4.png', sport: 'longboard', name: 'Valentín Travis Spalla', alias: 'vspalla', location: "San Miguel, Buenos Aires, Argentina"}
  ];
 
+var spots = [
+    {id: 1, url: 'img/spots/libano.jpg', sports: ['longboard'], name: 'Líbano', address: "República del Líbano, Ciudad Autónoma de Buenos Aires", latitude: -34.5844409, longitude: -58.3948475, description: "Terrible lugar para bajar en long, pista larga y con buenas curvas para tirar trucos copados."},
+    {id: 2, url: 'img/spots/pared.jpg', sports: ['longboard'], name: 'La Pared', alias: 'smunoz', location: "Bella Vista, Buenos Aires, Argentina", description: "Terrible lugar para bajar en long, pista larga y con buenas curvas para tirar trucos copados."},
+    {id: 3, url: 'img/spots/pacha.jpg', sports: ['longboard', 'skate'], name: 'Pachá Skate Park', alias: 'tduarte', location: "Tortuguitas, Buenos Aires, Argentina", description: "Terrible lugar para bajar en long, pista larga y con buenas curvas para tirar trucos copados."},
+    {id: 4, url: 'img/spots/garrahan.jpg', sports: ['BMX', 'skate'], name: 'Garrahan', alias: 'vspalla', location: "San Miguel, Buenos Aires, Argentina", description: "Terrible lugar para bajar en long, pista larga y con buenas curvas para tirar trucos copados."}
+ ];
+
 var posts = [
     {id: 1, url: 'img/blog/img1.jpg', title: 'Nuevo skatepark en plaza Houssay', type: 'image', sport: 'skate'},
     {id: 2, url: 'img/blog/img2.jpg', title: 'Evento en el Libano', type: 'image', sport: 'longboard'},
@@ -64,6 +71,17 @@ app.get('/riders', function(req, res) {
 app.get('/riders/:id', function(req, res) {
     res.status(200);
     res.send(riders[0]);
+});
+
+//Spots
+app.get('/spots', function(req, res) {
+    res.status(200);
+    res.send(spots);
+});
+
+app.get('/spots/:id', function(req, res) {
+    res.status(200);
+    res.send(spots[0]);
 });
 
 //Posts

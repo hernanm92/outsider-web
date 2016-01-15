@@ -1,22 +1,55 @@
 app.controller('SpotItemController',
-    function ($scope, spotFactory, eventService, $sce, $routeParams, $window, $location, $sce) {
+    function ($scope, spotsFactory, eventService, $sce, $routeParams, $window, $location, $sce) {
 
         $scope.$on('$viewContentLoaded', function(){
             App.init();
-            LoginForm.initLoginForm();
-            ContactForm.initContactForm();
+            OwlRecentWorks.initOwlRecentWorksV1();
         });
 
         $scope.getSpot = function(){
-            spotFactory.get({"id": $routeParams.spot}, function(spot){
+            spotsFactory.get({"id": $routeParams.spot}, function(spot){
                 $scope.spot = spot;
+                $scope.initMap(spot.latitude, spot.longitude);
+                $scope.initPanorama(spot.latitude, spot.longitude);
             });
+
         };
 
         $scope.getSpot();
 
         $scope.getSpotUrl = function(spot){
             return $sce.trustAsResourceUrl(spot.url);
+        };
+
+        //Basic Map
+        $scope.initMap = function (lat, long) {
+            var map;
+            $(document).ready(function(){
+                map = new GMaps({
+                    div: '#map',
+                    scrollwheel: false,
+                    lat: lat,
+                    lng: long
+                });
+
+                var marker = map.addMarker({
+                    lat: lat,
+                    lng: long,
+                    title: $scope.spot.name
+                });
+            });
+        };
+
+        //Panorama Map
+        $scope.initPanorama = function (lat, long) {
+            var panorama;
+            $(document).ready(function(){
+                panorama = GMaps.createPanorama({
+                    el: '#panorama',
+                    lat : lat,
+                    lng : long
+                });
+            });
         };
 
 
