@@ -23,6 +23,13 @@
 
                 <fieldset>
                     <section>
+                        <label class="label">Título</label>
+                        <label class="input">
+                            <i class="icon-append fa fa-legal"></i>
+                            <input type="text" placeholder="Título" ng-model="title">
+                        </label>
+                    </section>
+                    <section>
                         <label class="label">Deporte</label>
                         <label class="select">
                             <select ng-model="sport">
@@ -45,6 +52,15 @@
                                  ngf-resize="{width: 100, height: 100}">Examinar</div>
                             <img class="img-responsive col-md-4" ngf-thumbnail="file || 'assets/img/thumb/img22.jpg'">
                         </label>
+                    </section>
+
+                    <section>
+                        <label class="label">Escribí una declaración</label>
+                        <label class="textarea textarea-resizable">
+                            <i class="icon-append fa fa-comment"></i>
+                            <textarea rows="3" placeholder="Escribite el post" ng-model="quote"></textarea>
+                        </label>
+                        <div class="note"><strong>Nota:</strong> podés agrandar el área de texto.</div>
                     </section>
 
                     <section>

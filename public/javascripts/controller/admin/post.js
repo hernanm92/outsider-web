@@ -4,11 +4,9 @@ app.controller('PostController',
         var post= $scope;
 
         $scope.upload = function () {
-            console.log(post.story);
-            console.log(post);
-            postFactory.uploadPost(post.sport, post.file, post.story, function (resp) {
+            postFactory.uploadPost(post.sport, post.title, post.file, post.story, post.quote, function (resp) {
                 //go to where it has to
-                window.location = '/';
+                window.location = '/admin/post';
             });
         };
     }

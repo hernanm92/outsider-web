@@ -6,14 +6,16 @@ module.factory('postFactory', ['$resource', 'config', 'Upload',
         var urlBase= config.domain + '/admin';
         var post = {};
 
-        post.uploadPost = function (sport, resource, story, callback) {
-            console.log('de lujo');
+        post.uploadPost = function (sport, title, resource, story, quote, callback) {
             Upload.upload({
                 url: urlBase + '/post',
                 data: {
                     sport: sport,
+                    title: title,
+                    type: 'image',
                     resource: resource,
-                    story: story
+                    story: story,
+                    quote: quote
                 }
             }).then(function (resp) {
                 callback(resp);
