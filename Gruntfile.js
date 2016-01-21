@@ -48,6 +48,7 @@ module.exports = function (grunt) {
         "public/javascripts/controller/admin/spot.js",
         "public/javascripts/controller/admin/team-member.js",
         "public/javascripts/controller/team-item.js",
+        "public/javascripts/controller/about-us.js",
 
         "public/javascripts/service/homeService.js",
         "public/javascripts/service/admin/authService.js",

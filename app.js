@@ -54,6 +54,9 @@ app.get('/general/gallery-item', function (req, res) {
 app.get('/general/team-item', function (req, res) {
     res.render('general/team-item');
 });
+app.get('/general/about-us', function (req, res) {
+    res.render('general/about-us');
+});
 app.get('/partials/404', function (req, res) {
     res.render('partials/404');
 });
