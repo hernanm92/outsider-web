@@ -11,12 +11,12 @@ app.use(morgan('common', {stream: accessLogStream}));
 
 app.use(bodyParser.json());
 var photos = [
-    {id: 1, url: 'img/gallery/img1.jpg', title: 'Facultad de medicina', sport: 'skate'},
-    {id: 2, url: 'img/gallery/img2.jpg', title: 'Bajando el libano', sport: 'longboard'},
-    {id: 3, url: 'img/gallery/img1.jpg', title: 'Facultad de medicina', sport: 'skate'},
-    {id: 4, url: 'img/gallery/img2.jpg', title: 'Bajando el libano', sport: 'longboard'},
-    {id: 5, url: 'img/gallery/img1.jpg', title: 'Facultad de medicina', sport: 'skate'},
-    {id: 6, url: 'img/gallery/img2.jpg', title: 'Bajando el libano', sport: 'longboard'}
+    {id: 1, url: 'img/gallery/img1.jpg', title: 'Facultad de medicina', sport: 'skate', description: "Nullam elementum tincidunt massa, a pulvinar leo ultricies ut. Ut fringilla lectus tellus, imperdiet molestie est volutpat at. Sed viverra cursus nibh, sed consectetur ipsum sollicitudin sed. Cras erat est, euismod id congue sed, sollicitudin sed odio. Nullam non metus in mi rhoncus efficitur..."},
+    {id: 2, url: 'img/gallery/img2.jpg', title: 'Bajando el libano', sport: 'longboard', description: "Nullam elementum tincidunt massa, a pulvinar leo ultricies ut. Ut fringilla lectus tellus, imperdiet molestie est volutpat at. Sed viverra cursus nibh, sed consectetur ipsum sollicitudin sed. Cras erat est, euismod id congue sed, sollicitudin sed odio. Nullam non metus in mi rhoncus efficitur..."},
+    {id: 3, url: 'img/gallery/img1.jpg', title: 'Facultad de medicina', sport: 'skate', description: "Nullam elementum tincidunt massa, a pulvinar leo ultricies ut. Ut fringilla lectus tellus, imperdiet molestie est volutpat at. Sed viverra cursus nibh, sed consectetur ipsum sollicitudin sed. Cras erat est, euismod id congue sed, sollicitudin sed odio. Nullam non metus in mi rhoncus efficitur..."},
+    {id: 4, url: 'img/gallery/img2.jpg', title: 'Bajando el libano', sport: 'longboard', description: "Nullam elementum tincidunt massa, a pulvinar leo ultricies ut. Ut fringilla lectus tellus, imperdiet molestie est volutpat at. Sed viverra cursus nibh, sed consectetur ipsum sollicitudin sed. Cras erat est, euismod id congue sed, sollicitudin sed odio. Nullam non metus in mi rhoncus efficitur..."},
+    {id: 5, url: 'img/gallery/img1.jpg', title: 'Facultad de medicina', sport: 'skate', description: "Nullam elementum tincidunt massa, a pulvinar leo ultricies ut. Ut fringilla lectus tellus, imperdiet molestie est volutpat at. Sed viverra cursus nibh, sed consectetur ipsum sollicitudin sed. Cras erat est, euismod id congue sed, sollicitudin sed odio. Nullam non metus in mi rhoncus efficitur..."},
+    {id: 6, url: 'img/gallery/img2.jpg', title: 'Bajando el libano', sport: 'longboard', description: "Nullam elementum tincidunt massa, a pulvinar leo ultricies ut. Ut fringilla lectus tellus, imperdiet molestie est volutpat at. Sed viverra cursus nibh, sed consectetur ipsum sollicitudin sed. Cras erat est, euismod id congue sed, sollicitudin sed odio. Nullam non metus in mi rhoncus efficitur..."}
 ];
 
 var riders = [
