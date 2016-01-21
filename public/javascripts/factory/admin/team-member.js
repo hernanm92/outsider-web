@@ -6,20 +6,21 @@ module.factory('teamMemberFactory', ['$resource', 'config', 'Upload',
         var urlBase= config.domain + '/admin';
         var team = {};
 
-        team.uploadTeamMember = function (sport, name, nickname, photo, procedence, residence, birthdate,
-                                          stance, spot, description, callback) {
+        team.uploadTeamMember = function (sport, name, alias, photo, procedence, residence, birthdate,
+                                          stance, spot, quote, description, callback) {
             Upload.upload({
                 url: urlBase + '/teamMember',
                 data: {
                     sport: sport,
                     name: name,
-                    nickname: nickname,
+                    alias: alias,
                     photo: photo,
                     procedence: procedence,
                     residence: residence,
                     birthdate: birthdate,
                     stance: stance,
                     spot: spot,
+                    quote: quote,
                     description: description
                 }
             }).then(function (resp) {

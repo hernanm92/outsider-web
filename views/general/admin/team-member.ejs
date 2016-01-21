@@ -39,7 +39,7 @@
                                     <label class="label">Apodo</label>
                                     <label class="input">
                                         <i class="icon-append fa fa-user"></i>
-                                        <input type="text" placeholder="Apodo" ng-model="nickname">
+                                        <input type="text" placeholder="Apodo" ng-model="alias">
                                     </label>
                                 </section>
                                 <section>
@@ -88,6 +88,14 @@
                                         <input type="text" placeholder="Spot preferido" ng-model="spot">
                                         <!--todo mybe make datalist later with spots loaded by us-->
                                     </label>
+                                </section>
+                                <section>
+                                    <label class="label">Declaración</label>
+                                    <label class="textarea textarea-resizable">
+                                        <i class="icon-append fa fa-comment"></i>
+                                        <textarea rows="3" placeholder="Escribite la declaración" ng-model="quote"></textarea>
+                                    </label>
+                                    <div class="note"><strong>Nota:</strong> podés agrandar el área de texto.</div>
                                 </section>
                                 <section>
                                     <label class="label">Descripción</label>
