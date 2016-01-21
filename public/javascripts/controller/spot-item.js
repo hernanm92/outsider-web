@@ -9,7 +9,7 @@ app.controller('SpotItemController',
         $scope.getSpot = function(){
             spotsFactory.get({"id": $routeParams.spot}, function(spot){
                 $scope.spot = spot;
-                $scope.initMap(spot.latitude, spot.longitude);
+                //$scope.initMap(spot.latitude, spot.longitude);
                 $scope.initPanorama(spot.latitude, spot.longitude);
             });
 
@@ -25,18 +25,18 @@ app.controller('SpotItemController',
         $scope.initMap = function (lat, long) {
             var map;
             $(document).ready(function(){
-                console.log('entre algna vez?');
                 map = new GMaps({
                     div: '#map',
                     scrollwheel: false,
                     lat: lat,
                     lng: long
                 });
-
+                console.log(map);
+                var title= $scope.spot.name;
                 var marker = map.addMarker({
                     lat: lat,
                     lng: long,
-                    title: $scope.spot.name
+                    title: title
                 });
             });
         };
