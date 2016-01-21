@@ -20,10 +20,10 @@ var photos = [
 ];
 
 var riders = [
-    {id: 1, photo_url: 'img/teams/img1.png', sport: 'longboard', name: 'Damián Nehemias', alias: 'dnehemias', location: "Berazategui, Buenos Aires, Argentina"},
-    {id: 2, photo_url: 'img/teams/img2.png', sport: 'longboard', name: 'Sebastián Muñoz', alias: 'smunoz', location: "Bella Vista, Buenos Aires, Argentina"},
-    {id: 3, photo_url: 'img/teams/img3.png', sport: 'longboard', name: 'Thomas Duarte', alias: 'tduarte', location: "Tortuguitas, Buenos Aires, Argentina"},
-    {id: 4, photo_url: 'img/teams/img4.png', sport: 'longboard', name: 'Valentín Travis Spalla', alias: 'vspalla', location: "San Miguel, Buenos Aires, Argentina"}
+    {id: 1, photo_url: 'img/teams/img1.png', sport: 'longboard', name: 'Damián Nehemias', alias: 'dnehemias', procedence: "Berazategui, Buenos Aires, Argentina 1", residence: "Berazategui, Buenos Aires, Argentina", stance: "Bueno", spot: "Libano", birthdate: "11/09/1994", quote: "Me encanta patinar, siento que el riesgo es la mejor sensacion que existe llevando todo al limite", description: "Longboard rider freestyle y con mucho talento. Practica hace anos y suele ir al libano a hacer bajadas como un loco."},
+    {id: 2, photo_url: 'img/teams/img2.png', sport: 'longboard', name: 'Sebastián Muñoz', alias: 'smunoz', procedence: "Bella Vista, Buenos Aires, Argentina 1", residence: "Bella Vista, Buenos Aires, Argentina", stance: "Bueno", spot: "Libano", birthdate: "11/09/1994", quote: "Me encanta patinar, siento que el riesgo es la mejor sensacion que existe llevando todo al limite", description: "Longboard rider freestyle y con mucho talento. Practica hace anos y suele ir al libano a hacer bajadas como un loco."},
+    {id: 3, photo_url: 'img/teams/img3.png', sport: 'longboard', name: 'Thomas Duarte', alias: 'tduarte', procedence: "Tortuguitas, Buenos Aires, Argentina 1", residence: "Tortuguitas, Buenos Aires, Argentina", stance: "Bueno", spot: "Libano", birthdate: "11/09/1994", quote: "Me encanta patinar, siento que el riesgo es la mejor sensacion que existe llevando todo al limite", description: "Longboard rider freestyle y con mucho talento. Practica hace anos y suele ir al libano a hacer bajadas como un loco."},
+    {id: 4, photo_url: 'img/teams/img4.png', sport: 'longboard', name: 'Valentín Travis Spalla', alias: 'vspalla', procedence: "San Miguel, Buenos Aires, Argentina 1", residence: "San Miguel, Buenos Aires, Argentina", stance: "Bueno", spot: "Libano", birthdate: "11/09/1994", quote: "Me encanta patinar, siento que el riesgo es la mejor sensacion que existe llevando todo al limite", description: "Longboard rider freestyle y con mucho talento. Practica hace anos y suele ir al libano a hacer bajadas como un loco."}
  ];
 
 var spots = [
@@ -34,12 +34,12 @@ var spots = [
  ];
 
 var posts = [
-    {id: 1, url: 'img/blog/img1.jpg', title: 'Nuevo skatepark en plaza Houssay', type: 'image', sport: 'skate'},
-    {id: 2, url: 'img/blog/img2.jpg', title: 'Evento en el Libano', type: 'image', sport: 'longboard'},
-    {id: 3, url: 'img/blog/img3.jpg', title: 'Aaron Rios se suma al team de Outsider', type: 'image', sport: 'skate'},
-    {id: 4, url: '//player.vimeo.com/video/113463529?title=0&byline=0&portrait=0', title: 'Arte con tablas por Matt Gahan', type: 'video', sport: 'surf'},
-    {id: 5, url: 'img/blog/img2.jpg', title: 'Evento en el Libano', type: 'image', sport: 'longboard'},
-    {id: 6, url: 'img/blog/img1.jpg', title: 'Nuevo skatepark en plaza Houssay', type: 'image', sport: 'skate'}
+    {id: 1, url: 'img/blog/img1.jpg', title: 'Nuevo skatepark en plaza Houssay', type: 'image', sport: 'skate', date: "24 de Enero, 2016", description: "Nullam elementum tincidunt massa, a pulvinar leo ultricies ut. Ut fringilla lectus tellus, imperdiet molestie est volutpat at. Sed viverra cursus nibh, sed consectetur ipsum sollicitudin sed. Cras erat est, euismod id congue sed, sollicitudin sed odio. Nullam non metus in mi rhoncus efficitur..."},
+    {id: 2, url: 'img/blog/img2.jpg', title: 'Evento en el Libano', type: 'image', sport: 'longboard', date: "24 de Enero, 2016", description: "Nullam elementum tincidunt massa, a pulvinar leo ultricies ut. Ut fringilla lectus tellus, imperdiet molestie est volutpat at. Sed viverra cursus nibh, sed consectetur ipsum sollicitudin sed. Cras erat est, euismod id congue sed, sollicitudin sed odio. Nullam non metus in mi rhoncus efficitur..."},
+    {id: 3, url: 'img/blog/img3.jpg', title: 'Aaron Rios se suma al team de Outsider', type: 'image', sport: 'skate', date: "24 de Enero, 2016", description: "Nullam elementum tincidunt massa, a pulvinar leo ultricies ut. Ut fringilla lectus tellus, imperdiet molestie est volutpat at. Sed viverra cursus nibh, sed consectetur ipsum sollicitudin sed. Cras erat est, euismod id congue sed, sollicitudin sed odio. Nullam non metus in mi rhoncus efficitur..."},
+    {id: 4, url: '//player.vimeo.com/video/113463529?title=0&byline=0&portrait=0', title: 'Arte con tablas por Matt Gahan', type: 'video', sport: 'surf', date: "24 de Enero, 2016", description: "Nullam elementum tincidunt massa, a pulvinar leo ultricies ut. Ut fringilla lectus tellus, imperdiet molestie est volutpat at. Sed viverra cursus nibh, sed consectetur ipsum sollicitudin sed. Cras erat est, euismod id congue sed, sollicitudin sed odio. Nullam non metus in mi rhoncus efficitur..."},
+    {id: 5, url: 'img/blog/img2.jpg', title: 'Evento en el Libano', type: 'image', sport: 'longboard', date: "24 de Enero, 2016", description: "Nullam elementum tincidunt massa, a pulvinar leo ultricies ut. Ut fringilla lectus tellus, imperdiet molestie est volutpat at. Sed viverra cursus nibh, sed consectetur ipsum sollicitudin sed. Cras erat est, euismod id congue sed, sollicitudin sed odio. Nullam non metus in mi rhoncus efficitur..."},
+    {id: 6, url: 'img/blog/img1.jpg', title: 'Nuevo skatepark en plaza Houssay', type: 'image', sport: 'skate', date: "24 de Enero, 2016", description: "Nullam elementum tincidunt massa, a pulvinar leo ultricies ut. Ut fringilla lectus tellus, imperdiet molestie est volutpat at. Sed viverra cursus nibh, sed consectetur ipsum sollicitudin sed. Cras erat est, euismod id congue sed, sollicitudin sed odio. Nullam non metus in mi rhoncus efficitur..."}
 ];
 
 var user = {username: "admin"};
