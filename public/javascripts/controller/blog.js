@@ -9,7 +9,7 @@ app.controller('BlogController',
             blogFactory.query({},function(posts){
                 $scope.posts=posts;
             });
-        }
+        };
 
         $scope.getPosts();
 

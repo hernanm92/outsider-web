@@ -28,11 +28,12 @@
         <div class="col-md-5">
             <h2>{{photo.title}}</h2>
             <p>{{photo.description}}</p>
-            <!--<ul class="list-unstyled">-->
-                <!--<li><i class="fa fa-user color-green"></i> Jack Baur</li>-->
-                <!--<li><i class="fa fa-calendar color-green"></i> 14,2003 February</li>-->
-                <!--<li><i class="fa fa-tags color-green"></i> Websites, Google, HTML5/CSS3</li>-->
-            <!--</ul>-->
+            <ul class="list-unstyled">
+                <li ng-repeat="rider in photo.riders"><i class="fa fa-user color-green"></i> <a href="#/teams/{{rider.alias}}">{{rider.name}}</a></li>
+                <li ng-repeat="sport in photo.sports"><i class="fa fa-tags color-green"></i> {{sport}}</li>
+                <li><i class="fa fa-calendar color-green"></i> {{photo.date}}</li>
+                <li><i class="fa fa-globe color-green"></i> <a href="#/spots/{{photo.spot.id}}">{{photo.spot.name}}</a></li>
+            </ul>
             <!--<a href="#" class="btn-u btn-u-large">VISIT THE PROJECT</a>-->
         </div>
         <!-- End Content Info -->
