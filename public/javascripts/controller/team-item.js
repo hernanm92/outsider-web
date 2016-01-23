@@ -9,10 +9,13 @@ app.controller('TeamItemController',
         $scope.getRider = function(){
             teamsFactory.get({"id": $routeParams.rider}, function(rider){
                 $scope.rider = rider;
+                //todo: go get photos where this rider appears.
             });
-        }
+        };
 
         $scope.getRider();
+
+
 
 
         //Load Google Analytics

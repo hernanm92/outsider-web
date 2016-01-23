@@ -83,12 +83,35 @@
                                 </section>
                                 <section>
                                     <label class="label">Spot preferido</label>
-                                    <label class="input">
-                                        <i class="icon-append fa fa-map-pin"></i>
-                                        <input type="text" placeholder="Spot preferido" ng-model="spot">
-                                        <!--todo mybe make datalist later with spots loaded by us-->
+                                    <label class="select">
+                                        <select ng-model="spot">
+                                            <option ng-repeat="s in spots" value="{{s.id}}">{{s.name}}</option>
+                                        </select>
+                                        <i></i>
                                     </label>
                                 </section>
+                                <section>
+                                    <label class="label">Facebook</label>
+                                    <label class="input">
+                                        <i class="icon-append fa fa-facebook"></i>
+                                        <input type="text" placeholder="Facebook" ng-model="fb">
+                                    </label>
+                                </section>
+                                <section>
+                                    <label class="label">Instagram</label>
+                                    <label class="input">
+                                        <i class="icon-append fa fa-instagram"></i>
+                                        <input type="text" placeholder="Instagram" ng-model="inst">
+                                    </label>
+                                </section>
+                                <section>
+                                    <label class="label">Twitter</label>
+                                    <label class="input">
+                                        <i class="icon-append fa fa-twitter"></i>
+                                        <input type="text" placeholder="Twitter" ng-model="tw">
+                                    </label>
+                                </section>
+
                                 <section>
                                     <label class="label">Declaración</label>
                                     <label class="textarea textarea-resizable">
