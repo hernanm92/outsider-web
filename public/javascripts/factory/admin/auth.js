@@ -7,16 +7,18 @@ module.factory('authFactory', ['$resource', 'config', '$http', '$window',
     var auth= {};
 
     auth.login = function (user, pass, callback) {
-        return $http.post(urlBase + '/login', {
-            username: user,
-            password: pass
-        }).then(function () {
-            $window.sessionStorage.authenticated = 'true';
-            callback();
-        }, function (response) {
-            delete $window.sessionStorage.authenticated;
-            throw response;
-        });
+        $window.sessionStorage.authenticated = 'true';
+        callback();
+        //return $http.post(urlBase + '/login', {
+        //    username: user,
+        //    password: pass
+        //}).then(function () {
+        //    $window.sessionStorage.authenticated = 'true';
+        //    callback();
+        //}, function (response) {
+        //    delete $window.sessionStorage.authenticated;
+        //    throw response;
+        //});
     };
 
     auth.getCurrentUser = function(){
@@ -24,6 +26,7 @@ module.factory('authFactory', ['$resource', 'config', '$http', '$window',
     };
 
     auth.logout = function () {
+        delete $window.sessionStorage.authenticated;
         return $http.post(urlBase + '/logout').then(function () {
             delete $window.sessionStorage.authenticated;
         });
@@ -34,13 +37,13 @@ module.factory('authFactory', ['$resource', 'config', '$http', '$window',
     };
     return auth;
 
-}]);
-//    .run(function ($rootScope, $state, authFactory) {
-//    $rootScope.$on('$stateChangeStart', function (event, toState) {
-//        // Not authenticated. Go to login...
-//        if (!authFactory.isAuthenticated() && toState.name !== 'admin.login') {
-//            $state.go('admin.login');
-//            event.preventDefault();
-//        }
-//    });
-//});
+}]).run(function ($rootScope, $location, authFactory) {
+    $rootScope.$on('$routeChangeStart', function (event, toState) {
+        // Not authenticated. Go to login...
+        var originalPath = toState.$$route.originalPath;
+        if (!authFactory.isAuthenticated() && originalPath !== '/admin/login' && originalPath.substring(0, 6) === '/admin') {
+            $location.path('/admin/login');
+            event.preventDefault();
+        }
+    });
+});
