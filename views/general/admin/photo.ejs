@@ -33,16 +33,16 @@
                     <section>
                         <label class="label">Subí la foto</label>
                         <label for="file" ng-if="photo == undefined || photo.url == undefined">
-                            <div class="button" id="file" ngf-select ng-model="photo.url" name="file" ngf-pattern="'image/*'"
+                            <div class="button" id="photo.url" ngf-select ng-model="photo.url" name="photo.url" ngf-pattern="'image/*'"
                                  ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100"
                                  ngf-resize="{width: 100, height: 100}">Examinar</div>
-                            <img class="img-responsive col-md-4" ngf-thumbnail="file || 'assets/img/thumb/img22.jpg'">
+                            <img class="img-responsive col-md-4" ngf-thumbnail="photo.url || 'assets/img/thumb/img22.jpg'">
                         </label>
                         <label for="file" ng-if="photo != undefined && photo.url != undefined">
-                            <div class="button" id="file" ngf-select ng-model="photo.url" name="file" ngf-pattern="'image/*'"
+                            <div class="button" id="file" ngf-select ng-model="photo.url" name="photo.url" ngf-pattern="'image/*'"
                                  ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100"
                                  ngf-resize="{width: 100, height: 100}">Examinar</div>
-                            <img class="img-responsive col-md-4" src="{{photo.url}}">
+                            <img class="img-responsive col-md-4" ngf-thumbnail="photo.url || '{{photo.url}}'">
                         </label>
                     </section>
                     <fieldset>
