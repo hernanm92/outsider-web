@@ -47,9 +47,8 @@ app.controller('PhotoController',
             var idx= $scope.chosenRiders.indexOf(rider);
             $scope.chosenRiders.splice(idx, 1);
         };
-        var post= $scope.photo;
-
         $scope.upload = function () {
+            var post= $scope.photo;
             photoFactory.uploadPhoto(post.sports, post.title, post.url, post.description, post.quote,
                 $scope.chosenRiders, post.spot != undefined ? post.spot.name : '', function (resp) {
                     //go to where it has to
