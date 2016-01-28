@@ -81,6 +81,9 @@ app.get('/general/admin/spots', function (req, res) {
 app.get('/general/admin/photo', function (req, res) {
     res.render('general/admin/photo');
 });
+app.get('/general/admin/photos', function (req, res) {
+    res.render('general/admin/photos');
+});
 
 http.createServer(app).listen(app.get('port'), function ()
 {
