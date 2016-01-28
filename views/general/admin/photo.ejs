@@ -13,13 +13,13 @@
                         <label class="label">Título</label>
                         <label class="input">
                             <i class="icon-append fa fa-legal"></i>
-                            <input type="text" placeholder="Título" ng-model="title">
+                            <input type="text" placeholder="Título" ng-model="photo.title">
                         </label>
                     </section>
                     <section>
                         <label class="label">Deportes</label>
                         <label class="select select-multiple">
-                            <select multiple ng-model="sports">
+                            <select multiple ng-model="photo.sports">
                                 <option value="Skate">Skate</option>
                                 <option value="Longboard">Longboard</option>
                                 <option value="BMX">BMX</option>
@@ -32,11 +32,17 @@
 
                     <section>
                         <label class="label">Subí la foto</label>
-                        <label for="file">
-                            <div class="button" id="file" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'"
+                        <label for="file" ng-if="photo == undefined || photo.url == undefined">
+                            <div class="button" id="file" ngf-select ng-model="photo.url" name="file" ngf-pattern="'image/*'"
                                  ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100"
                                  ngf-resize="{width: 100, height: 100}">Examinar</div>
                             <img class="img-responsive col-md-4" ngf-thumbnail="file || 'assets/img/thumb/img22.jpg'">
+                        </label>
+                        <label for="file" ng-if="photo != undefined && photo.url != undefined">
+                            <div class="button" id="file" ngf-select ng-model="photo.url" name="file" ngf-pattern="'image/*'"
+                                 ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100"
+                                 ngf-resize="{width: 100, height: 100}">Examinar</div>
+                            <img class="img-responsive col-md-4" src="{{photo.url}}">
                         </label>
                     </section>
                     <fieldset>
@@ -60,7 +66,7 @@
                     <section>
                         <label class="label">Spot</label>
                         <label class="input">
-                            <input type="text" list="spotList" ng-model="spot">
+                            <input type="text" list="spotList" ng-model="photo.spot.name">
                             <datalist id="spotList" >
                                 <option ng-repeat="s in spots" value="{{s.name}}"></option>
                             </datalist>
@@ -70,7 +76,7 @@
                         <label class="label">Escribí el post</label>
                         <label class="textarea textarea-resizable">
                             <i class="icon-append fa fa-comment"></i>
-                            <textarea rows="3" placeholder="Escribite el post" ng-model="story"></textarea>
+                            <textarea rows="3" placeholder="Escribite el post" ng-model="photo.description"></textarea>
                         </label>
                         <div class="note"><strong>Nota:</strong> podés agrandar el área de texto.</div>
                     </section>
@@ -78,7 +84,7 @@
                         <label class="label">Escribí alguna declaracion</label>
                         <label class="textarea textarea-resizable">
                             <i class="icon-append fa fa-comment"></i>
-                            <textarea rows="3" placeholder="Escribite la declaracion" ng-model="quote"></textarea>
+                            <textarea rows="3" placeholder="Escribite la declaracion" ng-model="photo.quote"></textarea>
                         </label>
                         <div class="note"><strong>Nota:</strong> podés agrandar el área de texto.</div>
                     </section>

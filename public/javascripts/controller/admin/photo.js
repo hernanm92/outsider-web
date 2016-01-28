@@ -1,7 +1,7 @@
 app.controller('PhotoController',
-    function ($scope, $location, photoFactory, spotsFactory, teamsFactory, eventService) {
+    function ($scope, photoFactory, galleryFactory, spotsFactory, teamsFactory, $routeParams, eventService) {
 
-        var post= $scope;
+
 
         $scope.getSpots = function () {
             spotsFactory.query({},function(spots){
@@ -10,15 +10,25 @@ app.controller('PhotoController',
         };
         $scope.getSpots();
 
-
+        $scope.chosenRiders= [];
         $scope.getRiders = function () {
             teamsFactory.query({},function(teams){
                 $scope.riders=teams;
-                $scope.chosenRiders = [];
             });
         };
 
         $scope.getRiders();
+
+        $scope.getPhoto = function () {
+            galleryFactory.get({"id": $routeParams.photo}, function(photo){
+                $scope.photo = photo;
+                $scope.chosenRiders= photo.riders;
+            });
+        };
+
+        if ($routeParams.photo != undefined) {
+            $scope.getPhoto();
+        }
 
         $scope.riderChosen= function(){
             for (var i = 0; i < $scope.riders.length; i++) {
@@ -37,13 +47,40 @@ app.controller('PhotoController',
             var idx= $scope.chosenRiders.indexOf(rider);
             $scope.chosenRiders.splice(idx, 1);
         };
+        var post= $scope.photo;
 
         $scope.upload = function () {
-            photoFactory.uploadPhoto(post.sports, post.title, post.file, post.story, post.quote,
-                post.chosenRiders, post.spot, function (resp) {
+            photoFactory.uploadPhoto(post.sports, post.title, post.url, post.description, post.quote,
+                $scope.chosenRiders, post.spot != undefined ? post.spot.name : '', function (resp) {
                     //go to where it has to
                     window.location= '#/admin';
             });
         };
+    }
+);
+app.controller('AdminPhotosController',
+    function ($scope, galleryFactory, eventService) {
+
+
+        $scope.$on('$viewContentLoaded', function(){
+            App.init();
+        });
+
+
+        $scope.getPhotos = function () {
+            galleryFactory.query({},function(photoss){
+                $scope.photos=photoss;
+            });
+        };
+        $scope.getPhotos();
+
+        $scope.editPhoto= function (id) {
+            window.location= '#admin/photo/'+id;
+        };
+
+        $scope.deletePhoto= function (id) {
+            //todo: destroy
+        }
+
     }
 );
