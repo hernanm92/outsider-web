@@ -8,7 +8,7 @@ app.controller('LoginController',
             console.log(auth.password);
             authFactory.login(auth.user, auth.password, function () {
                 //go to where it has to
-                window.location = '/';
+                window.location = '#/admin';
             });
         }
     }

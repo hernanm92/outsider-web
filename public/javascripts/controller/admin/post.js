@@ -42,7 +42,7 @@ app.controller('PostController',
             postFactory.uploadPost(post.sports, post.title, post.file, post.story, post.quote,
                 post.chosenRiders, post.spot, function (resp) {
                 //go to where it has to
-                window.location = '/admin/post';
+                window.location = '#/admin';
             });
         };
     }

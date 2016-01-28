@@ -25,7 +25,7 @@ app.controller('TeamMemberController',
                 team.residence, team.birthdate, team.stance, team.spot, team.quote, team.description,
                 team.fb, team.inst, team.tw, function (res) {
                 //go to where it has to
-                window.location = '/';
+                window.location = '#/admin';
             });
         }
     }

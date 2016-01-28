@@ -42,7 +42,7 @@ app.controller('PhotoController',
             photoFactory.uploadPhoto(post.sports, post.title, post.file, post.story, post.quote,
                 post.chosenRiders, post.spot, function (resp) {
                     //go to where it has to
-                    window.location= '/admin/photo';
+                    window.location= '#/admin';
             });
         };
     }

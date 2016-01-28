@@ -27,6 +27,7 @@ app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/teams/:rider', {templateUrl: 'general/team-item', controller: 'TeamItemController'});
     $routeProvider.when('/about-us', {templateUrl: 'general/about-us', controller: 'AboutUsController'});
     $routeProvider.when('/admin/login', {templateUrl: 'general/admin/login', controller: 'LoginController'});
+    $routeProvider.when('/admin', {templateUrl: 'general/admin/home', controller: 'AdminHomeController'});
     $routeProvider.when('/admin/post', {templateUrl: 'general/admin/post', controller: 'PostController'});
     $routeProvider.when('/admin/photo', {templateUrl: 'general/admin/photo', controller: 'PhotoController'});
     $routeProvider.when('/admin/spot', {templateUrl: 'general/admin/spot', controller: 'SpotController'});

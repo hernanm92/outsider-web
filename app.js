@@ -63,6 +63,9 @@ app.get('/partials/404', function (req, res) {
 app.get('/general/admin/login', function (req, res) {
     res.render('general/admin/login');
 });
+app.get('/general/admin/home', function (req, res) {
+    res.render('general/admin/home');
+});
 app.get('/general/admin/post', function (req, res) {
     res.render('general/admin/post');
 });
