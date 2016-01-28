@@ -18,7 +18,7 @@
                     <section>
                         <label class="label">Deportes</label>
                         <label class="select select-multiple">
-                            <select multiple ng-model="sports">
+                            <select multiple ng-model="spot.sports">
                                 <option value="Skate">Skate</option>
                                 <option value="Longboard">Longboard</option>
                                 <option value="BMX">BMX</option>
@@ -32,25 +32,31 @@
                         <label class="label">Nombre</label>
                         <label class="input">
                             <i class="icon-append fa fa-map-marker"></i>
-                            <input type="text" placeholder="Nombre" ng-model="name">
+                            <input type="text" placeholder="Nombre" ng-model="spot.name">
                         </label>
                     </section>
                     <section>
                         <label class="label">Descripción</label>
                         <label class="textarea textarea-resizable">
                             <i class="icon-append fa fa-comment"></i>
-                            <textarea rows="3" placeholder="Escribite el post" ng-model="description"></textarea>
+                            <textarea rows="3" placeholder="Escribite el post" ng-model="spot.description"></textarea>
                         </label>
                         <div class="note"><strong>Nota:</strong> podés agrandar el área de texto.</div>
                     </section>
                     <section>
                         <label class="label">Subí la foto</label>
-                        <label for="file">
-                            <div class="button" id="file" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'"
+                        <label for="file" ng-if="spot == undefined || spot.url == undefined">
+                            <div class="button" id="file" ngf-select ng-model="spot.url" name="file" ngf-pattern="'image/*'"
                                  ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100"
                                  ngf-resize="{width: 100, height: 100}">Examinar</div>
-                            <!--<div class="button"><input type="file" id="file" ng-model="photo" onchange="this.parentNode.nextSibling.value = this.value">Examinar</div><input type="text" readonly>-->
                             <img class="img-responsive col-md-4" ngf-thumbnail="file || 'assets/img/thumb/img22.jpg'">
+                        </label>
+                    </section>
+                        <label for="file" ng-if="spot != undefined && spot.url != undefined">
+                            <div class="button" id="file" ngf-select ng-model="spot.url" name="file" ngf-pattern="'image/*'"
+                                 ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100"
+                                 ngf-resize="{width: 100, height: 100}">Examinar</div>
+                            <img class="img-responsive col-md-4" src="{{spot.url}}">
                         </label>
                     </section>
                     <section>
@@ -60,10 +66,10 @@
                             <!--<i class="icon-append fa fa-map"></i>-->
                             <!--<input type="text" placeholder="Dirección" ng-model="address">-->
                             <!--todo: errase google maps injection from index because its ugly-->
-                            <input type="hidden" name="latitude" id="lat" ng-model="latitude" />
-                            <input type="hidden" name="longitude" id="long" ng-model="longitude" />
+                            <input type="hidden" name="latitude" id="lat" ng-model="spot.latitude" />
+                            <input type="hidden" name="longitude" id="long" ng-model="spot.longitude" />
                             <input id="pac-input" class="controls" type="text" name="address"
-                                   placeholder="Escribí la dirección" ng-model="address">
+                                   placeholder="Escribí la dirección" ng-model="spot.address">
                             <div id="type-selector" class="controls">
                                 <input type="radio"  id="changetype-all" checked="checked">
                                 <label for="changetype-all">All</label>

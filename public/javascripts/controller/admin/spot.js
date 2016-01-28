@@ -1,5 +1,5 @@
 app.controller('SpotController',
-    function ($scope, spotFactory, eventService) {
+    function ($scope, spotFactory, spotsFactory, $routeParams, eventService) {
 
 
         $scope.$on('$viewContentLoaded', function(){
@@ -11,7 +11,14 @@ app.controller('SpotController',
             StyleSwitcher.initStyleSwitcher();
         });
 
-        var spot= $scope;
+        $scope.getSpot = function () {
+            spotsFactory.get({"id": $routeParams.spot}, function(spot){
+                $scope.spot = spot;
+            });
+        };
+        console.log($routeParams.spot);
+        if ($routeParams.spot != undefined) $scope.getSpot();
+        var spot= $scope.spot;
 
         $scope.upload = function () {
             //todo: find a way to get latitude and logintude from address in order to show it later with gmaps and panoramic
@@ -19,7 +26,7 @@ app.controller('SpotController',
             spot.latitude= document.getElementById('lat').value;
             spot.longitude= document.getElementById('long').value;
             console.log(spot);
-            spotFactory.uploadSpot(spot.sports, spot.name, spot.description, spot.address, spot.latitude, spot.longitude, spot.file, function (resp) {
+            spotFactory.uploadSpot(spot.sports, spot.name, spot.description, spot.address, spot.latitude, spot.longitude, spot.url, function (resp) {
                 //go to where it has to
                 window.location = '#/admin';
                 //console.log(spot);
@@ -45,7 +52,7 @@ app.controller('AdminSpotsController',
         $scope.getSpots();
 
         $scope.editSpot = function (id) {
-            //todo: edit
+            window.location= '#admin/spot/'+id;
         };
 
         $scope.deleteSpot = function (id) {

@@ -11,10 +11,10 @@ app.use(morgan('common', {stream: accessLogStream}));
 
 app.use(bodyParser.json());
 var spots = [
-    {id: 1, url: 'img/spots/libano.jpg', sports: ['longboard'], name: 'Líbano', address: "República del Líbano, Ciudad Autónoma de Buenos Aires", latitude: -34.5844409, longitude: -58.3948475, description: "Terrible lugar para bajar en long, pista larga y con buenas curvas para tirar trucos copados."},
-    {id: 2, url: 'img/spots/pared.jpg', sports: ['longboard'], name: 'La Pared', address: "República del Líbano, Ciudad Autónoma de Buenos Aires", latitude: -34.5844409, longitude: -58.3948475, description: "Terrible lugar para bajar en long, pista larga y con buenas curvas para tirar trucos copados."},
-    {id: 3, url: 'img/spots/pacha.jpg', sports: ['longboard', 'skate'], name: 'Pachá Skate Park', address: "República del Líbano, Ciudad Autónoma de Buenos Aires", latitude: -34.5844409, longitude: -58.3948475, description: "Terrible lugar para bajar en long, pista larga y con buenas curvas para tirar trucos copados."},
-    {id: 4, url: 'img/spots/garrahan.jpg', sports: ['BMX', 'skate'], name: 'Garrahan', address: "República del Líbano, Ciudad Autónoma de Buenos Aires", latitude: -34.5844409, longitude: -58.3948475, description: "Terrible lugar para bajar en long, pista larga y con buenas curvas para tirar trucos copados."}
+    {id: 1, url: 'img/spots/libano.jpg', sports: ['Longboard'], name: 'Líbano', address: "República del Líbano, Ciudad Autónoma de Buenos Aires", latitude: -34.5844409, longitude: -58.3948475, description: "Terrible lugar para bajar en long, pista larga y con buenas curvas para tirar trucos copados."},
+    {id: 2, url: 'img/spots/pared.jpg', sports: ['Longboard'], name: 'La Pared', address: "República del Líbano, Ciudad Autónoma de Buenos Aires", latitude: -34.5844409, longitude: -58.3948475, description: "Terrible lugar para bajar en long, pista larga y con buenas curvas para tirar trucos copados."},
+    {id: 3, url: 'img/spots/pacha.jpg', sports: ['Longboard', 'skate'], name: 'Pachá Skate Park', address: "República del Líbano, Ciudad Autónoma de Buenos Aires", latitude: -34.5844409, longitude: -58.3948475, description: "Terrible lugar para bajar en long, pista larga y con buenas curvas para tirar trucos copados."},
+    {id: 4, url: 'img/spots/garrahan.jpg', sports: ['BMX', 'Skate'], name: 'Garrahan', address: "República del Líbano, Ciudad Autónoma de Buenos Aires", latitude: -34.5844409, longitude: -58.3948475, description: "Terrible lugar para bajar en long, pista larga y con buenas curvas para tirar trucos copados."}
  ];
 
 var riders = [
