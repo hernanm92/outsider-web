@@ -27,3 +27,30 @@ app.controller('SpotController',
         }
     }
 );
+app.controller('AdminSpotsController',
+    function ($scope, spotsFactory, eventService) {
+
+
+        $scope.$on('$viewContentLoaded', function(){
+            App.init();
+        });
+
+        var spots= $scope;
+
+        $scope.getSpots = function () {
+            spotsFactory.query({},function(spotss){
+                $scope.spots=spotss;
+            });
+        };
+        $scope.getSpots();
+
+        $scope.editSpot = function (id) {
+            //todo: edit
+        };
+
+        $scope.deleteSpot = function (id) {
+            //todo: destroy
+        }
+
+    }
+);

@@ -31,6 +31,7 @@ app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/admin/post', {templateUrl: 'general/admin/post', controller: 'PostController'});
     $routeProvider.when('/admin/photo', {templateUrl: 'general/admin/photo', controller: 'PhotoController'});
     $routeProvider.when('/admin/spot', {templateUrl: 'general/admin/spot', controller: 'SpotController'});
+    $routeProvider.when('/admin/spots', {templateUrl: 'general/admin/spots', controller: 'AdminSpotsController'});
     $routeProvider.when('/admin/team-member', {templateUrl: 'general/admin/team-member', controller: 'TeamMemberController'});
     $routeProvider.otherwise({redirectTo: '/404'});
 }]);
