@@ -8,7 +8,7 @@ module.factory('spotFactory', ['$resource', 'config', 'Upload',
 
         spot.uploadSpot = function (sports, name, description, address, latitude, longitude, resource, callback) {
             Upload.upload({
-                url: urlBase + '/apot',
+                url: urlBase + '/spots',
                 data: {
                     sports: sports,
                     name: name,

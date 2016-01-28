@@ -10,7 +10,7 @@ module.factory('teamMemberFactory', ['$resource', 'config', 'Upload',
                                           stance, spot, quote, description,
                                           fb, inst, tw, callback) {
             Upload.upload({
-                url: urlBase + '/teamMember',
+                url: urlBase + '/teamMembers',
                 data: {
                     sport: sport,
                     name: name,

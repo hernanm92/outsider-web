@@ -102,19 +102,25 @@ app.post('/admin/login', function(req, res) {
 });
 
 //Post
-app.post('/admin/post', function(req, res) {
+app.post('/admin/posts', function(req, res) {
+    res.status(200);
+    res.send(user);
+});
+
+//Post
+app.post('/admin/photos', function(req, res) {
     res.status(200);
     res.send(user);
 });
 
 //Team member
-app.post('/admin/teamMember', function(req, res) {
+app.post('/admin/teamMembers', function(req, res) {
     res.status(200);
     res.send(user);
 });
 
 //Spot
-app.post('/admin/spot', function(req, res) {
+app.post('/admin/spots', function(req, res) {
     res.status(200);
     res.send(user);
 });

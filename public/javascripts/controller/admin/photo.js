@@ -1,5 +1,5 @@
-app.controller('PostController',
-    function ($scope, postFactory, spotsFactory, teamsFactory, eventService) {
+app.controller('PhotoController',
+    function ($scope, $location, photoFactory, spotsFactory, teamsFactory, eventService) {
 
         var post= $scope;
 
@@ -39,10 +39,10 @@ app.controller('PostController',
         };
 
         $scope.upload = function () {
-            postFactory.uploadPost(post.sports, post.title, post.file, post.story, post.quote,
+            photoFactory.uploadPhoto(post.sports, post.title, post.file, post.story, post.quote,
                 post.chosenRiders, post.spot, function (resp) {
-                //go to where it has to
-                window.location = '/admin/post';
+                    //go to where it has to
+                    window.location= '/admin/photo';
             });
         };
     }

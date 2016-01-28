@@ -1,21 +1,24 @@
-var module = angular.module('postModule', ['ngResource']);
+var module = angular.module('photoModule', ['ngResource']);
 
-module.factory('postFactory', ['$resource', 'config', 'Upload',
+module.factory('photoFactory', ['$resource', 'config', 'Upload',
     function ($resource, config, Upload) {
 
         var urlBase= config.domain + '/admin';
         var post = {};
 
-        post.uploadPost = function (sport, title, resource, story, quote, callback) {
+        post.uploadPhoto = function (sport, title, resource, story, quote,
+                                     chosenRiders, spot, callback) {
             Upload.upload({
-                url: urlBase + '/posts',
+                url: urlBase + '/photos',
                 data: {
                     sport: sport,
                     title: title,
                     type: 'image',
                     resource: resource,
                     story: story,
-                    quote: quote
+                    quote: quote,
+                    chosenRiders: chosenRiders,
+                    spot: spot
                 }
             }).then(function (resp) {
                 callback(resp);
@@ -23,7 +26,6 @@ module.factory('postFactory', ['$resource', 'config', 'Upload',
                 console.log('Error status: ' + resp.status);
             }, function (evt) {
                 var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-                console.log(evt);
                 console.log('progress: ' + progressPercentage + '% ' + evt.config.data.resource.name);
             });
         };

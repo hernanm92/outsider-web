@@ -72,6 +72,9 @@ app.get('/general/admin/team-member', function (req, res) {
 app.get('/general/admin/spot', function (req, res) {
     res.render('general/admin/spot');
 });
+app.get('/general/admin/photo', function (req, res) {
+    res.render('general/admin/photo');
+});
 
 http.createServer(app).listen(app.get('port'), function ()
 {

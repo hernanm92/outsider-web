@@ -6,7 +6,7 @@
         <div class="col-md-6 col-md-offset-3">
             <!-- General Unify Forms -->
             <form action="#" class="sky-form">
-                <header>Post</header>
+                <header>Foto</header>
 
                 <fieldset>
                     <section>
@@ -19,7 +19,7 @@
                     <section>
                         <label class="label">Deportes</label>
                         <label class="select select-multiple">
-                            <select multiple ng-model="sport">
+                            <select multiple ng-model="sports">
                                 <option value="Skate">Skate</option>
                                 <option value="Longboard">Longboard</option>
                                 <option value="BMX">BMX</option>
@@ -27,7 +27,6 @@
                                 <option value="Ski">Ski</option>
                                 <option value="Snowboard">Snowboard</option>
                             </select>
-                            <i></i>
                         </label>
                     </section>
 
@@ -40,7 +39,6 @@
                             <img class="img-responsive col-md-4" ngf-thumbnail="file || 'assets/img/thumb/img22.jpg'">
                         </label>
                     </section>
-
                     <fieldset>
                         <section>
                             <label class="label">Riders</label>
@@ -68,21 +66,19 @@
                             </datalist>
                         </label>
                     </section>
-
-                    <section>
-                        <label class="label">Escribí una declaración</label>
-                        <label class="textarea textarea-resizable">
-                            <i class="icon-append fa fa-comment"></i>
-                            <textarea rows="3" placeholder="Escribite el post" ng-model="quote"></textarea>
-                        </label>
-                        <div class="note"><strong>Nota:</strong> podés agrandar el área de texto.</div>
-                    </section>
-
                     <section>
                         <label class="label">Escribí el post</label>
                         <label class="textarea textarea-resizable">
                             <i class="icon-append fa fa-comment"></i>
                             <textarea rows="3" placeholder="Escribite el post" ng-model="story"></textarea>
+                        </label>
+                        <div class="note"><strong>Nota:</strong> podés agrandar el área de texto.</div>
+                    </section>
+                    <section>
+                        <label class="label">Escribí alguna declaracion</label>
+                        <label class="textarea textarea-resizable">
+                            <i class="icon-append fa fa-comment"></i>
+                            <textarea rows="3" placeholder="Escribite la declaracion" ng-model="quote"></textarea>
                         </label>
                         <div class="note"><strong>Nota:</strong> podés agrandar el área de texto.</div>
                     </section>
