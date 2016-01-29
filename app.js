@@ -69,6 +69,9 @@ app.get('/general/admin/home', function (req, res) {
 app.get('/general/admin/post', function (req, res) {
     res.render('general/admin/post');
 });
+app.get('/general/admin/posts', function (req, res) {
+    res.render('general/admin/posts');
+});
 app.get('/general/admin/rider', function (req, res) {
     res.render('general/admin/rider');
 });

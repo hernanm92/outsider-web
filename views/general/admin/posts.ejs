@@ -1,0 +1,48 @@
+<link rel="stylesheet" href="assets/css/pages/page_search_inner_tables.css">
+
+<div class="container content-sm">
+
+    <div class="text-center margin-bottom-35">
+        <a href="#admin/post" class="btn btn-info"><i class="glyphicon glyphicon-plus-sign"></i> Nueva noticia</a>
+    </div>
+    <!-- Begin Table Search v2 -->
+    <div class="table-search-v2">
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th>Foto</th>
+                    <th class="hidden-sm">Nombre</th>
+                    <th>Deporte</th>
+                    <th>Lugar</th>
+                    <th>Acciones</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="post in posts">
+                    <td>
+                        <img class="img-bordered" src="{{post.url}}" alt="">
+                    </td>
+                    <td class="td-width">
+                        <h3><a href="#">{{post.title}}</a></h3>
+                        <p>{{post.description.substr(0, post.description.length < 42 ? post.description : 42)}}...</p>
+                    </td>
+                    <td>
+                        <span class="label label-success">{{post.sport}}</span>
+                    </td>
+                    <td>
+                        <span><a href="#">{{post.spot.name}}</a></span>
+                    </td>
+                    <td>
+                        <ul class="list-inline table-buttons">
+                            <li><button type="button" class="btn-u btn-u-sm btn-u-dark" ng-click="editPost(post.id)"><i class="fa fa-edit"></i></button></li>
+                            <li><button type="button" class="btn-u btn-u-sm btn-u-dark" ng-click="deletePost(post.id)"><i class="fa fa-trash-o"></i></button></li>
+                        </ul>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- End Table Search v2 -->
+</div>

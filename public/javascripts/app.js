@@ -29,6 +29,8 @@ app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/admin/login', {templateUrl: 'general/admin/login', controller: 'LoginController'});
     $routeProvider.when('/admin', {templateUrl: 'general/admin/home', controller: 'AdminHomeController'});
     $routeProvider.when('/admin/post', {templateUrl: 'general/admin/post', controller: 'PostController'});
+    $routeProvider.when('/admin/post/:post', {templateUrl: 'general/admin/post', controller: 'PostController'});
+    $routeProvider.when('/admin/posts', {templateUrl: 'general/admin/posts', controller: 'AdminPostsController'});
     $routeProvider.when('/admin/photo', {templateUrl: 'general/admin/photo', controller: 'PhotoController'});
     $routeProvider.when('/admin/photo/:photo', {templateUrl: 'general/admin/photo', controller: 'PhotoController'});
     $routeProvider.when('/admin/photos', {templateUrl: 'general/admin/photos', controller: 'AdminPhotosController'});
