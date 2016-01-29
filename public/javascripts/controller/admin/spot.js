@@ -16,16 +16,22 @@ app.controller('SpotController',
                 $scope.spot = spot;
             });
         };
-        console.log($routeParams.spot);
+
+        $scope.autocompleteChange = function () {
+            console.log($scope);
+            console.log($scope.details);
+            if ($scope.details != undefined && $scope.details.geometry != undefined && $scope.details.geometry.location != undefined) {
+                $scope.spot.latitude = $scope.details.geometry.location.lat;
+                $scope.spot.longitude= $scope.details.geometry.location.lng;
+                console.log('cambio');
+                console.log($scope.spot.latitude);
+                console.log($scope.spot.longitude);
+            }
+        };
         if ($routeParams.spot != undefined) $scope.getSpot();
-        var spot= $scope.spot;
 
         $scope.upload = function () {
-            //todo: find a way to get latitude and logintude from address in order to show it later with gmaps and panoramic
-            spot.address= document.getElementById('pac-input').value;
-            spot.latitude= document.getElementById('lat').value;
-            spot.longitude= document.getElementById('long').value;
-            console.log(spot);
+            var spot= $scope.spot;
             spotFactory.uploadSpot(spot.sports, spot.name, spot.description, spot.address, spot.latitude, spot.longitude, spot.url, function (resp) {
                 //go to where it has to
                 window.location = '#/admin/spots';

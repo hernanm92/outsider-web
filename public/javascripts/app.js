@@ -1,5 +1,5 @@
 
-var app = angular.module('MainApp', ['ngRoute', 'ngFileUpload', 'config', 'homeModule', 'galleryModule',
+var app = angular.module('MainApp', ['ngRoute', 'ngFileUpload', 'ngAutocomplete', 'config', 'homeModule', 'galleryModule',
     'teamsModule', 'spotsModule', 'blogModule', 'authModule', 'postModule', 'photoModule', 'spotModule', 'teamMemberModule']);
 
 app.config(['$httpProvider', function ($httpProvider) {

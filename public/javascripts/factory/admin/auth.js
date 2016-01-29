@@ -8,17 +8,16 @@ module.factory('authFactory', ['$resource', 'config', '$http', '$window',
 
     auth.login = function (user, pass, callback) {
         $window.sessionStorage.authenticated = 'true';
-        callback();
-        //return $http.post(urlBase + '/login', {
-        //    username: user,
-        //    password: pass
-        //}).then(function () {
-        //    $window.sessionStorage.authenticated = 'true';
-        //    callback();
-        //}, function (response) {
-        //    delete $window.sessionStorage.authenticated;
-        //    throw response;
-        //});
+        return $http.post(urlBase + '/login', {
+            username: user,
+            password: pass
+        }).then(function () {
+            $window.sessionStorage.authenticated = 'true';
+            callback();
+        }, function (response) {
+            delete $window.sessionStorage.authenticated;
+            throw response;
+        });
     };
 
     auth.getCurrentUser = function(){
