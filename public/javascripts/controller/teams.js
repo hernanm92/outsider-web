@@ -10,7 +10,7 @@ app.controller('TeamsController',
             teamsFactory.query({},function(riders){
                 $scope.riders=riders;
             });
-        }
+        };
 
         $scope.getRiders();
 

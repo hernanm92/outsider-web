@@ -1,0 +1,56 @@
+<link rel="stylesheet" href="assets/css/pages/page_search_inner_tables.css">
+
+<div class="container content-sm">
+
+    <div class="text-center margin-bottom-35">
+        <a href="#admin/rider" class="btn btn-info"><i class="glyphicon glyphicon-plus-sign"></i> Nuevo rider</a>
+    </div>
+    <!-- Begin Table Search v2 -->
+    <div class="table-search-v2">
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th>Foto</th>
+                    <th class="hidden-sm">Nombre</th>
+                    <th>Alias</th>
+                    <th>Deporte</th>
+                    <th>Stance</th>
+                    <th>Spot preferido</th>
+                    <th>Acciones</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="rider in riders">
+                    <td>
+                        <img class="rounded-x" src="{{rider.photo_url}}" alt="">
+                    </td>
+                    <td class="td-width">
+                        <h3><a href="#">{{rider.name}}</a></h3>
+                        <p>{{rider.description}}</p>
+                    </td>
+                    <td>
+                        <span><a href="#">{{rider.alias}}</a></span>
+                    </td>
+                    <td>
+                        <span class="label label-success">{{rider.sport}}</span>
+                    </td>
+                    <td>
+                        <span><a href="#">{{rider.stance}}</a></span>
+                    </td>
+                    <td>
+                        <span><a href="#">{{rider.spot.name}}</a></span>
+                    </td>
+                    <td>
+                        <ul class="list-inline table-buttons">
+                            <li><button type="button" class="btn-u btn-u-sm btn-u-dark" ng-click="editRider(rider.alias)"><i class="fa fa-edit"></i></button></li>
+                            <li><button type="button" class="btn-u btn-u-sm btn-u-dark" ng-click="deleteRider(rider.id)"><i class="fa fa-trash-o"></i></button></li>
+                        </ul>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- End Table Search v2 -->
+</div>

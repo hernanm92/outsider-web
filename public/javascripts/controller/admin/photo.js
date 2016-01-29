@@ -52,7 +52,7 @@ app.controller('PhotoController',
             photoFactory.uploadPhoto(post.sports, post.title, post.url, post.description, post.quote,
                 $scope.chosenRiders, post.spot != undefined ? post.spot.name : '', function (resp) {
                     //go to where it has to
-                    window.location= '#/admin';
+                    window.location= '#/admin/photos';
             });
         };
     }

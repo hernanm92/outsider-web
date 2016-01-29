@@ -69,8 +69,11 @@ app.get('/general/admin/home', function (req, res) {
 app.get('/general/admin/post', function (req, res) {
     res.render('general/admin/post');
 });
-app.get('/general/admin/team-member', function (req, res) {
-    res.render('general/admin/team-member');
+app.get('/general/admin/rider', function (req, res) {
+    res.render('general/admin/rider');
+});
+app.get('/general/admin/riders', function (req, res) {
+    res.render('general/admin/riders');
 });
 app.get('/general/admin/spot', function (req, res) {
     res.render('general/admin/spot');

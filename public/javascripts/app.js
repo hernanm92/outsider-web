@@ -35,7 +35,9 @@ app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/admin/spot/', {templateUrl: 'general/admin/spot', controller: 'SpotController'});
     $routeProvider.when('/admin/spot/:spot', {templateUrl: 'general/admin/spot', controller: 'SpotController'});
     $routeProvider.when('/admin/spots', {templateUrl: 'general/admin/spots', controller: 'AdminSpotsController'});
-    $routeProvider.when('/admin/team-member', {templateUrl: 'general/admin/team-member', controller: 'TeamMemberController'});
+    $routeProvider.when('/admin/rider', {templateUrl: 'general/admin/rider', controller: 'TeamMemberController'});
+    $routeProvider.when('/admin/rider/:rider', {templateUrl: 'general/admin/rider', controller: 'TeamMemberController'});
+    $routeProvider.when('/admin/riders', {templateUrl: 'general/admin/riders', controller: 'AdminRidersController'});
     $routeProvider.otherwise({redirectTo: '/404'});
 }]);
 

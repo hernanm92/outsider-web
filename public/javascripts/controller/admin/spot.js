@@ -28,7 +28,7 @@ app.controller('SpotController',
             console.log(spot);
             spotFactory.uploadSpot(spot.sports, spot.name, spot.description, spot.address, spot.latitude, spot.longitude, spot.url, function (resp) {
                 //go to where it has to
-                window.location = '#/admin';
+                window.location = '#/admin/spots';
                 //console.log(spot);
             });
         }
