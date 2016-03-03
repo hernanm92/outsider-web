@@ -112,30 +112,56 @@ app.get('/posts/:id', function(req, res) {
 });
 
 //Login
+app.options('/admin/login', function(req, res) {
+    res.status(200);
+    res.send('{"message":"ok"}')
+});
+
 app.post('/admin/login', function(req, res) {
     res.status(200);
     res.send(user);
 });
 
 //Post
+app.options('/admin/posts', function(req, res) {
+    res.status(200);
+    res.send('{"message":"ok"}')
+});
+
 app.post('/admin/posts', function(req, res) {
     res.status(200);
     res.send(user);
 });
 
 //Post
+app.options('/admin/photos', function(req, res) {
+    res.status(200);
+    res.send('{"message":"ok"}')
+});
+
 app.post('/admin/photos', function(req, res) {
     res.status(200);
     res.send(user);
 });
 
 //Team member
+//todo: pondria la url con '-', no cammelcase
+app.options('/admin/teamMembers', function(req, res) {
+    res.status(200);
+    res.send('{"message":"ok"}')
+});
+
 app.post('/admin/teamMembers', function(req, res) {
     res.status(200);
     res.send(user);
 });
 
 //Spot
+app.options('/admin/spots', function(req, res) {
+    res.status(200);
+    res.send('{"message":"ok"}')
+});
+
 app.post('/admin/spots', function(req, res) {
     res.status(200);
     res.send(user);
