@@ -2,9 +2,8 @@ app.controller('HomeController',
     function ($scope, galleryFactory, blogFactory, eventService, $sce, $window, $location) {
 
       	$scope.$on('$viewContentLoaded', function(){
-	        App.init();
-	        OwlCarousel.initOwlCarousel();
-	        ParallaxSlider.initParallaxSlider();
+            App.init();
+            ParallaxSlider.initParallaxSlider();
 	  	});
 
         $scope.services = [
@@ -13,6 +12,17 @@ app.controller('HomeController',
             {icon: 'line-chart', title: 'Exposición', description: 'Subimos contenido de riders para que puedan mostrar su destreza hacia la comunidad.'}
         ];
 
+        $scope.brands = [
+            {name: '...', photo: 'assets/img/clients4/1.png'},
+            {name: '...', photo: 'assets/img/clients4/2.png'},
+            {name: '...', photo: 'assets/img/clients4/3.png'},
+            {name: '...', photo: 'assets/img/clients4/4.png'},
+            {name: '...', photo: 'assets/img/clients4/5.png'},
+            {name: '...', photo: 'assets/img/clients4/6.png'},
+            {name: '...', photo: 'assets/img/clients4/7.png'},
+            {name: '...', photo: 'assets/img/clients4/8.png'},
+            {name: '...', photo: 'assets/img/clients4/9.png'}
+        ];
 
         $scope.getPhotos = function(){
             galleryFactory.query({},function(photos){
@@ -57,3 +67,17 @@ app.controller('HomeController',
         });
     }
 );
+
+//todo: ver si se pueden mejorar los tiempos
+app.directive('onFinishBrandsRender', function () {
+    return {
+        restrict: 'A',
+        link: function (scope, element, attr) {
+            if (scope.$last === true) {
+                element.ready(function () {
+                    OwlCarousel.initOwlCarousel();
+                });
+            }
+        }
+    }
+});
