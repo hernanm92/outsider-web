@@ -1,5 +1,5 @@
 app.controller('HomeController',
-    function ($scope, galleryFactory, blogFactory, eventService, $window, $location) {
+    function ($scope, galleryFactory, blogFactory, eventService, $sce, $window, $location) {
 
       	$scope.$on('$viewContentLoaded', function(){
 	        App.init();
@@ -29,6 +29,18 @@ app.controller('HomeController',
         };
 
         $scope.getPosts();
+
+        $scope.getPostUrl = function(post){
+            return $sce.trustAsResourceUrl(post.url);
+        };
+
+        $scope.truncate = function(text){
+            size = text.length
+            if(size <= 120){
+                return text
+            }
+            return text.slice(0,120) + '...'
+        };
 
 
         //Load Google Analytics
