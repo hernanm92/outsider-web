@@ -11,30 +11,12 @@
 <div class="container content-sm" style="padding-bottom: 20px !important;">
 <!-- Service Blocks -->
     <div class="row margin-bottom-30">
-        <div class="col-md-4">
+        <div class="col-md-4" ng-repeat="service in services">
             <div class="service">
-                <i class="fa fa-users service-icon"></i>
+                <i class="fa fa-{{service.icon}} service-icon"></i>
                 <div class="desc">
-                    <h4>Comunidad</h4>
-                    <p>Outsider es una comunidad para todos aquellos que comparten la pasión por los deportes extremos</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="service">
-                <i class="fa fa-shield service-icon"></i>
-                <div class="desc">
-                    <h4>Marcas</h4>
-                    <p>Intentamos juntar a riders con diferentes marcas. Tambien les damos la oportunidad de sumarse a nuestro equipo</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="service">
-                <i class="fa fa-line-chart service-icon"></i>
-                <div class="desc">
-                    <h4>Exposición</h4>
-                    <p>Subimos contenido de riders para que puedan mostrar su destreza hacia la comunidad, .</p>
+                    <h4>{{service.title}}</h4>
+                    <p>{{service.description}}</p>
                 </div>
             </div>
         </div>

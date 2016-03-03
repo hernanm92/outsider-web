@@ -7,6 +7,12 @@ app.controller('HomeController',
 	        ParallaxSlider.initParallaxSlider();
 	  	});
 
+        $scope.services = [
+            {icon: 'users', title: 'Comunidad', description: 'Outsider es una comunidad para todos aquellos que comparten la pasión por los deportes extremos.'},
+            {icon: 'shield', title: 'Marcas', description: 'Intentamos juntar a riders con diferentes marcas. Tambien les damos la oportunidad de sumarse a nuestro equipo.'},
+            {icon: 'line-chart', title: 'Exposición', description: 'Subimos contenido de riders para que puedan mostrar su destreza hacia la comunidad.'}
+        ];
+
 
         $scope.getPhotos = function(){
             galleryFactory.query({},function(photos){
