@@ -1,5 +1,5 @@
 app.controller('HomeController',
-    function ($scope, galleryFactory, eventService, $window, $location) {
+    function ($scope, galleryFactory, blogFactory, eventService, $window, $location) {
 
       	$scope.$on('$viewContentLoaded', function(){
 	        App.init();
@@ -21,6 +21,14 @@ app.controller('HomeController',
         }
 
         $scope.getPhotos();
+
+        $scope.getPosts = function(){
+            blogFactory.query({},function(posts){
+                $scope.posts=posts.slice(0, 4);
+            });
+        };
+
+        $scope.getPosts();
 
 
         //Load Google Analytics
