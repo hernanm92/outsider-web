@@ -52,6 +52,10 @@ app.controller('HomeController',
             return text.slice(0,120) + '...'
         };
 
+        $scope.openBrand = function(url){
+            window.open(url, '_blank');
+        };
+
 
         //Load Google Analytics
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

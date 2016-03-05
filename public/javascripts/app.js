@@ -57,6 +57,13 @@ app.directive( 'elemReady', function( $parse ) {
     }
 });
 
+
+app.run(function (eventService, $rootScope, $window) {
+    $rootScope.$on("$locationChangeStart", function (event, currentState, previousState) {
+        $window.scrollTo(0, 0);
+    });
+});
+
 app.directive('googleAnalytics', function ( $location, $window ) {
     //Load Google Analytics (intentar hacerlo generico)
 });
