@@ -398,7 +398,7 @@ a.thumbnail {
 }
 .thumbnail-style a.btn-more:hover {
 	text-decoration: none;
-	box-shadow: 0 0 0 2px #5fb611;
+	/*box-shadow: 0 0 0 2px #5fb611;*/
 }
 .thumbnail-style:hover a.btn-more {
 	right: 10px;
