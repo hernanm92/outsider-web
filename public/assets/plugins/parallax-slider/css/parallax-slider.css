@@ -84,11 +84,11 @@
 .da-slide .da-img{
 	text-align: center;
 	width: 50%;
-	top: 80px;
+	top: 70px; /*bajo un poco la imagen*/
 	height: 328px;
 	line-height: 320px;
-	left: 110%; /*60%*/
-	margin-left:-16%;
+	left: 60%; /*60%*/
+	margin-left:-34%; /*para centrar la imagen*/
 }
 .da-slide-current .da-img{
 	left: 60%;
