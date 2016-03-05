@@ -3,4 +3,7 @@ app.controller('MenuController', function ($scope, homeService, $controller, $lo
         return $location.path() == id
     };
 
+    $scope.openSocial = function(url) {
+        window.open(url,'_blank');
+    }
 });
