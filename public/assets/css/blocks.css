@@ -915,6 +915,12 @@
   border-color: #e74c3c;
 }
 
+.team-v1 li > .team-img li i.fa-instagram:hover {
+    color: #fff;
+    background: #5387B0;
+    border-color: #5183AB;
+}
+
 /*Team Discription*/
 .team-v1 li > h3 {
   color: #000;
