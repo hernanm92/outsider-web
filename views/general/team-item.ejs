@@ -22,8 +22,9 @@
             <h2>{{rider.name}}</h2>
             <p>{{rider.description}}</p>
             <ul class="list-unstyled">
-                <li><i class="fa fa-user color-green"></i> Alias: {{rider.alias}}</li>
-                <li><i class="fa fa-calendar color-green"></i> Fecha de nacimiento: {{rider.birthdate}}</li>
+                <li><i class="fa fa-user color-green"></i> Apodo: {{rider.nickname}}</li>
+                <li><i class="fa fa-calendar color-green"></i> Edad: {{age(rider.birthdate)}} años</li>
+                <li><i class="fa fa-calendar color-green"></i> Fecha de nacimiento: {{formatDate(rider.birthdate)}}</li>
                 <li><i class="fa fa-bookmark color-green"></i> Deporte: {{rider.sport}}</li>
                 <li><i class="fa fa-globe color-green"></i> Procedencia: {{rider.procedence}}</li>
                 <li><i class="fa fa-globe color-green"></i> Vive actualmente: {{rider.residence}}</li>

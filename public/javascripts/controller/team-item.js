@@ -1,5 +1,5 @@
 app.controller('TeamItemController',
-    function ($scope, teamsFactory, eventService, $routeParams, $window, $location) {
+    function ($scope, teamsFactory, eventService, $routeParams, $window, $location, $filter) {
 
         $scope.$on('$viewContentLoaded', function(){
             App.init();
@@ -15,7 +15,19 @@ app.controller('TeamItemController',
 
         $scope.getRider();
 
+        $scope.formatDate = function(date){
+            return $filter('date')(date, 'MM/dd/yyyy', '-0300')
+        };
 
+        $scope.age = function(date){
+            //now = new Date().toISOString();
+            //utc_timestamp = now
+            //console.log(utc_timestamp)
+            //console.log(Date.now())
+            date = new Date(date).getTime();
+            now = new Date().getTime();
+            return moment.utc(moment(now,"DD/MM/YYYY HH:mm:ss").diff(moment(date,"DD/MM/YYYY HH:mm:ss"))).format("DD/MM/YYYY HH:mm:ss")
+        };
 
 
         //Load Google Analytics
