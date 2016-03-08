@@ -165,8 +165,10 @@
 
 .header .logo img {
 	z-index: 1;
-	margin: 20px 0;
 	position: relative;
+    max-width: 160px;
+    margin-top: 15px;
+    margin-bottom: 11px;
 }
 
 /*Big Logo Style*/
@@ -1046,8 +1048,8 @@
 
 	/*Logo*/
 	.header-fixed .header.header-fixed-shrink .logo img {
-		max-width: 105px;
-		margin: 45px 0 -4px;
+		max-width: 160px;
+        margin: 45px 0 -8px;
 	}
 
 	/*Navbar Nav*/
