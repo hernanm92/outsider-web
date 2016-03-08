@@ -1,5 +1,5 @@
 app.controller('TeamItemController',
-    function ($scope, teamsFactory, eventService, $routeParams, $window, $location) {
+    function ($scope, teamsFactory, eventService, $routeParams, $window, $location, $filter, $sce) {
 
         $scope.$on('$viewContentLoaded', function(){
             App.init();
@@ -15,7 +15,43 @@ app.controller('TeamItemController',
 
         $scope.getRider();
 
+        $scope.formatDate = function(date){
+            return $filter('date')(date, 'MM/dd/yyyy', '-0300')
+        };
 
+        $scope.getSpots = function(spots){
+            response = '';
+            console.log(spots)
+            console.log(spots[0])
+            if(spots[0]){
+                if(spots[0].id){
+                    response += '<a href="#/spots/' + spots[0].id + '">' + spots[0].name + '</a>'
+                }else{
+                    response += '<p style="display: inline">' + spots[0].name + '</p>'
+                }
+            }
+            if(spots[1]){
+                if(spots[1].id){
+                    response += ' y <a href="#/spots/' + spots[1].id + '">' + spots[1].name + '</a>'
+                }else{
+                    response += ' y <p style="display: inline">' + spots[1].name + '</p>'
+                }
+            }
+            return $sce.trustAsHtml(response)
+        }
+
+        $scope.age = function(date){
+            date = new Date(date).getTime();
+            now = new Date().getTime();
+            miliseconds = now - date;
+            return (miliseconds/1000/60/60/24/365.256).toFixedDown(0)
+        };
+
+        Number.prototype.toFixedDown = function(digits) {
+            var n = this - Math.pow(10, -digits)/2;
+            n += n / Math.pow(2, 53); // added 1360765523: 17.56.toFixedDown(2) === "17.56"
+            return n.toFixed(digits);
+        };
 
 
         //Load Google Analytics
