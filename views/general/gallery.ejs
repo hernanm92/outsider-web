@@ -21,7 +21,7 @@
     </div>
 
     <ul id="grid-container" class="cbp-l-grid-agency">
-        <li class="cbp-item {{photo.sport.toLowerCase()}}" ng-repeat="photo in photos" on-finish-photos-render>
+        <li class="cbp-item {{photo.sport.toLowerCase()}}" ng-repeat="photo in photos | orderBy: 'date'" on-finish-photos-render>
             <div class="cbp-caption">
                 <div class="cbp-caption-defaultWrap">
                     <!--<img src={{photo.url}} alt="">-->

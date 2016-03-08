@@ -21,8 +21,6 @@ app.controller('TeamItemController',
 
         $scope.getSpots = function(spots){
             response = '';
-            console.log(spots)
-            console.log(spots[0])
             if(spots[0]){
                 if(spots[0].id){
                     response += '<a href="#/spots/' + spots[0].id + '">' + spots[0].name + '</a>'
