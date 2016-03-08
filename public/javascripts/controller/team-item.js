@@ -20,13 +20,16 @@ app.controller('TeamItemController',
         };
 
         $scope.age = function(date){
-            //now = new Date().toISOString();
-            //utc_timestamp = now
-            //console.log(utc_timestamp)
-            //console.log(Date.now())
             date = new Date(date).getTime();
             now = new Date().getTime();
-            return moment.utc(moment(now,"DD/MM/YYYY HH:mm:ss").diff(moment(date,"DD/MM/YYYY HH:mm:ss"))).format("DD/MM/YYYY HH:mm:ss")
+            miliseconds = now - date;
+            return (miliseconds/1000/60/60/24/365.256).toFixedDown(0)
+        };
+
+        Number.prototype.toFixedDown = function(digits) {
+            var n = this - Math.pow(10, -digits)/2;
+            n += n / Math.pow(2, 53); // added 1360765523: 17.56.toFixedDown(2) === "17.56"
+            return n.toFixed(digits);
         };
 
 
