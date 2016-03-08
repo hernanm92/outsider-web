@@ -29,7 +29,7 @@
                 <li><i class="fa fa-globe color-green"></i> Procedencia: {{rider.procedence}}</li>
                 <li><i class="fa fa-globe color-green"></i> Vive actualmente: {{rider.residence}}</li>
                 <li><i class="fa fa-check color-green"></i> Stance: {{rider.stance}}</li>
-                <li><i class="fa fa-globe color-green"></i> Spot preferido: <a href="#/spots/{{rider.spot.id}}">{{rider.spot.name}}</a></li>
+                <li><i class="fa fa-globe color-green"></i> Spots preferidos: <p ng-bind-html="getSpots(rider.spots)" style="display: inline;"></p></li>
                 <li><i class="fa fa-facebook color-green"></i> Facebook: <a href="{{rider.facebook}}" target="_blank">/{{rider.facebook.substring(rider.facebook.lastIndexOf('/')+1)}}</a></li>
                 <li><i class="fa fa-instagram color-green"></i> Instagram: <a href="{{rider.instagram}}" target="_blank">@{{rider.instagram.substring(rider.instagram.lastIndexOf('/')+1)}}</a></li>
                 <li><i class="fa fa-twitter color-green"></i> Twitter: <a href="{{rider.twitter}}" target="_blank">@{{rider.twitter.substring(rider.twitter.lastIndexOf('/')+1)}}</a></li>
