@@ -36,14 +36,14 @@
                         <label for="file" ng-if="post == undefined || post.url == undefined">
                             <div class="button" id="post.url" ngf-select ng-model="post.url" name="post.url" ngf-pattern="'image/*'"
                                  ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100"
-                                 ngf-resize="{width: 100, height: 100}">Examinar</div>
-                            <img class="img-responsive col-md-4" ngf-thumbnail="post.url || 'assets/img/thumb/img22.jpg'">
+                                 ngf-resize="{width: 100, height: 100}" style="margin-bottom: 10px;">Examinar</div>
+                            <img class="img-responsive col-md-12" ngf-thumbnail="post.url || 'assets/img/thumb/img22.jpg'">
                         </label>
                         <label for="file" ng-if="post != undefined && post.url != undefined">
                             <div class="button" id="file" ngf-select ng-model="post.url" name="post.url" ngf-pattern="'image/*'"
                                  ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100"
-                                 ngf-resize="{width: 100, height: 100}">Examinar</div>
-                            <img class="img-responsive col-md-4" ngf-thumbnail="post.url || '{{post.url}}'">
+                                 ngf-resize="{width: 100, height: 100}" style="margin-bottom: 10px;">Examinar</div>
+                            <img class="img-responsive col-md-12" ngf-thumbnail="post.url || '{{post.url}}'">
                         </label>
                     </section>
                     
