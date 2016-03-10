@@ -7,7 +7,7 @@ module.factory('authFactory', ['$resource', 'config', '$http', '$window',
     var auth= {};
 
     auth.login = function (user, pass, callback) {
-        $window.sessionStorage.authenticated = 'true';
+        //$window.sessionStorage.authenticated = 'true';
         return $http.post(urlBase + '/login', {
             username: user,
             password: pass

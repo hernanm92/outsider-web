@@ -21,7 +21,7 @@ app.controller('PostController',
         $scope.getPost = function () {
             blogFactory.get({"id": $routeParams.post}, function(post){
                 $scope.post = post;
-                $scope.chosenRiders= post.riders;
+                $scope.chosenRiders= post.riders ? post.riders : [];
             });
         };
 
@@ -38,6 +38,10 @@ app.controller('PostController',
                     $scope.chosen='';
                     break;
                 }
+            }
+            if ($scope.chosen && $scope.chosen !== '') {
+                $scope.chosenRiders.push({name: $scope.chosen});
+                $scope.chosen= '';
             }
         };
 

@@ -22,7 +22,7 @@ app.controller('PhotoController',
         $scope.getPhoto = function () {
             galleryFactory.get({"id": $routeParams.photo}, function(photo){
                 $scope.photo = photo;
-                $scope.chosenRiders= photo.riders;
+                $scope.chosenRiders= photo.riders ? photo.riders : [];
             });
         };
 
@@ -40,6 +40,10 @@ app.controller('PhotoController',
                     break;
                 }
             }
+            if ($scope.chosen !== '') {
+                $scope.chosenRiders.push({name: $scope.chosen});
+                $scope.chosen= '';
+            }
         };
 
         $scope.deleteRider= function (rider) {
@@ -49,6 +53,7 @@ app.controller('PhotoController',
         };
         $scope.upload = function () {
             var post= $scope.photo;
+            console.log(post);
             photoFactory.uploadPhoto(post.sports, post.title, post.url, post.description, post.quote,
                 $scope.chosenRiders, post.spot != undefined ? post.spot.name : '', function (resp) {
                     //go to where it has to
