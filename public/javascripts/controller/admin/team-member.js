@@ -9,6 +9,7 @@ app.controller('TeamMemberController',
             Validation.initValidation();
             StyleSwitcher.initStyleSwitcher();
         });
+        $scope.chosenSpots= [];
 
         $scope.getSpots = function () {
             spotsFactory.query({},function(spots){
@@ -21,6 +22,7 @@ app.controller('TeamMemberController',
         $scope.getRider = function () {
             teamsFactory.get({"id": $routeParams.rider}, function(rider){
                 $scope.rider = rider;
+                $scope.chosenSpots = rider.spots ? rider.spots : [];
             });
         };
         console.log($routeParams.rider);
@@ -29,10 +31,35 @@ app.controller('TeamMemberController',
         if ($routeParams.rider != undefined) $scope.getRider();
 
 
+
+        $scope.spotChosen= function(){
+            for (var i = 0; i < $scope.spots.length; i++) {
+                var sid = $scope.spots[i];
+                if ($scope.chosen == sid.name) {
+                    var idx= $scope.chosenSpots.indexOf(sid);
+                    if (idx < 0) $scope.chosenSpots.push(sid);
+                    $scope.chosen='';
+                    break;
+                }
+            }
+            if ($scope.chosen !== '') {
+                var sid2 = {name: $scope.chosen};
+                var idx2= $scope.chosenSpots.indexOf(sid2);
+                if (idx2 < 0) $scope.chosenSpots.push(sid2);
+                $scope.chosen= '';
+            }
+        };
+
+        $scope.deleteSpot= function (spot) {
+            console.log(spot);
+            var idx= $scope.chosenSpots.indexOf(spot);
+            $scope.chosenSpots.splice(idx, 1);
+        };
+
         $scope.upload = function () {
             var team= $scope.rider;
             teamMemberFactory.uploadTeamMember(team.sport, team.name, team.alias, team.photo_url, team.procedence,
-                team.residence, team.birthdate, team.stance, team.spot.name, team.quote, team.description,
+                team.residence, team.birthdate, team.stance, team.chosenSpots, team.quote, team.description,
                 team.facebook, team.instagram, team.twitter, function (res) {
                 //go to where it has to
                 window.location = '#/admin/riders';

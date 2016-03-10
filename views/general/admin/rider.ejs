@@ -44,17 +44,17 @@
                                 </section>
                                 <section>
                                     <label class="label">Subí la foto</label>
-                                    <label for="file" ng-if="photo == undefined || rider.photo_url == undefined">
+                                    <label for="file" ng-if="photo == undefined || spot.photo_url == undefined">
                                         <div class="button" id="rider.photo_url" ngf-select ng-model="rider.photo_url" name="rider.photo_url" ngf-pattern="'image/*'"
                                              ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100"
                                              ngf-resize="{width: 100, height: 100}">Examinar</div>
                                         <img class="img-responsive col-md-4" ngf-thumbnail="rider.photo_url || 'assets/img/thumb/img22.jpg'">
                                     </label>
-                                    <label for="file" ng-if="photo != undefined && rider.photo_url != undefined">
+                                    <label for="file" ng-if="photo != undefined && spot.photo_url != undefined">
                                         <div class="button" id="file" ngf-select ng-model="rider.photo_url" name="rider.photo_url" ngf-pattern="'image/*'"
                                              ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100"
                                              ngf-resize="{width: 100, height: 100}">Examinar</div>
-                                        <img class="img-responsive col-md-4" ngf-thumbnail="rider.photo_url || '{{rider.photo_url}}'">
+                                        <img class="img-responsive col-md-4" ngf-thumbnail="rider.photo_url || '{{spot.photo_url}}'">
                                     </label>
                                 </section>
                                 <section>
@@ -83,17 +83,23 @@
                                     <label class="input">
                                         <i class="icon-append fa fa-map-pin"></i>
                                         <input type="text" placeholder="Stance" ng-model="rider.stance">
-                                        <!--todo Ask about stance, if they are just options make it a select-->
                                     </label>
                                 </section>
                                 <section>
-                                    <label class="label">Spot preferido</label>
-                                    <label class="input">
-                                        <input type="text" list="spotList" ng-model="rider.spot.name">
-                                        <datalist id="spotList" >
-                                            <option ng-repeat="s in spots" value="{{s.name}}"></option>
+                                    <label class="label">Agregar spots</label>
+                                    <label class="input col-sm-11">
+                                        <input type="text"  list="list" ng-model="chosen" >
+                                        <datalist id="list" >
+                                            <option ng-repeat="s in spots" value="{{s.name}}">{{s.name}}</option>
                                         </datalist>
                                     </label>
+                                    <button type="button" class="btn btn-small btn-success col-sm-1" ng-click="spotChosen()"><i class="fa fa-plus"></i></button>
+                                </section>
+                                <section>
+                                    <label class="label">Spots preferidos</label>
+                                    <div class="inline-group">
+                                        <label class="checkbox" ng-repeat="spot in chosenSpots"><input type="checkbox" name="checkbox-inline" ng-click="deleteSpot(spot)" checked><i></i>{{spot.name}}</label>
+                                    </div>
                                 </section>
                                 <section>
                                     <label class="label">Facebook</label>

@@ -7,7 +7,7 @@ module.factory('teamMemberFactory', ['$resource', 'config', 'Upload',
         var team = {};
 
         team.uploadTeamMember = function (sport, name, alias, photo, procedence, residence, birthdate,
-                                          stance, spot, quote, description,
+                                          stance, spots, quote, description,
                                           fb, inst, tw, callback) {
             Upload.upload({
                 url: urlBase + '/teamMembers',
@@ -20,7 +20,7 @@ module.factory('teamMemberFactory', ['$resource', 'config', 'Upload',
                     residence: residence,
                     birthdate: birthdate,
                     stance: stance,
-                    spot: spot,
+                    spot: spots,
                     quote: quote,
                     description: description,
                     facebook: fb,
