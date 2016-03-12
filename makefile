@@ -40,8 +40,14 @@ stage2:
 	node -e "require('grunt').tasks(['stage']);"
 	nohup nodejs app.js &
 
-heroku:
+azure:
 	- pkill -9 nodejs
 	- pkill -9 node
 	node -e "require('grunt').tasks(['production']);"
+	node app.js
+
+heroku:
+	- pkill -9 nodejs
+	- pkill -9 node
+	node -e "require('grunt').tasks(['heroku']);"
 	node app.js
