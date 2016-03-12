@@ -1,2 +1,2 @@
 [config]
-command = make azure
+command = node -e "require('grunt').tasks(['production']);"; node app.js
