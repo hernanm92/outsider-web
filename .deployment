@@ -1,2 +1,2 @@
 [config]
-command = node -e "require('grunt').tasks(['production']);"; node app.js
+command = npm install; node -e "require('grunt').tasks(['production']);"; node app.js
