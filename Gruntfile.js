@@ -166,6 +166,19 @@ module.exports = function (grunt) {
                 },
                 constants: {
                     config: {
+                        domain: 'http://outsider-api.eastus.cloudapp.azure.com',
+                        styleFolder: 'common',
+                        applicationPrefix: ''
+                    }
+                }
+            },
+            heroku: {
+                options: {
+                    name: 'config',
+                    dest: 'public/javascripts/config.js'
+                },
+                constants: {
+                    config: {
                         domain: 'https://outsiderapi.herokuapp.com',
                         styleFolder: 'common',
                         applicationPrefix: ''
@@ -192,6 +205,8 @@ module.exports = function (grunt) {
     grunt.registerTask('development', ['ngconstant:' + target, 'jsvalidate', 'uglify:beautiful', 'cssmin:beautiful']);
 
     grunt.registerTask('production', ['ngconstant:production', 'uglify:ugly', 'cssmin:ugly']);
+
+    grunt.registerTask('heroku', ['ngconstant:heroku', 'uglify:ugly', 'cssmin:ugly']);
 
     grunt.registerTask('stage', ['ngconstant:stage', 'uglify:beautiful', 'cssmin:beautiful']);
 
