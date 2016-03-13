@@ -1,2 +1,2 @@
 [config]
-command = ver
+command = ./azure_deploy.sh
