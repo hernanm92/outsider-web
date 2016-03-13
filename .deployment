@@ -1,4 +1,2 @@
 [config]
-command = npm install
-command = node -e "require('grunt').tasks(['production']);"
-command = node app.js
+command = ./azure_deploy.sh
