@@ -1,2 +1,2 @@
 [config]
-command = ./azure_deploy.sh
+command = azure_deploy.exe
