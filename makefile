@@ -44,7 +44,7 @@ azure:
 	- pkill -9 nodejs
 	- pkill -9 node
 	node -e "require('grunt').tasks(['production']);"
-	node app.js
+	nohup node app.js &
 
 heroku:
 	- pkill -9 nodejs
