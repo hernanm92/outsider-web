@@ -9,6 +9,10 @@ app.controller('SpotController',
             Datepicker.initDatepicker();
             Validation.initValidation();
             StyleSwitcher.initStyleSwitcher();
+            $scope.spot = {};
+            $scope.spot.latitude= -34.6037345;
+            $scope.spot.longitude= -58.3837591;
+            $scope.updateMap();
         });
 
         $scope.getSpot = function () {
@@ -17,15 +21,35 @@ app.controller('SpotController',
             });
         };
 
+        $scope.updateMap = function () {
+            console.log($scope.spot.latitude);
+            console.log($scope.spot.longitude);
+
+            map = new GMaps({
+                div: '#map',
+                scrollwheel: false,
+                lat: $scope.spot.latitude,
+                lng: $scope.spot.longitude
+            });
+
+            var marker = map.addMarker({
+                lat: $scope.spot.latitude,
+                lng: $scope.spot.longitude,
+                title: $scope.spot.name
+            });
+        };
+
         $scope.autocompleteChange = function () {
-            console.log($scope);
-            console.log($scope.details);
+            console.log('details  '+$scope.details);
             if ($scope.details != undefined && $scope.details.geometry != undefined && $scope.details.geometry.location != undefined) {
+                console.log('entre');
+                console.log($scope.details.geometry.location);
+                var location = JSON.parse($scope.details.geometry.location.toString());
+                console.log(location);
+                console.log(location.lat);
                 $scope.spot.latitude = $scope.details.geometry.location.lat;
                 $scope.spot.longitude= $scope.details.geometry.location.lng;
-                console.log('cambio');
-                console.log($scope.spot.latitude);
-                console.log($scope.spot.longitude);
+                $scope.updateMap();
             }
         };
         if ($routeParams.spot != undefined) $scope.getSpot();
