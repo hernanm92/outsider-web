@@ -4,9 +4,10 @@ app.controller('LoginController',
         var auth= $scope;
 
         $scope.login = function () {
-            authFactory.login(auth.user, auth.password, function () {
+            authFactory.login(auth.user, auth.password, function (response) {
                 //go to where it has to
-                window.location = '#/admin';
+                if (response.data.message === "ok") window.location = '#/admin';
+                else $scope.error= 'Error';
             });
         }
     }

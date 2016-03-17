@@ -11,9 +11,9 @@ module.factory('authFactory', ['$resource', 'config', '$http', '$window',
         return $http.post(urlBase + '/login', {
             username: user,
             password: pass
-        }).then(function () {
+        }).then(function (response) {
             $window.sessionStorage.authenticated = 'true';
-            callback();
+            callback(response);
         }, function (response) {
             delete $window.sessionStorage.authenticated;
             throw response;

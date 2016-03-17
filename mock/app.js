@@ -122,8 +122,13 @@ app.options('/admin/login', function(req, res) {
 });
 
 app.post('/admin/login', function(req, res) {
-    res.status(200);
-    res.send(user);
+    if (req.body.username === 'admin' && req.body.password === 'secret') {
+        res.status(200);
+        res.send({message: "ok"});
+    } else {
+        res.status(200);
+        res.send({message:"Wrong"});
+    }
 });
 
 //Post

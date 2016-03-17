@@ -65,7 +65,6 @@ app.controller('AdminSpotsController',
             App.init();
         });
 
-        var spots= $scope;
 
         $scope.getSpots = function () {
             spotsFactory.query({},function(spotss){
@@ -74,8 +73,8 @@ app.controller('AdminSpotsController',
         };
         $scope.getSpots();
 
-        $scope.editSpot = function (id) {
-            window.location= '#admin/spot/'+id;
+        $scope.editSpot = function (alias) {
+            window.location= '#admin/spot/'+alias;
         };
 
         $scope.deleteSpot = function (id) {

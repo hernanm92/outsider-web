@@ -7,6 +7,10 @@
                     <h2>Iniciar sesión</h2>
                 </div>
 
+                <div ng-show="error == 'Error'" class="alert alert-danger" role="alert">
+                    <strong>Error!</strong> Escribiste cualquier usuario o cualquier contrasena gil.
+                </div>
+
                 <div class="input-group margin-bottom-20">
                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
                     <input type="text" placeholder="Usuario" class="form-control" ng-model="user">
