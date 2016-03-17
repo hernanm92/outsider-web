@@ -22,9 +22,6 @@ app.controller('SpotController',
         };
 
         $scope.updateMap = function () {
-            console.log($scope.spot.latitude);
-            console.log($scope.spot.longitude);
-
             map = new GMaps({
                 div: '#map',
                 scrollwheel: false,
@@ -32,7 +29,7 @@ app.controller('SpotController',
                 lng: $scope.spot.longitude
             });
 
-            var marker = map.addMarker({
+            map.addMarker({
                 lat: $scope.spot.latitude,
                 lng: $scope.spot.longitude,
                 title: $scope.spot.name
@@ -40,15 +37,10 @@ app.controller('SpotController',
         };
 
         $scope.autocompleteChange = function () {
-            console.log('details  '+$scope.details);
-            if ($scope.details != undefined && $scope.details.geometry != undefined && $scope.details.geometry.location != undefined) {
-                console.log('entre');
-                console.log($scope.details.geometry.location);
-                var location = JSON.parse($scope.details.geometry.location.toString());
-                console.log(location);
-                console.log(location.lat);
-                $scope.spot.latitude = $scope.details.geometry.location.lat;
-                $scope.spot.longitude= $scope.details.geometry.location.lng;
+            if ($scope.details != undefined ) {
+                $scope.spot.latitude = $scope.details.lat;
+                $scope.spot.longitude= $scope.details.lng;
+                $scope.spot.address= $scope.details.formattedAddress;
                 $scope.updateMap();
             }
         };
@@ -56,9 +48,10 @@ app.controller('SpotController',
 
         $scope.upload = function () {
             var spot= $scope.spot;
+            console.log(spot.address);
             spotFactory.uploadSpot(spot.sports, spot.name, spot.description, spot.address, spot.latitude, spot.longitude, spot.url, function (resp) {
                 //go to where it has to
-                window.location = '#/admin/spots';
+                //window.location = '#/admin/spots';
                 //console.log(spot);
             });
         }

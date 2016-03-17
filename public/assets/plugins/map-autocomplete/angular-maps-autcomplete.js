@@ -1,166 +1,158 @@
 'use strict';
 
 /**
+ * Source: https://github.com/DmitryEfimenko/ngAutocomplete
  * A directive for adding google places autocomplete to a text box
  * google places autocomplete info: https://developers.google.com/maps/documentation/javascript/places
  *
- * Usage:
+ * Full Example:
+ * <input type="text" ng-model="details.formattedAddress" ng-autocomplete details="details" options="options" validate-fn="customValidate()" />
  *
- * <input type="text"  ng-autocomplete ng-model="autocomplete" options="options" details="details/>
+ * creates the autocomplete text box
  *
- * + ng-model - autocomplete textbox value
+ *   Required attributes
+ *   [ng-autocomplete]: Specifies the directive
+ *   [ng-model]: Set initial value for the textbox
+ *   [details]: Specifies result object which is a bit flattened "google place" object, where properties will be set to the address types.
+ *              For more info about google types, see: https://developers.google.com/maps/documentation/geocoding/#Types
  *
- * + details - more detailed autocomplete result, includes address parts, latlng, etc. (Optional)
+ *   Optional attributes
+ *   [options]: Options provided by the user that filter the autocomplete results
  *
- * + options - configuration for the autocomplete (Optional)
+ *       options = {
+ *           types: type,        string, values can be 'geocode', 'establishment', '(regions)', or '(cities)'
+ *           bounds: bounds,     google maps LatLngBounds Object
+ *           country: country    string, ISO 3166-1 Alpha-2 compatible country code. examples; 'ca', 'us', 'gb'
+ *       }
  *
- *       + types: type,        String, values can be 'geocode', 'establishment', '(regions)', or '(cities)'
- *       + bounds: bounds,     Google maps LatLngBounds Object, biases results to bounds, but may return results outside these bounds
- *       + country: country    String, ISO 3166-1 Alpha-2 compatible country code. examples; 'ca', 'us', 'gb'
- *       + watchEnter:         Boolean, true; on Enter select top autocomplete result. false(default); enter ends autocomplete
+ *   [validate-fn]: allows to add any custom validation logic to run upon an address is selected from the list of suggestions
  *
- * example:
- *
- *    options = {
- *        types: '(cities)',
- *        country: 'ca'
- *    }
- **/
+ *   IMPORTANT!
+ *   You must declare $scope.details = {}; in the controller
+ */
 
-angular.module( "ngAutocomplete", [])
-    .directive('ngAutocomplete', function() {
-        return {
-            require: 'ngModel',
-            scope: {
-                ngModel: '=',
-                options: '=?',
-                details: '=?'
-            },
+angular.module("ngAutocomplete", [])
+    .directive('ngAutocomplete', ['$parse',
+        function ($parse) {
 
-            link: function(scope, element, attrs, controller) {
-
-                //options for autocomplete
-                var opts
-                var watchEnter = false
-                //convert options provided to opts
-                var initOpts = function() {
-
-                    opts = {}
-                    if (scope.options) {
-
-                        if (scope.options.watchEnter !== true) {
-                            watchEnter = false
-                        } else {
-                            watchEnter = true
+            function convertPlaceToFriendlyObject(place) {
+                var result = undefined;
+                if (place) {
+                    result = {};
+                    for (var i = 0, l = place.address_components.length; i < l; i++) {
+                        if (i == 0) {
+                            result.searchedBy = place.address_components[i].types[0];
                         }
-
-                        if (scope.options.types) {
-                            opts.types = []
-                            opts.types.push(scope.options.types)
-                            scope.gPlace.setTypes(opts.types)
-                        } else {
-                            scope.gPlace.setTypes([])
-                        }
-
-                        if (scope.options.bounds) {
-                            opts.bounds = scope.options.bounds
-                            scope.gPlace.setBounds(opts.bounds)
-                        } else {
-                            scope.gPlace.setBounds(null)
-                        }
-
-                        if (scope.options.country) {
-                            opts.componentRestrictions = {
-                                country: scope.options.country
-                            }
-                            scope.gPlace.setComponentRestrictions(opts.componentRestrictions)
-                        } else {
-                            scope.gPlace.setComponentRestrictions(null)
-                        }
+                        result[place.address_components[i].types[0]] = place.address_components[i].long_name;
                     }
+                    result.formattedAddress = place.formatted_address;
+                    result.lat = place.geometry.location.lat();
+                    result.lng = place.geometry.location.lng();
                 }
-
-                if (scope.gPlace == undefined) {
-                    scope.gPlace = new google.maps.places.Autocomplete(element[0], {});
-                }
-                google.maps.event.addListener(scope.gPlace, 'place_changed', function() {
-                    var result = scope.gPlace.getPlace();
-                    if (result !== undefined) {
-                        if (result.address_components !== undefined) {
-
-                            scope.$apply(function() {
-
-                                scope.details = result;
-
-                                controller.$setViewValue(element.val());
-                            });
-                        }
-                        else {
-                            if (watchEnter) {
-                                getPlace(result)
-                            }
-                        }
-                    }
-                })
-
-                //function to get retrieve the autocompletes first result using the AutocompleteService
-                var getPlace = function(result) {
-                    var autocompleteService = new google.maps.places.AutocompleteService();
-                    if (result.name.length > 0){
-                        autocompleteService.getPlacePredictions(
-                            {
-                                input: result.name,
-                                offset: result.name.length
-                            },
-                            function listentoresult(list, status) {
-                                if(list == null || list.length == 0) {
-
-                                    scope.$apply(function() {
-                                        scope.details = null;
-                                    });
-
-                                } else {
-                                    var placesService = new google.maps.places.PlacesService(element[0]);
-                                    placesService.getDetails(
-                                        {'reference': list[0].reference},
-                                        function detailsresult(detailsResult, placesServiceStatus) {
-
-                                            if (placesServiceStatus == google.maps.GeocoderStatus.OK) {
-                                                scope.$apply(function() {
-
-                                                    controller.$setViewValue(detailsResult.formatted_address);
-                                                    element.val(detailsResult.formatted_address);
-
-                                                    scope.details = detailsResult;
-
-                                                    //on focusout the value reverts, need to set it again.
-                                                    var watchFocusOut = element.on('focusout', function(event) {
-                                                        element.val(detailsResult.formatted_address);
-                                                        element.unbind('focusout')
-                                                    })
-
-                                                });
-                                            }
-                                        }
-                                    );
-                                }
-                            });
-                    }
-                }
-
-                controller.$render = function () {
-                    var location = controller.$viewValue;
-                    element.val(location);
-                };
-
-                //watch options provided to directive
-                scope.watchOptions = function () {
-                    return scope.options
-                };
-                scope.$watch(scope.watchOptions, function () {
-                    initOpts()
-                }, true);
-
+                return result;
             }
-        };
-    });
+
+            return {
+                restrict: 'A',
+                require: 'ngModel',
+                link: function ($scope, $element, $attrs, $ctrl) {
+
+                    if (!angular.isDefined($attrs.details)) {
+                        throw '<ng-autocomplete> must have attribute [details] assigned to store full address object';
+                    }
+
+                    var getDetails = $parse($attrs.details);
+                    var setDetails = getDetails.assign;
+                    var getOptions = $parse($attrs.options);
+
+                    //options for autocomplete
+                    var opts;
+
+                    //convert options provided to opts
+                    var initOpts = function () {
+                        opts = {};
+                        if (angular.isDefined($attrs.options)) {
+                            var options = getOptions($scope);
+                            if (options.types) {
+                                opts.types = [];
+                                opts.types.push(options.types);
+                            }
+                            if (options.bounds) {
+                                opts.bounds = options.bounds;
+                            }
+                            if (options.country) {
+                                opts.componentRestrictions = {
+                                    country: options.country
+                                };
+                            }
+                        }
+                    };
+
+                    //create new autocomplete
+                    //reinitializes on every change of the options provided
+                    var newAutocomplete = function () {
+                        var gPlace = new google.maps.places.Autocomplete($element[0], opts);
+                        google.maps.event.addListener(gPlace, 'place_changed', function () {
+                            $scope.$apply(function () {
+                                var place = gPlace.getPlace();
+                                var details = convertPlaceToFriendlyObject(place);
+                                setDetails($scope, details);
+                                $ctrl.$setViewValue(details.formattedAddress);
+                                $ctrl.$validate();
+                            });
+                            if ($ctrl.$valid && angular.isDefined($attrs.validateFn)) {
+                                $scope.$apply(function () {
+                                    $scope.$eval($attrs.validateFn);
+                                });
+                            }
+                        });
+                    };
+                    newAutocomplete();
+
+                    $ctrl.$validators.parse = function (value) {
+                        var details = getDetails($scope);
+                        var valid = ($attrs.required == true && details != undefined && details.lat != undefined) ||
+                            (!$attrs.required && (details == undefined || details.lat == undefined) && $element.val() != '');
+                        return valid;
+                    };
+
+                    $element.on('keypress', function (e) {
+                        // prevent form submission on pressing Enter as there could be more inputs to fill out
+                        if (e.which == 13) {
+                            e.preventDefault();
+                        }
+                    });
+
+                    //watch options provided to directive
+                    if (angular.isDefined($attrs.options)) {
+                        $scope.$watch($attrs.options, function() {
+                            initOpts();
+                            newAutocomplete();
+                        });
+                    }
+
+                    // user typed something in the input - means an intention to change address, which is why
+                    // we need to null out all fields for fresh validation
+                    $element.on('keyup', function (e) {
+                        //          chars 0-9, a-z                        numpad 0-9                   backspace         delete           space
+                        if ((e.which >= 48 && e.which <= 90) || (e.which >= 96 && e.which <= 105) || e.which == 8 || e.which == 46 || e.which == 32) {
+                            var details = getDetails($scope);
+                            if (details != undefined) {
+                                for (var property in details) {
+                                    if (details.hasOwnProperty(property) && property != 'formattedAddress') {
+                                        delete details[property];
+                                    }
+                                }
+                                setDetails($scope, details);
+                            }
+                            if ($ctrl.$valid) {
+                                $scope.$apply(function () {
+                                    $ctrl.$setValidity('parse', false);
+                                });
+                            }
+                        }
+                    });
+                }
+            };
+        }
+    ]);
