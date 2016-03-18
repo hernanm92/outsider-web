@@ -2,47 +2,8 @@
 <link rel="stylesheet" href="assets/css/pages/portfolio-v1.css">
 <div class="container content">
     <div class="row portfolio-item margin-bottom-50">
-        <!-- Carousel -->
-        <div class="col-md-7">
-            <div class="carousel slide carousel-v1" id="myCarousel">
-                <div class="carousel-inner">
-                    <div class="item active">
-                        <img alt="" src="{{spot.url}}">
-                        <div class="carousel-caption">
-                            <p>{{spot.name}}</p>
-                        </div>
-                    </div>
-                    <!--<div class="item">-->
-                        <!--<div id="map" class="map"></div>-->
-                        <!--<div class="carousel-caption">-->
-                            <!--<p>{{spot.name}}</p>-->
-                        <!--</div>-->
-                    <!--</div>-->
-
-                    <!--todo: pondria el mapa fuera del carousel-->
-                    <!--<div class="item">
-                        <!--<img alt="" src="assets/img/main/img13.jpg">-->
-                        <!--<div id="panorama" class="map"></div>
-                        <div class="carousel-caption">
-                            <p>{{spot.name}}</p>
-                        </div>
-                    </div>-->
-                </div>
-
-                <div class="carousel-arrow">
-                    <a data-slide="prev" data-target="#myCarousel" class="left carousel-control">
-                        <i class="fa fa-angle-left"></i>
-                    </a>
-                    <a data-slide="next" data-target="#myCarousel" class="right carousel-control">
-                        <i class="fa fa-angle-right"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <!-- End Carousel -->
-
         <!-- Content Info -->
-        <div class="col-md-5">
+        <div class="col-md-6">
             <h2>{{spot.name}}</h2>
             <p>{{spot.description}}</p>
             <ul class="list-unstyled">
@@ -52,7 +13,54 @@
             <!--<a href="#" class="btn-u btn-u-large">VISIT THE PROJECT</a>-->
         </div>
         <!-- End Content Info -->
-    </div><!--/row-->
+        <!-- Map -->
+        <div class="col-md-6">
+            <div class="carousel slide carousel-v1" id="myCarousel">
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <div id="map" class="map"></div>
+                        <div class="carousel-caption">
+                            <p>{{spot.name}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Map -->
+
+    </div>
+    <div class="row portfolio-item margin-bottom-50">
+        <!-- Carousel -->
+        <div class="col-md-6">
+            <div class="carousel slide carousel-v1" id="myCarousel">
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <img alt="" src="{{spot.url}}">
+                        <div class="carousel-caption">
+                            <p>{{spot.name}}</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- End Carousel -->
+
+        <!-- Panorama-->
+        <div class="col-md-6">
+            <div class="carousel slide carousel-v1" id="myCarousel">
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <div id="panorama" class="map"></div>
+                        <div class="carousel-caption">
+                            <p>{{spot.name}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Panorama -->
+    </div>
 
 </div><!--/container-->
 <!--=== End Content Part ===-->

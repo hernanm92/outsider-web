@@ -3,14 +3,15 @@ app.controller('SpotItemController',
 
         $scope.$on('$viewContentLoaded', function(){
             App.init();
+            ContactPage.initMap();
             OwlRecentWorks.initOwlRecentWorksV1();
         });
 
         $scope.getSpot = function(){
             spotsFactory.get({"id": $routeParams.spot}, function(spot){
                 $scope.spot = spot;
-                //$scope.initMap(spot.latitude, spot.longitude);
-                $scope.initPanorama(spot.latitude, spot.longitude);
+                $scope.initMap();
+                $scope.initPanorama();
             });
 
         };
@@ -22,34 +23,28 @@ app.controller('SpotItemController',
         };
 
         //Basic Map
-        $scope.initMap = function (lat, long) {
-            var map;
-            $(document).ready(function(){
-                map = new GMaps({
-                    div: '#map',
-                    scrollwheel: false,
-                    lat: lat,
-                    lng: long
-                });
-                console.log(map);
-                var title= $scope.spot.name;
-                var marker = map.addMarker({
-                    lat: lat,
-                    lng: long,
-                    title: title
-                });
+        $scope.initMap = function () {
+
+            map = new GMaps({
+                div: '#map',
+                scrollwheel: false,
+                lat: $scope.spot.latitude,
+                lng: $scope.spot.longitude
+            });
+
+            map.addMarker({
+                lat: $scope.spot.latitude,
+                lng: $scope.spot.longitude,
+                title: $scope.spot.name
             });
         };
 
         //Panorama Map
-        $scope.initPanorama = function (lat, long) {
-            var panorama;
-            $(document).ready(function(){
-                panorama = GMaps.createPanorama({
-                    el: '#panorama',
-                    lat : lat,
-                    lng : long
-                });
+        $scope.initPanorama = function () {
+            var panorama = GMaps.createPanorama({
+                el: '#panorama',
+                lat: $scope.spot.latitude,
+                lng: $scope.spot.longitude
             });
         };
 
