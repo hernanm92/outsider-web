@@ -23,7 +23,6 @@ app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/spots', {templateUrl: 'general/spots', controller: 'SpotsController'});
     $routeProvider.when('/spots/:spot', {templateUrl: 'general/spot-item', controller: 'SpotItemController'});
     $routeProvider.when('/gallery/:photo', {templateUrl: 'general/gallery-item', controller: 'GalleryItemController'});
-    $routeProvider.when('/404', {templateUrl: 'partials/404', controller: '404Controller'});
     $routeProvider.when('/teams/:rider', {templateUrl: 'general/team-item', controller: 'TeamItemController'});
     $routeProvider.when('/about-us', {templateUrl: 'general/about-us', controller: 'AboutUsController'});
     $routeProvider.when('/admin/login', {templateUrl: 'general/admin/login', controller: 'LoginController'});
@@ -40,7 +39,7 @@ app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/admin/rider', {templateUrl: 'general/admin/rider', controller: 'TeamMemberController'});
     $routeProvider.when('/admin/rider/:rider', {templateUrl: 'general/admin/rider', controller: 'TeamMemberController'});
     $routeProvider.when('/admin/riders', {templateUrl: 'general/admin/riders', controller: 'AdminRidersController'});
-    $routeProvider.otherwise({redirectTo: '/404'});
+    $routeProvider.otherwise({templateUrl: 'partials/404', controller: '404Controller'});
 }]);
 
 app.directive( 'elemReady', function( $parse ) {
