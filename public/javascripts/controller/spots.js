@@ -3,12 +3,33 @@ app.controller('SpotsController',
 
         $scope.$on('$viewContentLoaded', function(){
             App.init();
+            $scope.initMap();
             //App.initParallaxBg();
         });
+
+        $scope.initMap = function () {
+            $(document).ready(function(){
+                $scope.map = new GMaps({
+                    div: '#map',
+                    scrollwheel: false,
+                    lat: -34.6037345,
+                    lng: -58.3837644,
+                    zoom: 12
+                });
+            });
+        };
 
         $scope.getSpots = function(){
             spotsFactory.query({},function(spots){
                 $scope.spots= chunk(spots, 3);
+                for (var i = 0; i < spots.length; i++) {
+                    var spot = spots[i];
+                    $scope.map.addMarker({
+                        lat: spot.latitude,
+                        lng: spot.longitude,
+                        title: spot.name
+                    });
+                }
             });
         };
 
