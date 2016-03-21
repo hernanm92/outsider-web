@@ -30,6 +30,7 @@
     </div>
 
     <ul id="grid-container" class="cbp-l-grid-agency">
+        <!--<li class="cbp-item {{photo.sport.toLowerCase()}}" dir-paginate="photo in photos | itemsPerPage: 9 | orderBy: '-date'" on-finish-photos-render>-->
         <li class="cbp-item {{photo.sport.toLowerCase()}}" ng-repeat="photo in photos | orderBy: '-date'" on-finish-photos-render>
             <div class="cbp-caption">
                 <div class="cbp-caption-defaultWrap">
@@ -51,6 +52,11 @@
             </div>
         </li>
     </ul><!--/end Grid Container-->
+    <div>
+        <div class="text-center">
+            <dir-pagination-controls boundary-links="true"  template-url="assets/plugins/angular-utils-pagination/dirPagination.tpl.html"></dir-pagination-controls>
+        </div>
+    </div>
 </div>
 <!--=== End Cube-Portfdlio ===-->
 

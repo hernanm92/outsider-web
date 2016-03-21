@@ -9,7 +9,7 @@ app.controller('GalleryController',
             galleryFactory.query({},function(photos){
                 $scope.photos=photos;
             });
-        }
+        };
 
         $scope.getPhotos();
 
@@ -36,8 +36,8 @@ app.directive('onFinishPhotosRender', function () {
         link: function (scope, element, attr) {
             if (scope.$last === true) {
                 element.ready(function () {
-                    gridContainer = $('#grid-container')
-                    filtersContainer = $('#filters-container')
+                    gridContainer = $('#grid-container');
+                    filtersContainer = $('#filters-container');
 
                     /*********************************
                      init cubeportfolio
