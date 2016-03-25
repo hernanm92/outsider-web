@@ -131,6 +131,19 @@ app.post('/admin/login', function(req, res) {
     }
 });
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 //Post
 app.options('/admin/posts', function(req, res) {
     res.status(200);
@@ -175,6 +188,18 @@ app.post('/admin/spots', function(req, res) {
     res.status(200);
     res.send(user);
 });
+
+
+
+
+
+
+
+
+
+
+
+
 
 var server = app.listen(5000, function() {
   console.log("Api started in port: 5000");

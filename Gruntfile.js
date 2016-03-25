@@ -166,7 +166,7 @@ module.exports = function (grunt) {
                 },
                 constants: {
                     config: {
-                        domain: 'http://outsider-api.eastus.cloudapp.azure.com',
+                        domain: 'http://outsider-api.eastus.cloudapp.azure.com:3000',
                         styleFolder: 'common',
                         applicationPrefix: ''
                     }

@@ -3,14 +3,14 @@ var module = angular.module('teamMemberModule', ['ngResource']);
 module.factory('teamMemberFactory', ['$resource', 'config', 'Upload',
     function ($resource, config, Upload) {
 
-        var urlBase= config.domain + '/admin';
+        var urlBase= config.domain;
         var team = {};
 
         team.uploadTeamMember = function (sport, name, alias, photo, procedence, residence, birthdate,
                                           stance, spots, quote, description,
                                           fb, inst, tw, callback) {
             Upload.upload({
-                url: urlBase + '/teamMembers',
+                url: urlBase + '/riders',
                 data: {
                     sport: sport,
                     name: name,

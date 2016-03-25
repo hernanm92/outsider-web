@@ -1,5 +1,5 @@
 app.controller('TeamMemberController',
-    function ($scope, teamMemberFactory, teamsFactory, spotsFactory, $routeParams, eventService) {
+    function ($scope, teamsFactory, spotsFactory, $routeParams, eventService) {
 
 
         $scope.$on('$viewContentLoaded', function(){
@@ -25,7 +25,6 @@ app.controller('TeamMemberController',
                 $scope.chosenSpots = rider.spots ? rider.spots : [];
             });
         };
-        console.log($routeParams.rider);
         $scope.rider= {};
         $scope.rider.spot= {};
         if ($routeParams.rider != undefined) $scope.getRider();
@@ -57,12 +56,11 @@ app.controller('TeamMemberController',
         };
 
         $scope.upload = function () {
-            var team= $scope.rider;
-            teamMemberFactory.uploadTeamMember(team.sport, team.name, team.alias, team.photo_url, team.procedence,
-                team.residence, team.birthdate, team.stance, team.chosenSpots, team.quote, team.description,
-                team.facebook, team.instagram, team.twitter, function (res) {
-                //go to where it has to
-                window.location = '#/admin/riders';
+            teamsFactory.save($scope.rider, function () {
+              window.location = '#/admin/riders';
+              console.log("rider created")
+            }, function (error) {
+              console.log("rider creation fail")
             });
         }
     }
@@ -78,7 +76,7 @@ app.controller('AdminRidersController',
         var riders= $scope;
 
         $scope.getRiders = function () {
-            teamsFactory.query({},function(riderss){
+            teamsFactory.query({},function(riders){
                 $scope.riders=riderss;
             });
         };
