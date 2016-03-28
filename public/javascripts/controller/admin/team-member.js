@@ -1,5 +1,5 @@
 app.controller('TeamMemberController',
-    function ($scope, teamMemberFactory, teamsFactory, spotsFactory, $routeParams, eventService) {
+    function ($scope, teamsFactory, uploadFactory, spotsFactory, $routeParams) {
 
 
         $scope.$on('$viewContentLoaded', function(){
@@ -10,10 +10,11 @@ app.controller('TeamMemberController',
             StyleSwitcher.initStyleSwitcher();
         });
         $scope.chosenSpots= [];
+        $scope.spots= [];
 
         $scope.getSpots = function () {
             spotsFactory.query({},function(spots){
-                $scope.spots=spots;
+                $scope.spots= spots ? spots : [];
             });
         };
 
@@ -25,7 +26,6 @@ app.controller('TeamMemberController',
                 $scope.chosenSpots = rider.spots ? rider.spots : [];
             });
         };
-        console.log($routeParams.rider);
         $scope.rider= {};
         $scope.rider.spot= {};
         if ($routeParams.rider != undefined) $scope.getRider();
@@ -51,35 +51,34 @@ app.controller('TeamMemberController',
         };
 
         $scope.deleteSpot= function (spot) {
-            console.log(spot);
             var idx= $scope.chosenSpots.indexOf(spot);
             $scope.chosenSpots.splice(idx, 1);
         };
 
         $scope.upload = function () {
-            var team= $scope.rider;
-            teamMemberFactory.uploadTeamMember(team.sport, team.name, team.alias, team.photo_url, team.procedence,
-                team.residence, team.birthdate, team.stance, team.chosenSpots, team.quote, team.description,
-                team.facebook, team.instagram, team.twitter, function (res) {
-                //go to where it has to
+            uploadFactory.upload($scope.rider.photo_url, function (res) {
+                console.log('uploaded');
+            });
+            $scope.rider.spots= $scope.chosenSpots;
+            teamsFactory.save($scope.rider, function (res) {
                 window.location = '#/admin/riders';
+            }, function (res) {
+                console.log('saving rider failed');
             });
         }
     }
 );
 app.controller('AdminRidersController',
-    function ($scope, teamsFactory, eventService) {
+    function ($scope, teamsFactory) {
 
 
         $scope.$on('$viewContentLoaded', function(){
             App.init();
         });
 
-        var riders= $scope;
-
         $scope.getRiders = function () {
-            teamsFactory.query({},function(riderss){
-                $scope.riders=riderss;
+            teamsFactory.query({},function(dbRiders){
+                $scope.riders= dbRiders;
             });
         };
         $scope.getRiders();
@@ -89,7 +88,14 @@ app.controller('AdminRidersController',
         };
 
         $scope.deleteRider = function (id) {
-            //todo: destroy
+            teamsFactory.delete({id: id});
+            for (var i = 0; i < $scope.riders.length; i++) {
+                var rider = $scope.riders[i];
+                if (rider.alias === id) {
+                    $scope.riders.splice(i, 1);
+                    break;
+                }
+            }
         }
 
     }

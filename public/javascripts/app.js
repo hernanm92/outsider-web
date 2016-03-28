@@ -1,7 +1,7 @@
 
 var app = angular.module('MainApp', ['ngRoute', 'ngFileUpload', 'ngAutocomplete',  'config',
     'angularUtils.directives.dirPagination', 'homeModule', 'galleryModule', 'teamsModule', 'spotsModule',
-    'blogModule', 'authModule', 'postModule', 'photoModule', 'spotModule', 'teamMemberModule', 'angularMoment']);
+    'blogModule', 'authModule', 'uploadModule', 'angularMoment']);
 
 app.config(['$httpProvider', function ($httpProvider) {
     //Reset headers to avoid OPTIONS request (aka preflight)

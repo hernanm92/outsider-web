@@ -1,5 +1,5 @@
 app.controller('SpotController',
-    function ($scope, spotFactory, spotsFactory, $routeParams, eventService) {
+    function ($scope, spotsFactory, uploadFactory, $routeParams, eventService) {
 
 
         $scope.$on('$viewContentLoaded', function(){
@@ -47,18 +47,19 @@ app.controller('SpotController',
         if ($routeParams.spot != undefined) $scope.getSpot();
 
         $scope.upload = function () {
-            var spot= $scope.spot;
-            console.log(spot.address);
-            spotFactory.uploadSpot(spot.sports, spot.name, spot.description, spot.address, spot.latitude, spot.longitude, spot.url, function (resp) {
-                //go to where it has to
-                //window.location = '#/admin/spots';
-                //console.log(spot);
+            uploadFactory.upload($scope.spot.url, function (res) {
+                console.log('uploaded');
+            });
+            spotsFactory.save($scope.spot, function (resp) {
+                window.location = '#/admin/spots';
+            }, function (res) {
+                console.log('failed spot saving');
             });
         }
     }
 );
 app.controller('AdminSpotsController',
-    function ($scope, spotsFactory, eventService) {
+    function ($scope, spotsFactory) {
 
 
         $scope.$on('$viewContentLoaded', function(){
@@ -78,7 +79,14 @@ app.controller('AdminSpotsController',
         };
 
         $scope.deleteSpot = function (id) {
-            //todo: destroy
+            spotsFactory.delete({id:id});
+            for (var i = 0; i < $scope.spots.length; i++) {
+                var spot = $scope.spots[i];
+                if (spot.alias === id) {
+                    $scope.spots.splice(i, 1);
+                    break;
+                }
+            }
         }
 
     }

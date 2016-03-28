@@ -6,7 +6,7 @@ module.factory('authFactory', ['$resource', 'config', '$http', '$window',
     var urlBase= config.domain + '/admin';
     var auth= {};
 
-    auth.login = function (user, pass, callback) {
+    auth.login = function (user, pass, callback, error) {
         //$window.sessionStorage.authenticated = 'true';
         return $http.post(urlBase + '/login', {
             username: user,
@@ -16,7 +16,7 @@ module.factory('authFactory', ['$resource', 'config', '$http', '$window',
             callback(response);
         }, function (response) {
             delete $window.sessionStorage.authenticated;
-            throw response;
+            error(response);
         });
     };
 

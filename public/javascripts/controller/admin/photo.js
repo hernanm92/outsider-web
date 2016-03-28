@@ -1,5 +1,5 @@
 app.controller('PhotoController',
-    function ($scope, photoFactory, galleryFactory, spotsFactory, teamsFactory, $routeParams, eventService) {
+    function ($scope, galleryFactory, spotsFactory, uploadFactory, teamsFactory, $routeParams) {
 
 
 
@@ -52,12 +52,14 @@ app.controller('PhotoController',
             $scope.chosenRiders.splice(idx, 1);
         };
         $scope.upload = function () {
-            var post= $scope.photo;
-            console.log(post);
-            photoFactory.uploadPhoto(post.sports, post.title, post.url, post.description, post.quote,
-                $scope.chosenRiders, post.spot != undefined ? post.spot.name : '', function (resp) {
-                    //go to where it has to
+            uploadFactory.upload($scope.photo.url, function (res) {
+                console.log('uploaded');
+            });
+            $scope.photo.riders= $scope.chosenRiders;
+            galleryFactory.save($scope.photo, function (resp) {
                     window.location= '#/admin/photos';
+            }, function (resp) {
+                console.log('failed saving photo');
             });
         };
     }
@@ -72,8 +74,8 @@ app.controller('AdminPhotosController',
 
 
         $scope.getPhotos = function () {
-            galleryFactory.query({},function(photoss){
-                $scope.photos=photoss;
+            galleryFactory.query({},function(dbPhotos){
+                $scope.photos= dbPhotos;
             });
         };
         $scope.getPhotos();
@@ -83,7 +85,14 @@ app.controller('AdminPhotosController',
         };
 
         $scope.deletePhoto= function (id) {
-            //todo: destroy
+            galleryFactory.delete({id: id});
+            for (var i = 0; i < $scope.photos.length; i++) {
+                var photo = $scope.photos[i];
+                if (photo.id === id) {
+                    $scope.photos.splice(i, 1);
+                    break;
+                }
+            }
         }
 
     }

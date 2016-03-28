@@ -1,5 +1,5 @@
 app.controller('PostController',
-    function ($scope, postFactory, spotsFactory, teamsFactory, blogFactory, $routeParams, eventService) {
+    function ($scope, spotsFactory, teamsFactory, blogFactory, uploadFactory, $routeParams) {
 
 
         $scope.getSpots = function () {
@@ -51,17 +51,19 @@ app.controller('PostController',
             $scope.chosenRiders.splice(idx, 1);
         };
         $scope.upload = function () {
-            var post= $scope.post;
-            postFactory.uploadPost(post.sports, post.title, post.url, post.description, post.quote,
-                $scope.chosenRiders, post.spot != undefined ? post.spot.name : '', function (resp) {
-                    //go to where it has to
+            uploadFactory.upload($scope.post.url, function (res) {
+                console.log('uploaded');
+            });
+            $scope.post.type= 'image';
+            $scope.post.date= new Date();
+            blogFactory.save($scope.post, function (resp) {
                     window.location= '#/admin/posts';
                 });
         };
     }
 );
 app.controller('AdminPostsController',
-    function ($scope, blogFactory, eventService) {
+    function ($scope, blogFactory) {
 
 
         $scope.$on('$viewContentLoaded', function(){
@@ -81,7 +83,14 @@ app.controller('AdminPostsController',
         };
 
         $scope.deletePost= function (id) {
-            //todo: destroy
+            blogFactory.delete({id: id});
+            for (var i = 0; i < $scope.posts.length; i++) {
+                var post = $scope.posts[i];
+                if (post.id === id) {
+                    $scope.posts.splice(i, 1);
+                    break;
+                }
+            }
         }
 
     }

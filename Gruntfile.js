@@ -28,10 +28,7 @@ module.exports = function (grunt) {
         "public/javascripts/factory/spots.js",
         "public/javascripts/factory/blog.js",
         "public/javascripts/factory/admin/auth.js",
-        "public/javascripts/factory/admin/post.js",
-        "public/javascripts/factory/admin/photo.js",
-        "public/javascripts/factory/admin/team-member.js",
-        "public/javascripts/factory/admin/spot.js",
+        "public/javascripts/factory/admin/upload.js",
 
         "public/javascripts/controller/base.js",
         "public/javascripts/controller/menu.js",
