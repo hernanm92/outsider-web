@@ -5,30 +5,40 @@ app.controller('SpotController',
         $scope.$on('$viewContentLoaded', function(){
             App.init();
             ContactPage.initMap();
-            ContactPage.initPanorama();
             Datepicker.initDatepicker();
             Validation.initValidation();
             StyleSwitcher.initStyleSwitcher();
-            $scope.spot = {};
-            $scope.spot.latitude= -34.6037345;
-            $scope.spot.longitude= -58.3837591;
-            $scope.updateMap();
+
+            if ($routeParams.spot != undefined) $scope.getSpot();
+            else {
+                $scope.spot = {};
+                $scope.spot.latitude= -34.6037345;
+                $scope.spot.longitude= -58.3837591;
+                $scope.updateMap();
+                console.log('entre al else');
+            }
         });
 
         $scope.getSpot = function () {
             spotsFactory.get({"id": $routeParams.spot}, function(spot){
                 $scope.spot = spot;
+                $scope.editId = spot.alias;
+                $scope.updateMap();
+                console.log('entre al get spot');
             });
         };
 
         $scope.updateMap = function () {
-            map = new GMaps({
+            console.log('update map with');
+            console.log($scope.spot.address);
+            console.log($scope.spot.latitude);
+
+            var map = new GMaps({
                 div: '#map',
                 scrollwheel: false,
                 lat: $scope.spot.latitude,
                 lng: $scope.spot.longitude
             });
-
             map.addMarker({
                 lat: $scope.spot.latitude,
                 lng: $scope.spot.longitude,
@@ -44,20 +54,23 @@ app.controller('SpotController',
                 $scope.updateMap();
             }
         };
-        if ($routeParams.spot != undefined) $scope.getSpot();
 
         $scope.upload = function () {
-            uploadFactory.upload($scope.spot.url, function (res) {
-                console.log('uploaded');
-            });
-            spotsFactory.save($scope.spot, function (resp) {
-                window.location = '#/admin/spots';
-            }, function (res) {
-                console.log('failed spot saving');
-            });
+            uploadFactory.upload($scope.spot.url, function (res) { console.log('uploaded'); });
+            if ($scope.editId)  spotsFactory.update({id: $scope.editId} ,$scope.spot, callbackSpot, errorSpot);
+            else spotsFactory.save($scope.spot, callbackSpot, errorSpot);
         }
     }
 );
+
+function callbackSpot(res) {
+    window.location = '#/admin/spots';
+}
+
+function errorSpot(res) {
+    console.log('saving spot failed');
+}
+
 app.controller('AdminSpotsController',
     function ($scope, spotsFactory) {
 

@@ -23,6 +23,7 @@ app.controller('PhotoController',
             galleryFactory.get({"id": $routeParams.photo}, function(photo){
                 $scope.photo = photo;
                 $scope.chosenRiders= photo.riders ? photo.riders : [];
+                $scope.editId= photo.id;
             });
         };
 
@@ -52,18 +53,21 @@ app.controller('PhotoController',
             $scope.chosenRiders.splice(idx, 1);
         };
         $scope.upload = function () {
-            uploadFactory.upload($scope.photo.url, function (res) {
-                console.log('uploaded');
-            });
+            uploadFactory.upload($scope.photo.url, function (res) { console.log('uploaded'); });
             $scope.photo.riders= $scope.chosenRiders;
-            galleryFactory.save($scope.photo, function (resp) {
-                    window.location= '#/admin/photos';
-            }, function (resp) {
-                console.log('failed saving photo');
-            });
+            if ($scope.editId) galleryFactory.update({id: $scope.editId}, $scope.photo, callbackPhoto, errorPhoto);
+            else galleryFactory.save($scope.photo, callbackPhoto, errorPhoto);
         };
     }
 );
+
+function callbackPhoto(res) {
+    window.location = '#/admin/photos';
+}
+
+function errorPhoto(res) {
+    console.log('saving photo failed');
+}
 app.controller('AdminPhotosController',
     function ($scope, galleryFactory, eventService) {
 

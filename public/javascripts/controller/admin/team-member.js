@@ -24,6 +24,7 @@ app.controller('TeamMemberController',
             teamsFactory.get({"id": $routeParams.rider}, function(rider){
                 $scope.rider = rider;
                 $scope.chosenSpots = rider.spots ? rider.spots : [];
+                $scope.editId= rider.alias;
             });
         };
         $scope.rider= {};
@@ -56,18 +57,21 @@ app.controller('TeamMemberController',
         };
 
         $scope.upload = function () {
-            uploadFactory.upload($scope.rider.photo_url, function (res) {
-                console.log('uploaded');
-            });
+            uploadFactory.upload($scope.rider.photo_url, function (res) { console.log('uploaded');});
             $scope.rider.spots= $scope.chosenSpots;
-            teamsFactory.save($scope.rider, function (res) {
-                window.location = '#/admin/riders';
-            }, function (res) {
-                console.log('saving rider failed');
-            });
+            if ($scope.editId) teamsFactory.update({id: $scope.editId}, $scope.rider, callbackRider, errorRider);
+            else teamsFactory.save($scope.rider, callbackRider, errorRider);
         }
     }
 );
+
+function callbackRider(res) {
+    window.location = '#/admin/riders';
+}
+
+function errorRider(res) {
+    console.log('saving rider failed');
+}
 app.controller('AdminRidersController',
     function ($scope, teamsFactory) {
 

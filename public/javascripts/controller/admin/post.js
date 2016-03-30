@@ -22,6 +22,7 @@ app.controller('PostController',
             blogFactory.get({"id": $routeParams.post}, function(post){
                 $scope.post = post;
                 $scope.chosenRiders= post.riders ? post.riders : [];
+                $scope.editId = post.id;
             });
         };
 
@@ -51,17 +52,24 @@ app.controller('PostController',
             $scope.chosenRiders.splice(idx, 1);
         };
         $scope.upload = function () {
-            uploadFactory.upload($scope.post.url, function (res) {
-                console.log('uploaded');
-            });
-            $scope.post.type= 'image';
-            $scope.post.date= new Date();
-            blogFactory.save($scope.post, function (resp) {
-                    window.location= '#/admin/posts';
-                });
+            uploadFactory.upload($scope.post.url, function (res) { console.log('uploaded'); });
+            if ($scope.editId) blogFactory.update({id: $scope.editId}, $scope.post, callbackPost, errorPost);
+            else {
+                $scope.post.type= 'image';
+                blogFactory.save($scope.post, callbackPost, errorPost);
+                $scope.post.date = new Date();
+            }
         };
     }
 );
+
+function callbackPost(res) {
+    window.location = '#/admin/posts';
+}
+
+function errorPost(res) {
+    console.log('saving post failed');
+}
 app.controller('AdminPostsController',
     function ($scope, blogFactory) {
 
